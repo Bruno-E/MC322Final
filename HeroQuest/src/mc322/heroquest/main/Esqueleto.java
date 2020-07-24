@@ -2,20 +2,11 @@ package mc322.heroquest.main;
 
 import java.util.*;
 
-/**
- * 
- */
-public class Esqueleto extends Esqueleto {
+public class Esqueleto extends Monstro {
 
-    /**
-     * Default constructor
-     */
     public Esqueleto() {
     }
 
-    /**
-     * 
-     */
     public Arma weapon;
 
 }

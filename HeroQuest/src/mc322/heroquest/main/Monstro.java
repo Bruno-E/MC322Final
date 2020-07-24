@@ -10,7 +10,7 @@ public abstract class Monstro extends ElementoCombate {
     public Arma listaArma;
 
     @Override
-    protected void defender(int ataque) {
+    public void defender(int ataque) {
       DadoCombate dado = new DadoCombate();
       int defesa = 0;
       for(int i = 0; i < this.bonusDefesa; i++) {
@@ -24,7 +24,7 @@ public abstract class Monstro extends ElementoCombate {
     }
 
     @Override
-    protected void defesaMagica(int ataque) {
+    public void defesaMagica(int ataque) {
       DadoCombate dado = new DadoCombate();
       int defesa = 0;
       for(int i = 0; i < this.inteligencia; i++) {

@@ -14,10 +14,6 @@ public abstract class Heroi extends ElementoCombate{
         this.movimento = 0;
     }
 
-    int getInteligencia() {
-      return this.inteligencia;
-    }
-
     protected int jogarDadosAndar() {
         DadoVermelho dado = new DadoVermelho();
         movimento += dado.jogar();
