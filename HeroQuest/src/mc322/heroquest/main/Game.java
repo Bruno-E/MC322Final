@@ -10,12 +10,12 @@ public class Game {
     }
 
     public void start() {
-        System.out.println("Game started!");
+        System.out.println("Jogo iniciado.");
         Scanner key = new Scanner(System.in);
         Heroi personagem;
-        System.out.println("Qual será o nome do seu personagem?");
+        System.out.println("Qual sera o nome do seu personagem?");
         String nome = key.nextLine();
-        System.out.println("Qual será sua classe (Digite o número): 1.Anão, 2.Bárbaro, 3.Elfo, 4.Feiticeiro.");
+        System.out.println("Qual sera sua classe (Digite o numero): 1.Anao, 2.Barbaro, 3.Elfo, 4.Feiticeiro.");
         int classe;
         do{
         	classe = key.nextInt();
@@ -38,12 +38,12 @@ public class Game {
             lerInput(personagem);
             updateBoard();
         }
-        System.out.println("Game terminated. Bye!");
+        System.out.println("Fim de jogo. Ate logo!");
     }
 
     public void lerInput(Heroi personagem) {
         int movimento = personagem.jogarDadosAndar();
-        System.out.println("VocÃª pode andar " + movimento + " casas esse turno.");
+        System.out.println("VocÃƒÂª pode andar " + movimento + " casas esse turno.");
 
         Scanner keyboard = new Scanner (System.in);
         boolean acaoDisponivel = true;
