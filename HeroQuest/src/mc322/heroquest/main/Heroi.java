@@ -28,20 +28,11 @@ public abstract class Heroi extends ElementoCombate{
 
     protected void mover(char direcao, Mapa mapa) {
 
-        // TODO Sala checarSala(Mapa mapa) retorna uma sala se o movimento leva para dentro dela
-        // TODO boolean checarPorta(Sala sala) retorna true se o movimento ocorre em uma porta
-        // TODO boolean saiDoMapa(char direcao)
-        // TODO public class ParedeNoCaminhoException extends Exception {}
-        // TODO public class ObstaculoNoCaminhoException extends Exception {}
-        // TODO public class Obstaculo {}
+        if (!checarPorta(mapa.checarSala(posicao, direcao))) throw new ParedeNoCaminhoException();
 
-        // TODO Printar mensagem das exceções no try-catch de mover() no Game.java
+        else if (mapa.saiDoMapa(posicao, direcao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
 
-        if (!checarPorta(checarSala(mapa))) throw new ParedeNoCaminhoException();
-
-        else if (saiDoMapa(direcao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
-
-        else if (checarObstaculo(mapa)) throw new ObstaculoNoCaminhoException();
+        else if (mapa.checarObstaculo(posicao, direcao)) throw new ObstaculoNoCaminhoException();
 
         else {
             mapa.removerElemento(this);
