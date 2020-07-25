@@ -9,5 +9,9 @@ public abstract class HeroiMagico extends Heroi {
     }
 
     protected Magia[] magias;
+    
+    @Override protected boolean eMagico() {
+    	return false;
+    }
 
 }

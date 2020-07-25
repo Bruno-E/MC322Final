@@ -159,6 +159,9 @@ public abstract class Heroi extends ElementoCombate{
     	return resultado;
     }
     
+    protected boolean eMagico() {
+    	return false;
+    }
     protected boolean temPocao() {
     	for(Item item : mochila) {
     		if(item.getInformation().contains("Pocao")) {
