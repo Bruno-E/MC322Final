@@ -43,7 +43,7 @@ public class Game {
 
     public void lerInput(Heroi personagem) {
         int movimento = personagem.jogarDadosAndar();
-        System.out.println("VocÃª pode andar " + movimento + " casas esse turno.");
+        System.out.println("Você pode andar " + movimento + " casas esse turno.");
 
         Scanner keyboard = new Scanner (System.in);
         boolean acaoDisponivel = true;
@@ -59,8 +59,20 @@ public class Game {
                 case "a":
                 case "s":
                 case "d":
-                    personagem.mover(comando);
+                    try {
+                        personagem.mover(comando);
+                    } //parede array obstaculo
+                    catch(ArrayIndexOutOfBoundsException e) {
+                        System.err.println(e.getMessage());
+                    }
+                    catch(ParedeNoCaminhoException e) {
+                        System.err.println(e.getMessage());
+                    }
+                    catch(ObstaculoNoCaminhoException e) {
+                        System.err.println(e.getMessage());
+                    }
                     break;
+                    
                 case "passar":
                     passar = true;
                     break;
