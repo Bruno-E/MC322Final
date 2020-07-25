@@ -36,4 +36,8 @@ public abstract class Elemento {
         posicao = new Ponto(linha, coluna);
     }
 
+    public void setVisivel(boolean visibilidade) {
+        visivel = visibilidade;
+    }
+
 }
