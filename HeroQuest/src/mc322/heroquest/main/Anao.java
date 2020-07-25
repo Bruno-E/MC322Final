@@ -12,7 +12,7 @@ public class Anao extends Heroi {
         this.inteligencia = INT_INICIAL;
         this.bonusAtaque = ATQ_INICIAL;
         this.bonusDefesa = DFS_INICIAL;
-        this.ArmasAtuais[0] = this.ArmasAtuais[1] = new Arma(TipoDeArmas.ESPADA_LONGA);
+        this.ArmasAtuais[0] = new Arma(TipoDeArmas.ESPADA_CURTA);
     }
     
     @Override

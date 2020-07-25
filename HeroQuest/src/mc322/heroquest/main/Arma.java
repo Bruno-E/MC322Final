@@ -8,11 +8,15 @@ public class Arma extends Item {
     	this.arma = arma;
     	if(arma == TipoDeArmas.PUNHAL) {
     		this.descartavel = true;
+    		this.alcance = 4;
     	}
     	else {
     		this.descartavel = false;
+    		this.alcance = 1;
     	}
     }
+    
+    private int alcance;
     private boolean descartavel;
     private TipoDeArmas arma;
     

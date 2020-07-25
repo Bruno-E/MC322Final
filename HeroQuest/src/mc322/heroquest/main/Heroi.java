@@ -4,7 +4,7 @@ public abstract class Heroi extends ElementoCombate{
     protected String nome;
     protected int movimento;
     protected Item[] mochila;
-    protected Arma[] ArmasAtuais;
+    protected Arma[] ArmasAtuais = new Arma[2];
     protected int dadosMovimento = 2;
     protected int bonusAtaque = 0;
     protected int bonusDefesa = 0;

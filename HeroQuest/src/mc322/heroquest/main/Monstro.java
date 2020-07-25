@@ -7,14 +7,15 @@ public abstract class Monstro extends ElementoCombate {
     public Monstro() {
     }
 
-    public Arma listaArma;
+    protected Arma arma;
+    protected int movimento;
 
     @Override
     public void defender(int ataque) {
       DadoCombate dado = new DadoCombate();
       int defesa = 0;
-      for(int i = 0; i < this.bonusDefesa; i++) {
-          if(dado.jogar() == Lado.ESCUDO_MOSNTRO)
+      for(int i = 0; i < this.dadosDefesa; i++) {
+          if(dado.jogar() == Lado.ESCUDO_MONSTRO)
               defesa++;
       }
       int resultado = ataque - defesa;

@@ -5,7 +5,7 @@ import java.util.*;
 /**
  *
  */
-public class Elfo extends CriaturaMagica {
+public class Elfo extends HeroiMagico {
 
     private static int VIDA_INICIAL = 6;
     private static int INT_INICIAL = 4;
@@ -18,8 +18,9 @@ public class Elfo extends CriaturaMagica {
         this.inteligencia = INT_INICIAL;
         this.bonusAtaque = ATQ_INICIAL;
         this.bonusDefesa = DFS_INICIAL;
-        this.magias = new Magia[5];
+        this.magias = new Magia[10];
         this.magias[0] = new CuraSimples();
+        this.ArmasAtuais[0] = new Arma(TipoDeArmas.ESPADA_CURTA);
     }
     
     @Override

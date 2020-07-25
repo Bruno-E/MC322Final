@@ -2,9 +2,9 @@ package mc322.heroquest.main;
 
 import java.util.*;
 
-public abstract class CriaturaMagica extends Heroi {
+public abstract class HeroiMagico extends Heroi {
 
-    protected CriaturaMagica(String nome) {
+    protected HeroiMagico(String nome) {
     	super(nome);
     }
 

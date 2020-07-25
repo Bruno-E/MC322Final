@@ -1,6 +1,7 @@
 package mc322.heroquest.main;
 
 public enum TipoDeArmas {
+	PUNHO(0, "Punho"),
     BASTAO(2, "Bastao"),
     ESPADA_LONGA(3, "Espada Longa"),
     ESPADA_CURTA(2, "Espada Curta"),
