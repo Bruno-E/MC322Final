@@ -13,6 +13,16 @@ public abstract class Elemento {
         setPosicao(linha, coluna);
     }
 
+    public Elemento(Ponto posicao, boolean visibilidade) {
+        this(posicao);
+        visivel = visibilidade;
+    }
+    
+    public Elemento(int linha, int coluna, boolean visibilidade) {
+        this(linha, coluna);
+        visivel = visibilidade;
+    }
+
     public int getLinha() {
         return posicao.getLinha();
     }
