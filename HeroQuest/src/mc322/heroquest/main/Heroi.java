@@ -33,16 +33,12 @@ public abstract class Heroi extends ElementoCombate{
         switch(direcao) {
             case "w":
                 return new Ponto(this.getLinha() - 1, this.getColuna());
-                break;
             case "a":
                 return new Ponto(this.getLinha(), this.getColuna() - 1);
-                break;
             case "s":
                 return new Ponto(this.getLinha() + 1, this.getColuna());
-                break;
             case "d":
                 return new Ponto(this.getLinha(), this.getColuna() + 1);
-                break;
         }
         return null;
     }
