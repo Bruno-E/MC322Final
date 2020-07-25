@@ -47,7 +47,7 @@ public abstract class Heroi extends ElementoCombate{
         
         Ponto novaPosicao = novaPosicao(direcao);
 
-        if (mapa.saiDoMapa(novaPosicao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
+        if (mapa.foraDoMapa(novaPosicao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
 
         Sala sala = mapa.checarSala(novaPosicao);
         if (sala != null) {
