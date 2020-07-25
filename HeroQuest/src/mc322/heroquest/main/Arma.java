@@ -14,6 +14,7 @@ public class Arma extends Item {
     		this.descartavel = false;
     		this.alcance = 1;
     	}
+    	this.nome = arma.toString();
     }
     
     private int alcance;
@@ -21,7 +22,7 @@ public class Arma extends Item {
     private TipoDeArmas arma;
     
     public String getInformation(){
-        return arma.toString();
+        return nome;
     }
 
 }
