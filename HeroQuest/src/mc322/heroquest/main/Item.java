@@ -8,6 +8,10 @@ public abstract class Item {
     }
 
     protected boolean descartavel;
-    public abstract String getInformation();
+    protected String nome;
+    
+    public String getInformation() {
+    	return this.nome;
+    }
 
 }
