@@ -26,30 +26,39 @@ public abstract class Heroi extends ElementoCombate{
         return this.movimento;
     }
 
+    private Ponto novaPosicao(direcao) {
+        switch(direcao) {
+            case "w":
+                return new Ponto(this.getLinha()--, this.getColuna());
+                break;
+            case "a":
+                return new Ponto(this.getLinha(), this.getColuna()--);
+                break;
+            case "s":
+                return new Ponto(this.getLinha()++, this.getColuna());
+                break;
+            case "d":
+                return new Ponto(this.getLinha(), this.getColuna()++);
+                break;
+        }
+    }
+
     protected void mover(char direcao, Mapa mapa) {
+        
+        Ponto novaPosicao = novaPosicao(direcao);
 
-        if (!checarPorta(mapa.checarSala(posicao, direcao))) throw new ParedeNoCaminhoException();
+        if (mapa.saiDoMapa(novaPosicao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
 
-        else if (mapa.saiDoMapa(posicao, direcao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
+        Sala sala = mapa.checarSala(novaPosicao);
+        if (sala != null) {
+            if (!sala.checarPorta(novaPosicao)) throw new ParedeNoCaminhoException();
+        }
 
-        else if (mapa.checarObstaculo(posicao, direcao)) throw new ObstaculoNoCaminhoException();
+        else if (mapa.checarObstaculo(novaPosicao)) throw new ObstaculoNoCaminhoException();
 
         else {
             mapa.removerElemento(this);
-            switch(direcao) {
-                case "w":
-                    moverParaCima();
-                    break;
-                case "a":
-                    moverParaEsquerda();
-                    break;
-                case "s":
-                    moverParaBaixo();
-                    break;
-                case "d":
-                    moverParaDireita();
-                    break;
-            }
+            this.setPosicao(novaPosicao);
             mapa.inserirElemento(this);
         }
 
@@ -66,20 +75,6 @@ public abstract class Heroi extends ElementoCombate{
         if(bonusAtaque != 0) bonusAtaque = 0;
         inimigo.defender(ataque);
     }
-
-    private void moverParaCima() {
-        this.setPosicao(this.getLinha()--, this.getColuna())
-    }
-    private void moverParaBaixo() {
-        this.setPosicao(this.getLinha()++, this.getColuna())
-    }
-    private void moverParaEsquerda() {
-        this.setPosicao(this.getLinha(), this.getColuna()--)
-    }
-    private void moverParaDireita() {
-        this.setPosicao(this.getLinha(), this.getColuna()++)
-    }
-
 
     @Override
     public void defender(int ataque) {
