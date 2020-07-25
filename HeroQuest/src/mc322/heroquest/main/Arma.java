@@ -4,15 +4,20 @@ import java.util.*;
 
 public class Arma extends Item {
 
-    public Arma() {
+    public Arma(TipoDeArmas arma) {
+    	this.arma = arma;
+    	if(arma == TipoDeArmas.PUNHAL) {
+    		this.descartavel = true;
+    	}
+    	else {
+    		this.descartavel = false;
+    	}
     }
-    private int alcance;
-    private int bonusDadosAtaque;
     private boolean descartavel;
-    private TipoDeArmas w;
+    private TipoDeArmas arma;
     
     public String getInformation(){
-        return w;
+        return arma.toString();
     }
 
 }
