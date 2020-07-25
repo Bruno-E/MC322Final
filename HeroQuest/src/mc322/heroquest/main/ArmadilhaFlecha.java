@@ -6,7 +6,7 @@ public class ArmadilhaFlecha extends Armadilha{
 		super(posicao);
 		this.dano = 1;
 	}
-	
+	//
 	@Override
 	protected void ativar(Heroi heroi) {
 		heroi.perdeVida(dano);
