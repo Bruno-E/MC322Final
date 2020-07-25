@@ -5,9 +5,10 @@ public abstract class Heroi extends ElementoCombate{
     protected int movimento;
     protected Item[] mochila;
     protected Arma[] ArmasAtuais;
-    protected int bonusAtaque;
-    protected int bonusDefesa;
-    protected int bonusMovimento;
+    protected int dadosMovimento = 2;
+    protected int bonusAtaque = 0;
+    protected int bonusDefesa = 0;
+    protected int bonusMovimento = 0;
 
     protected Heroi(String nome) {
         this.nome = nome;
@@ -17,7 +18,10 @@ public abstract class Heroi extends ElementoCombate{
 
     protected int jogarDadosAndar() {
         DadoVermelho dado = new DadoVermelho();
-        movimento += dado.jogar();
+        for(int i = 0; i < this.dadosMovimento + bonusMovimento; i++) {
+        	movimento += dado.jogar();
+        }
+        if(bonusMovimento != 0) bonusMovimento = 0;
         movimento += dado.jogar();
         return this.movimento;
     }
@@ -90,10 +94,11 @@ public abstract class Heroi extends ElementoCombate{
     public void defender(int ataque) {
       DadoCombate dado = new DadoCombate();
       int defesa = 0;
-      for(int i = 0; i < this.bonusDefesa; i++) {
+      for(int i = 0; i < this.dadosDefesa + bonusDefesa; i++) {
           if(dado.jogar() == Lado.ESCUDO_HEROI)
               defesa++;
       }
+      if(bonusDefesa != 0) bonusDefesa = 0;
       int resultado = ataque - defesa;
       if(resultado > 0) {
         this.vida -= resultado;
