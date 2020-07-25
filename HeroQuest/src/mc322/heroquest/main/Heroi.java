@@ -12,7 +12,8 @@ public abstract class Heroi extends ElementoCombate{
     protected int bonusDefesa = 0;
     protected int bonusMovimento = 0;
 
-    protected Heroi(String nome) {
+    protected Heroi(String nome, Ponto posicao) {
+    	super(posicao);
         this.nome = nome;
         this.movimento = 0;
         this.ArmasAtuais = new Arma[2];
