@@ -8,7 +8,7 @@ public class PocaoVelocidade extends Pocao{
 		}
 	   
 	   protected void usar(Heroi heroi) {	
-	    	heroi.setBonusDefesa(bonus);
+	    	heroi.setBonusMovimento(bonus);
 	   }
 
 }

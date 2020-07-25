@@ -11,6 +11,7 @@ public abstract class Heroi extends ElementoCombate{
     protected int bonusAtaque = 0;
     protected int bonusDefesa = 0;
     protected int bonusMovimento = 0;
+    protected Armadura armadura;
 
     protected Heroi(String nome, Ponto posicao) {
     	super(posicao);
@@ -153,7 +154,7 @@ public abstract class Heroi extends ElementoCombate{
     }
     
     protected String verificaMochila(String objeto) {
-    	String resultado = "Você possui as seguintes opcoes:";
+    	String resultado = "VocÃª possui as seguintes opcoes:";
     	int i = 0;
     	for(Item item : mochila) {
     		if(item.getInformation().contains(objeto)) {
