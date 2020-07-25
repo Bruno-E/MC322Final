@@ -153,8 +153,31 @@ public abstract class Heroi extends ElementoCombate{
     	}
     }
     
-    protected void verificaMochila(Item objeto) {
-    	
+    protected String verificaMochila(String objeto) {
+    	String resultado = "Você possui as seguintes opcoes:";
+    	int i = 0;
+    	for(Item item : mochila) {
+    		if(item.getInformation().contains(objeto)) {
+    			resultado += (i+1) + ". " + item.getInformation() + "\n";
+    		}
+    		i++;
+    	}
+    	return resultado;
+    }
+    
+    protected boolean temPocao() {
+    	for(Item item : mochila) {
+    		if(item.getInformation().contains("Pocao")) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
+    protected void usarPocao(int pos) {
+    	((Pocao)mochila.get(pos-1)).usar(this);
+    	mochila.add(pos-1, null);
+    	arrumarMochila(pos-1);
     }
 
     protected void verMochila() {

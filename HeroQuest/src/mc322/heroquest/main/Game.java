@@ -86,7 +86,6 @@ public class Game {
                         String acao;
                         do {
                         	acao = keyboard.nextLine();
-                        	acaoDisponivel = false;
                         	switch(acao) {
                             	case "a":
                             		//chama a funcao de ataque
@@ -95,15 +94,34 @@ public class Game {
                             		//chama a funcao de usar magia
                             		break;
                             	case "q":
-                            		//chama a funcao da pocao de cura
-                            		break;
+                            		if(personagem.temPocao()) {
+                            			System.out.print(personagem.verificaMochila("Pocao"));
+                            			System.out.println("Digite o numero da pocao desejada.");
+                            			Scanner teclado;
+                            			boolean valido = false;
+                            			int opcao = teclado.nextInt();
+                            			do {
+                            				try {
+                            					personagem.usarPocao(opcao);
+                            					valido = true;
+                            				}
+                            				catch(ClassCastException e) {
+                            					System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
+                            				}
+                            			}while(!valido);
+                            			acaoDisponivel = false;
+                            			break;
+                            			}
+                            			else {
+                            				continue;
+                            			}
                             	case "f":
                             		//chama a funcao de olhar armadilhas no mapa
                             		break;
                             	default:
                             		System.out.println("Acao invalida.");
                         	}
-                        }while(!acao.equals("a") && !acao.equals("s") && !acao.equals("q") && !acao.equals("f"));
+                        }while(acaoDisponivel);
                     }
                 default:
                     System.out.println("Comando invalido.");
