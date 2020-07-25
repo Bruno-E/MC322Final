@@ -16,5 +16,15 @@ public class Barbaro extends Heroi {
         this.bonusAtaque = ATQ_INICIAL;
         this.bonusDefesa = DFS_INICIAL;
     }
+    
+    @Override
+    protected void restauraVida(int vida) {
+    	if(this.vida + vida > VIDA_INICIAL) {
+    		this.vida = VIDA_INICIAL;
+    	}
+    	else {
+    		this.vida += vida;
+    	}
+    }
 
 }

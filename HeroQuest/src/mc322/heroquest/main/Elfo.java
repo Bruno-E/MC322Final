@@ -21,5 +21,15 @@ public class Elfo extends CriaturaMagica {
         this.magias = new Magia[5];
         this.magias[0] = new CuraSimples();
     }
+    
+    @Override
+    protected void restauraVida(int vida) {
+    	if(this.vida + vida > VIDA_INICIAL) {
+    		this.vida = VIDA_INICIAL;
+    	}
+    	else {
+    		this.vida += vida;
+    	}
+    }
 
 }

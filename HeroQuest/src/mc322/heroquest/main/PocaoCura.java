@@ -5,11 +5,12 @@ import java.util.*;
 public class PocaoCura extends Pocao {
 
     public PocaoCura() {
+    	this.bonus = 4;
     }
     
     @Override
     protected void usar(Heroi heroi) {
-    	
+    	heroi.restauraVida(bonus);
     }
     
     public String getInformation(){

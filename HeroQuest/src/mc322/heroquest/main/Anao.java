@@ -14,5 +14,15 @@ public class Anao extends Heroi {
         this.bonusDefesa = DFS_INICIAL;
         this.ArmasAtuais[0] = this.ArmasAtuais[1] = new Arma(TipoDeArmas.ESPADA_LONGA);
     }
+    
+    @Override
+    protected void restauraVida(int vida) {
+    	if(this.vida + vida > VIDA_INICIAL) {
+    		this.vida = VIDA_INICIAL;
+    	}
+    	else {
+    		this.vida += vida;
+    	}
+    }
 
 }

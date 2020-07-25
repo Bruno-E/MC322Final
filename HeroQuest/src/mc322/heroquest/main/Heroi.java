@@ -59,6 +59,18 @@ public abstract class Heroi extends ElementoCombate{
         }
 
     }
+    
+    @Override
+    public void atacar(Combativel inimigo) {
+        DadoCombate dado = new DadoCombate();
+        int ataque = 0;
+        for(int i = 0; i < this.dadosAtaque + bonusAtaque; i++) {
+            if(dado.jogar() == Lado.CAVEIRA)
+                ataque++;
+        }
+        if(bonusAtaque != 0) bonusAtaque = 0;
+        inimigo.defender(ataque);
+    }
 
 
     @Override
@@ -73,6 +85,22 @@ public abstract class Heroi extends ElementoCombate{
       if(resultado > 0) {
         this.vida -= resultado;
       }
+    }
+    
+    protected void setBonusAtaque(int bonus) {
+    	this.bonusAtaque = bonus;
+    }
+    
+    protected void setBonusDefesa(int bonus) {
+    	this.bonusDefesa = bonus;
+    }
+    
+    protected void setBonusMovimento(int bonus) {
+    	this.bonusMovimento = bonus;
+    }
+      
+    protected void restauraVida(int vida) {
+    	
     }
 
     @Override
