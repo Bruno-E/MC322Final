@@ -113,6 +113,7 @@ public class Game {
                             			break;
                             			}
                             			else {
+                            				System.out.println("Nao ha pocoes disponiveis");
                             				continue;
                             			}
                             	case "f":
