@@ -7,7 +7,7 @@ public class Mapa {
     
     private Elemento[][] elementos;
     private List<Monstro> monstros;
-    private Sala[] arraySalas;
+    private Sala[] salas;
     
     // Coordenadas linha x coluna do ponto mais acima e a esquerda da sala
     private static final int[][] coordSalas = 
@@ -39,24 +39,61 @@ public class Mapa {
         //Lista de monstros
         monstros = new ArrayList<Monstro>();
 
-        arraySalas = new Sala[noSalas];
+        // inicializa salas
+        salas = new Sala[noSalas];
         for (int i = 0; i < noSalas; i++) {
-            linha = coordSalas[i][0];
-            coluna = coordSalas[i][1];
-            largura = dimSalas[i][0];
-            altura = dimSalas[i][1];
-            coordenada = new Ponto(linha, coluna);
+            int linha = coordSalas[i][0],
+                coluna = coordSalas[i][1],
+                largura = dimSalas[i][0],
+                altura = dimSalas[i][1];
+            Ponto coordenada = new Ponto(linha, coluna);
             
-            arraySalas[i] = new Sala(coordenada, largura, altura);
+            salas[i] = new Sala(coordenada, largura, altura);
             
             //TODO Colocar elementos no mapa
         }
         
     }
 
+    // retorna uma sala se o ponto esta dentro dela
+    public Sala checarSala(Ponto ponto) {
+        for(int i = 0; i < noSalas; i++) {
+            if (salas[i].contemPonto(ponto)) {
+                return salas[i];
+            }
+        }
+        return null;
+    }
+
+    // retorna true se o ponto esta fora do mapa
+    public boolean foraDoMapa(Ponto ponto) {
+        if ( ponto.getLinha() < 0 || ponto.getLinha() >= linhas || 
+            ponto.getColuna() < 0 || ponto.getColuna() >= colunas)
+            return true;
+        else 
+            return false;
+    }
+    
+    // retorna um monstro se houver
+    public Monstro checarMonstro(int linha, int coluna) {
+        for (Monstro monstro : monstros) {
+            if (monstro.getLinha() == linha && monstro.getColuna() == coluna)
+                return monstro;
+        }
+        return null;
+    }
+
+    public Elemento getElemento(int linha, int coluna) {
+        Monstro monstro = checarMonstro(linha, coluna);
+        if (monstro != null) return monstro;
+        return (elementos[linha][coluna]);
+    }
+
+    // retorna false se nao conseguir inserir o elemento
     public boolean inserirElemento(Elemento elemento) {
-        linha = elemento.posicao().getLinha();
-        coluna = elemento.posicao().getColuna();
+        int linha = elemento.getPosicao().getLinha(),
+            coluna = elemento.getPosicao().getColuna();
+        
         if (elementos[linha][coluna] == null) {
             elementos[linha][coluna] = elemento;
             return true;
@@ -64,7 +101,24 @@ public class Mapa {
         else return false;
     }
 
+    // Deve ser usado sempre que um monstro eh inserido!!!
+    // Tambem usado para se mover
+    public boolean inserirMonstro(Monstro monstro) {
+        if (monstros == null) monstros = new ArrayList<Monstro>();
+        
+        if(inserirElemento(monstro)) {
+            monstros.add(monstro);
+            return true;
+        }
+        else return false;
+        
+    }
+
+    // retorna false se nao ha elementos no ponto
     public boolean removerElemento(int linha, int coluna) {
+        Monstro monstro = checarMonstro(linha, coluna);
+        if (monstro != null) monstros.remove(monstro);
+        
         if (elementos[linha][coluna] != null) {
             elementos[linha][coluna] = null;
             return true;
@@ -72,13 +126,34 @@ public class Mapa {
         else return false;
     }
 
+    public boolean removerElemento(Ponto ponto) {
+        return removerElemento(ponto.getLinha(), ponto.getColuna());
+    }
+
+    // retorna false se o elemento nao esta no mapa
     public boolean removerElemento(Elemento elemento) {
-        linha = elemento.posicao().getLinha();
-        coluna = elemento.posicao().getColuna();
+        int linha = elemento.getPosicao().getLinha(),
+            coluna = elemento.getPosicao().getColuna();
         if (elementos[linha][coluna] == elemento) {
             return removerElemento(linha, coluna);
         }
         else return false;
+    }
+
+    // TODO Alguns monstros andam em direcao ao heroi, outros aleatoriamente
+    // Levar em conta que o inserirMonstro() retorna false
+    public void atualizarMonstros(Heroi heroi) {
+        
+    }
+
+    public void tornarVisivel(int linha, int coluna) {
+        Monstro monstro = checarMonstro(linha, coluna);
+        if (monstro != null) monstro.setVisivel(true);
+
+        // else porque o monstro eh o mesmo objeto, caso esteja presente
+        else if (elementos[linha][coluna] != null) {
+            elementos[linha][coluna].setVisivel(true);
+        }
     }
 
 }
