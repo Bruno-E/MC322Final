@@ -4,7 +4,7 @@ public abstract class Heroi extends ElementoCombate{
     protected String nome;
     protected int movimento;
     protected Item[] mochila;
-    protected Arma ArmasAtuais;
+    protected Arma[] ArmasAtuais;
     protected int bonusAtaque;
     protected int bonusDefesa;
     protected int bonusMovimento;
@@ -12,6 +12,7 @@ public abstract class Heroi extends ElementoCombate{
     protected Heroi(String nome) {
         this.nome = nome;
         this.movimento = 0;
+        this.ArmasAtuais = new Arma[2];
     }
 
     protected int jogarDadosAndar() {
@@ -93,7 +94,7 @@ public abstract class Heroi extends ElementoCombate{
     }
 
     protected void verMochila() {
-        String conteudo="O conteudo da mochila Ã©:";
+        String conteudo="O conteudo da mochila é:";
         for(Item item : mochila)
             conteudo+=" "+item.getInformation();
         System.out.println(conteudo);
