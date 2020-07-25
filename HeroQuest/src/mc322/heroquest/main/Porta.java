@@ -1,21 +1,18 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
-/**
- * 
- */
 public class Porta {
+    private Ponto ponto0, ponto1;
 
-    /**
-     * Default constructor
-     */
-    public Porta() {
+    public Porta(Ponto ponto0, Ponto ponto1) {
+        this.ponto0 = ponto0;
+        this.ponto1 = ponto1;
     }
 
-    /**
-     * 
-     */
-    public Ponto posicao;
+    public Ponto[] getPontos() {
+        Ponto[] pontos = new Ponto[2];
+        pontos[0] = ponto1;
+        pontos[1] = ponto2;
+        return pontos;
+    }
 
 }
