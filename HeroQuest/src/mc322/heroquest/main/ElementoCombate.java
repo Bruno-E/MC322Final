@@ -1,5 +1,4 @@
 package mc322.heroquest.main;
-import java.util.*;
 
 public abstract class ElementoCombate extends Elemento implements Combativel {
   protected int vida;
@@ -15,7 +14,6 @@ public abstract class ElementoCombate extends Elemento implements Combativel {
 	  super(posicao);
   }
 
-  @Override
   public void atacar(Combativel inimigo) {
       DadoCombate dado = new DadoCombate();
       int ataque = 0;
@@ -27,3 +25,4 @@ public abstract class ElementoCombate extends Elemento implements Combativel {
   }
   
 }
+
