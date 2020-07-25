@@ -6,7 +6,7 @@ public abstract class Item {
 
     public Item() {
     }
-
+//
     protected boolean descartavel;
     protected String nome;
     
