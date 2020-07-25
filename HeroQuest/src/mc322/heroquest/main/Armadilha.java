@@ -2,15 +2,15 @@ package mc322.heroquest.main;
 
 import java.util.*;
 
-public class Armadilha extends Elemento {
+public abstract class Armadilha extends Elemento {
 
-    public Armadilha() {
+    protected Armadilha(Ponto posicao) {
+    	super(posicao);
+    	this.visivel = false;
     }
 
-    private int dano;
+    protected int dano;
 
-    public void ativar() {
-        // TODO implement here
-    }
+    protected abstract void ativar(Heroi heroi);
 
 }

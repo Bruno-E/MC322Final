@@ -65,6 +65,11 @@ public abstract class Heroi extends ElementoCombate{
 
     }
     
+    
+    protected void perdeVida(int dano) {
+    	this.vida -= dano;
+    }
+    
     @Override
     public void atacar(Combativel inimigo) {
         DadoCombate dado = new DadoCombate();
@@ -88,7 +93,7 @@ public abstract class Heroi extends ElementoCombate{
       if(bonusDefesa != 0) bonusDefesa = 0;
       int resultado = ataque - defesa;
       if(resultado > 0) {
-        this.vida -= resultado;
+        perdeVida(resultado);
       }
     }
     

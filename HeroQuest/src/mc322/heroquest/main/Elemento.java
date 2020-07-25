@@ -5,7 +5,7 @@ public abstract class Elemento {
     protected boolean visivel;
     protected Ponto posicao;
     
-    public Elemento(Ponto posicao) {
+    protected Elemento(Ponto posicao) {
         this.posicao = posicao;
     }
     
