@@ -59,8 +59,20 @@ public class Game {
                 case "a":
                 case "s":
                 case "d":
-                    personagem.mover(comando);
+                    try {
+                        personagem.mover(comando);
+                    } //parede array obstaculo
+                    catch(ArrayIndexOutOfBoundsException e) {
+                        System.err.println(e.getMessage())
+                    }
+                    catch(ParedeNoCaminhoException e) {
+                        System.err.println(e.getMessage())
+                    }
+                    catch(ObstaculoNoCaminhoException e) {
+                        System.err.println(e.getMessage())
+                    }
                     break;
+                    
                 case "passar":
                     passar = true;
                     break;
