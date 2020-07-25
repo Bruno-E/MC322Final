@@ -33,16 +33,15 @@ public abstract class Heroi extends ElementoCombate{
 
         // TODO Printar mensagem das exceções no try-catch de mover() no Game.java
 
-        if (!checarPorta(checarSala(mapa))) throw new ParedeNoCaminhoException("Parede no caminho.");
+        if (!checarPorta(checarSala(mapa))) throw new ParedeNoCaminhoException();
 
         else if (saiDoMapa(direcao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
 
-        else if (checarObstaculo(mapa)) throw new ObstaculoNoCaminhoException("Obstaculo no caminho");
+        else if (checarObstaculo(mapa)) throw new ObstaculoNoCaminhoException();
 
         else {
             mapa.removerElemento(this);
             switch(direcao) {
-                // TODO funcoes moverPara<direção>()
                 case "w":
                     moverParaCima();
                     break;
@@ -56,6 +55,7 @@ public abstract class Heroi extends ElementoCombate{
                     moverParaDireita();
                     break;
             }
+            mapa.inserirElemento(this);
         }
 
     }
@@ -70,6 +70,19 @@ public abstract class Heroi extends ElementoCombate{
         }
         if(bonusAtaque != 0) bonusAtaque = 0;
         inimigo.defender(ataque);
+    }
+
+    private void moverParaCima() {
+        this.setPosicao(this.getLinha()--, this.getColuna())
+    }
+    private void moverParaBaixo() {
+        this.setPosicao(this.getLinha()++, this.getColuna())
+    }
+    private void moverParaEsquerda() {
+        this.setPosicao(this.getLinha(), this.getColuna()--)
+    }
+    private void moverParaDireita() {
+        this.setPosicao(this.getLinha(), this.getColuna()++)
     }
 
 
@@ -122,9 +135,9 @@ public abstract class Heroi extends ElementoCombate{
     }
 
     protected void verMochila() {
-        String conteudo="O conteudo da mochila �:";
+        String conteudo = "O conteudo da mochila eh:";
         for(Item item : mochila)
-            conteudo+=" "+item.getInformation();
+            conteudo += " " + item.getInformation();
         System.out.println(conteudo);
     }
 
