@@ -26,32 +26,34 @@ public abstract class Heroi extends ElementoCombate{
         return this.movimento;
     }
 
-    private Ponto novaPosicao(direcao) {
+    private Ponto novaPosicao(String direcao) {
         switch(direcao) {
             case "w":
-                return new Ponto(this.getLinha()--, this.getColuna());
+                return new Ponto(this.getLinha() - 1, this.getColuna());
                 break;
             case "a":
-                return new Ponto(this.getLinha(), this.getColuna()--);
+                return new Ponto(this.getLinha(), this.getColuna() - 1);
                 break;
             case "s":
-                return new Ponto(this.getLinha()++, this.getColuna());
+                return new Ponto(this.getLinha() + 1, this.getColuna());
                 break;
             case "d":
-                return new Ponto(this.getLinha(), this.getColuna()++);
+                return new Ponto(this.getLinha(), this.getColuna() + 1);
                 break;
         }
+        return null;
     }
 
-    protected void mover(char direcao, Mapa mapa) {
+    protected void mover(String direcao, Mapa mapa) {
         
         Ponto novaPosicao = novaPosicao(direcao);
 
-        if (mapa.saiDoMapa(novaPosicao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
+        if (mapa.foraDoMapa(novaPosicao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
 
-        Sala sala = mapa.checarSala(novaPosicao);
+        Sala sala = mapa.checarSala(posicao);
+        if (sala == null) sala = mapa.checarSala(novaPosicao);
         if (sala != null) {
-            if (!sala.checarPorta(novaPosicao)) throw new ParedeNoCaminhoException();
+            if (!sala.checarPorta(posicao, novaPosicao)) throw new ParedeNoCaminhoException();
         }
 
         else if (mapa.checarObstaculo(novaPosicao)) throw new ObstaculoNoCaminhoException();
@@ -121,8 +123,25 @@ public abstract class Heroi extends ElementoCombate{
       }
     }
 
-    protected void vasculhar() {
-        // TODO implement here
+    // Vasculha a sala
+    protected void vasculhar(Mapa mapa) {
+        Sala sala = mapa.checarSala(posicao);
+        if(sala != null) {
+            int[] limites = sala.getLimitesSupInfEsqDir();
+            int linhaSuperior = limites[0],
+                linhaInferior = limites[1],
+                colunaEsquerda = limites[2],
+                colunaDireita = limites[3];
+                
+            for(int i = linhaSuperior; i <= linhaInferior; i++) {
+                for(int j = colunaEsquerda; j <= colunaDireita; j++) {
+                    mapa.tornarVisivel(i, j);
+                }
+            }
+        }
+        // TODO else: tem como vasculhar o corredor?
+        // Em caso afirmativo, implementar usando foraDoMapa() e checarSala() para um certo range
+        
     }
 
     protected void verMochila() {
