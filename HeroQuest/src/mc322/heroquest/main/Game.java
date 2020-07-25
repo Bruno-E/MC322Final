@@ -91,7 +91,10 @@ public class Game {
                             		//chama a funcao de ataque
                             		break;
                             	case "s":
-                            		//chama a funcao de usar magia
+                            		if(!personagem.eMagico()) {
+                            			System.out.println("Você não pode lançar magias.");
+                            			break;
+                            		}
                             		break;
                             	case "q":
                             		if(personagem.temPocao()) {
