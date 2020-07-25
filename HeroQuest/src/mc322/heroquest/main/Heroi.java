@@ -1,9 +1,11 @@
 package mc322.heroquest.main;
 
+import java.util.List;
+
 public abstract class Heroi extends ElementoCombate{
     protected String nome;
     protected int movimento;
-    protected Item[] mochila;
+    protected List<Item> mochila;
     protected Arma[] ArmasAtuais = new Arma[2];
     protected int dadosMovimento = 2;
     protected int bonusAtaque = 0;
@@ -142,6 +144,12 @@ public abstract class Heroi extends ElementoCombate{
         // TODO else: tem como vasculhar o corredor?
         // Em caso afirmativo, implementar usando foraDoMapa() e checarSala() para um certo range
         
+    }
+    
+    protected void arrumarMochila(int pos) {
+    	for(int i = pos; i < mochila.size() - 1; i++) {
+    		mochila.add(i, mochila.get(i+1));
+    	}
     }
 
     protected void verMochila() {
