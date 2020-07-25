@@ -43,7 +43,7 @@ public class Game {
 
     public void lerInput(Heroi personagem) {
         int movimento = personagem.jogarDadosAndar();
-        System.out.println("Você pode andar " + movimento + " casas esse turno.");
+        System.out.println("Voce pode andar " + movimento + " casas esse turno.");
 
         Scanner keyboard = new Scanner (System.in);
         boolean acaoDisponivel = true;
@@ -83,26 +83,27 @@ public class Game {
                     }
                     else {
                         System.out.println("Escolha uma acao entre : atacar (a), usar magia (s), tomar pocao (q), procurar (f)");
-                        String acao = keyboard.nextLine();
-                        acaoDisponivel = false;
-
-                        switch(acao) {
-                            case "a":
-                                //chama a funcao de ataque
-                                break;
-                            case "s":
-                                //chama a funcao de usar magia
-                                break;
-                            case "q":
-                                //chama a funcao da pocao de cura
-                                break;
-                            case "f":
-                                //chama a funcao de olhar armadilhas no mapa
-                                break;
-                            default:
-                                System.out.println("Acao invalida.");
-                                break;
-                        }
+                        String acao;
+                        do {
+                        	acao = keyboard.nextLine();
+                        	acaoDisponivel = false;
+                        	switch(acao) {
+                            	case "a":
+                            		//chama a funcao de ataque
+                            		break;
+                            	case "s":
+                            		//chama a funcao de usar magia
+                            		break;
+                            	case "q":
+                            		//chama a funcao da pocao de cura
+                            		break;
+                            	case "f":
+                            		//chama a funcao de olhar armadilhas no mapa
+                            		break;
+                            	default:
+                            		System.out.println("Acao invalida.");
+                        	}
+                        }while(!acao.equals("a") && !acao.equals("s") && !acao.equals("q") && !acao.equals("f"));
                     }
                 default:
                     System.out.println("Comando invalido.");
