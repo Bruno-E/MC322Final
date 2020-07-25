@@ -151,6 +151,10 @@ public abstract class Heroi extends ElementoCombate{
     		mochila.add(i, mochila.get(i+1));
     	}
     }
+    
+    protected void verificaMochila(Item objeto) {
+    	
+    }
 
     protected void verMochila() {
         String conteudo = "O conteudo da mochila eh:";
