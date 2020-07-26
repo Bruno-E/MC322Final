@@ -65,8 +65,6 @@ public class Mapa {
             Ponto coordenada = new Ponto(linha, coluna);
             
             salas[i] = new Sala(coordenada, largura, altura);
-            
-            //TODO Colocar elementos no mapa
         }
         
      // inicializa corredores
@@ -79,8 +77,6 @@ public class Mapa {
             Ponto coordenada = new Ponto(linha, coluna);
             
             corredores[i] = new Corredor(coordenada, largura, altura);
-            
-            //TODO Colocar elementos no mapa
         }
         
     }
@@ -100,16 +96,18 @@ public class Mapa {
     }
     
     
-    // retorna um corredor se o ponto esta dentro dele
-    public Corredor checarCorredor(Ponto ponto) {
+    // retorna uma lista dos corredores que contem o ponto
+    public ArrayList<Corredor> checarCorredor(Ponto ponto) {
+    	ArrayList<Corredor> listaMatch = new ArrayList<Corredor>();
+ 
         for(int i = 0; i < noCorredores; i++) {
             if (corredores[i].contemPonto(ponto)) {
-                return corredores[i];
+                listaMatch.add(corredores[i]);
             }
         }
-        return null;
+        return listaMatch;
     }
-    public Corredor checarCorredor(int linha, int coluna) {
+    public ArrayList<Corredor> checarCorredor(int linha, int coluna) {
     	Ponto ponto = new Ponto(linha, coluna);
     	return checarCorredor(ponto);
     }
@@ -178,11 +176,14 @@ public class Mapa {
         if (monstro != null) return monstro;
         return (elementos[linha][coluna]);
     }
+    public Elemento getElemento(Ponto ponto) {
+        return getElemento(ponto.getLinha(), ponto.getColuna());
+    }
 
     // retorna false se nao conseguir inserir o elemento
     public boolean inserirElemento(Elemento elemento) {
-        int linha = elemento.getPosicao().getLinha(),
-            coluna = elemento.getPosicao().getColuna();
+        int linha = elemento.getLinha(),
+            coluna = elemento.getColuna();
         
         if (elementos[linha][coluna] == null) {
             elementos[linha][coluna] = elemento;
@@ -190,9 +191,25 @@ public class Mapa {
         }
         else return false;
     }
-
+    
+    // retorna false se nao conseguir inserir o obstaculo
+    public boolean inserirObstaculo(Obstaculo obstaculo) {
+        int linha = obstaculo.getPosicao().getLinha(),
+            coluna = obstaculo.getPosicao().getColuna();
+        ArrayList<Corredor> matchCorredor = checarCorredor(obstaculo.getPosicao());
+        
+        if (elementos[linha][coluna] == null && !matchCorredor.isEmpty()) {
+	            elementos[linha][coluna] = obstaculo;
+	            for(Corredor corr : matchCorredor)
+	            	corr.inserirObstaculo(obstaculo);
+	            return true;
+        	}
+        else return false;
+    }
+    
+    
     // Deve ser usado sempre que um monstro eh inserido!!!
-    // Tambem usado para se mover
+    // Tambem usado para mover o monstro
     public boolean inserirMonstro(Monstro monstro) {
         if (monstros == null) monstros = new ArrayList<Monstro>();
         
@@ -236,8 +253,6 @@ public class Mapa {
         
     }
     
-    // TODO implementacao do elemento vazio
-    // 
     public void tornarVisivel(int linha, int coluna) {
         Monstro monstro = checarMonstro(linha, coluna);
         if (monstro != null) monstro.setVisivel(true);

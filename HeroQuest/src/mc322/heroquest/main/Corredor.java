@@ -66,6 +66,15 @@ public class Corredor {
     }
     
     
+    public boolean inserirObstaculo(Obstaculo obstaculo) {
+    	if (checarObstaculo(obstaculo.getPosicao()) == null) {
+    		obstaculos.add(obstaculo);
+    		return true;
+    	}
+    	else return false;
+    }
+    
+    
     public Obstaculo checarObstaculo(int linha, int coluna) {
     	if (!obstaculos.isEmpty()) {
 	    	for (Obstaculo obstaculo : obstaculos) {
