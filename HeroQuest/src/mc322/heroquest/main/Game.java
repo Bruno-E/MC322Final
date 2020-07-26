@@ -37,12 +37,13 @@ public class Game {
         while(!fim) {
             drawBoard();
             lerInput(personagem);
+            
             updateBoard();
         }
         System.out.println("Fim de jogo. Ate logo!");
     }
 
-    public void lerInput(Heroi personagem) {
+    public void lerInput(Heroi personagem, Mapa mapa) {
         int movimento = personagem.jogarDadosAndar();
         System.out.println("Voce pode andar " + movimento + " casas esse turno.");
 
@@ -77,6 +78,7 @@ public class Game {
                 case "passar":
                     passar = true;
                     break;
+                    
                 case "acao":
                     if(!acaoDisponivel) {
                         System.out.println("Voce nao pode realizar uma acao agora.");
@@ -84,10 +86,10 @@ public class Game {
                     }
                     else {
                         System.out.println("Escolha uma acao entre : atacar (a), usar magia (s), tomar pocao (q), procurar (f)");
-                        String acao;
-                        Monstro monstro;
+                        String acao;  
                         boolean checagem = false;
                         Scanner input = new Scanner(System.in);
+                        Monstro monstro;
                         int opcao;
                         do {
                         	acao = keyboard.nextLine();
@@ -112,6 +114,7 @@ public class Game {
                         				j++;
                         			}
                         			
+                        			monstro = monstros.get(0);
                             		System.out.println("Digite o numero do seu alvo.");
                         			do {
                         				opcao = input.nextInt();
@@ -124,7 +127,7 @@ public class Game {
                         				}
                         			}while(!checagem);
                             		
-                        			personagem.atacar(monstros.get(opcao-1));
+                        			personagem.atacar(monstro);
                             		break;
                             	
                             	case "s":
@@ -183,7 +186,7 @@ public class Game {
                             			}while(!checagem);
                             			
                             			ArrayList<Monstro> monstros1= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
-           //                 			
+                           			
                             			int i = 1;
                             			System.out.println("Os monstros no alcance sao:\n");
                             			for(Monstro m : monstros1) {
@@ -191,6 +194,7 @@ public class Game {
                             				i++;
                             			}
                             			
+                            			monstro = monstros1.get(0);
                             			System.out.println("Escolha o monstro desejado.");
                             			do {
                             				opcao = input.nextInt();
