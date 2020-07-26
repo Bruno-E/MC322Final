@@ -4,12 +4,10 @@ import java.util.*;
 
 public class Armadura extends Item {
 
-
     public Armadura(TipoDeArmaduras armadura) {
     	this.armadura = armadura;
     	this.nome = armadura.toString();
     }
-
     
     private TipoDeArmaduras armadura;
     
