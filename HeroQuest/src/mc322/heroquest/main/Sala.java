@@ -7,6 +7,7 @@ public class Sala {
 
     private int largura;
     private int altura;
+    private boolean visivel;
     private Ponto coordenada;
     private List<Porta> portas;
     
@@ -25,8 +26,15 @@ public class Sala {
     public Ponto getCoordenada() {
         return coordenada;
     }
+    
+    public boolean getVisivel() {
+    	return visivel;
+    }
+    public void setVisivel(boolean visivel) {
+        this.visivel = visivel;
+    }
 
-    // retorna true se os pontos fazem parte de uma porta
+    // retorna true se os pontos da porta sao iguais aos de alguma da lista
     public boolean checarPorta(Ponto ponto0, Ponto ponto1) {
         for(Porta porta : portas) {
             Ponto[] pontos = porta.getPontos();
@@ -39,6 +47,11 @@ public class Sala {
         }
         return false;
     }
+    public boolean checarPorta(Porta porta) {
+        Ponto[] pontos = porta.getPontos();
+        return checarPorta(pontos[0], pontos[1]);
+    }
+    
 
     // Retorna int[] : 0. linhaSuperior
     //                 1. linhaInferior
@@ -50,6 +63,7 @@ public class Sala {
         limites[1] = limites[0] + (altura - 1);
         limites[2] = coordenada.getColuna();
         limites[3] = limites[2] + (largura - 1);
+        return limites;
     }
 
     // retorna true se a sala contem o ponto
@@ -70,7 +84,11 @@ public class Sala {
 
     public boolean adicionarPorta(Porta porta){
         if (portas == null) portas = new ArrayList<Porta>();
-        portas.add(porta);
+        if (this.checarPorta(porta)) return false;
+        else {
+        	portas.add(porta);
+        	return true;
+        }
     }
 
 }

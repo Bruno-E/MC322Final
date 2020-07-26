@@ -147,8 +147,58 @@ public abstract class Heroi extends ElementoCombate{
                 }
             }
         }
+        
         // TODO else: tem como vasculhar o corredor?
-        // Em caso afirmativo, implementar usando foraDoMapa() e checarSala() para um certo range
+        // Em caso afirmativo, implementar usando foraDoMapa() e checarSala() e checarObstaculo()
+        else {
+	        int linha = this.getLinha(),
+	        	coluna = this.getColuna(),
+	        	varreLinha = linha,
+	        	varreColuna = coluna;
+	        	
+	        while(true) {
+	        	varreLinha++;
+	        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
+	        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
+	        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
+	        	else {
+	        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
+	        	}
+	        }
+	        varreLinha = linha;
+		    varreColuna = coluna;
+		    while(true) {
+	        	varreLinha--;
+	        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
+	        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
+	        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
+	        	else {
+	        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
+	        	}
+	        }
+		    varreLinha = linha;
+		    varreColuna = coluna;
+		    while(true) {
+	        	varreColuna++;
+	        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
+	        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
+	        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
+	        	else {
+	        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
+	        	}
+	        }
+		    varreLinha = linha;
+		    varreColuna = coluna;
+		    while(true) {
+	        	varreColuna--;
+	        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
+	        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
+	        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
+	        	else {
+	        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
+	        	}
+	        }
+	    }
         
     }
     

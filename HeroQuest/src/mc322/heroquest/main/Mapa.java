@@ -8,26 +8,42 @@ public class Mapa {
     private Elemento[][] elementos;
     private List<Monstro> monstros;
     private Sala[] salas;
+    private Corredor[] corredores;
     
     // Coordenadas linha x coluna do ponto mais acima e a esquerda da sala
     private static final int[][] coordSalas = 
     { 
-      {1, 1}, {1, 5}, {1, 9}, {1, 14}, {1, 17}, {1, 21},
-      {4, 1}, {4, 5}, {5, 17}, {5, 21}, {7, 10},
-      {10, 1}, {10, 15}, {10, 7}, {10, 17}, {10, 21},
-      {13, 5}, {13, 9}, {13, 14}, {14, 1}, {14, 17}, {14, 21},
+    	{1, 1}, {1, 5}, {1, 9}, {1, 14}, {1, 17}, {1, 21},
+    	{4, 1}, {4, 5}, {5, 17}, {5, 21}, {7, 10},
+    	{10, 1}, {10, 15}, {10, 7}, {10, 17}, {10, 21},
+    	{13, 5}, {13, 9}, {13, 14}, {14, 1}, {14, 17}, {14, 21}
     };
 
     // Dimensoes largura x altura de cada sala
     private static final int[][] dimSalas = 
     { 
-      {4, 3}, {4, 3}, {3, 5}, {3, 5}, {4, 4}, {4, 4},
-      {4, 5}, {4, 5}, {4, 4}, {4, 4}, {6, 5},
-      {4, 4}, {2, 3}, {2, 3}, {4, 4}, {4, 4},
-      {4, 5}, {3, 5}, {3, 5}, {4, 4}, {4, 4}, {4, 4},
+    	{4, 3}, {4, 3}, {3, 5}, {3, 5}, {4, 4}, {4, 4},
+    	{4, 5}, {4, 5}, {4, 4}, {4, 4}, {6, 5},
+    	{4, 4}, {2, 3}, {2, 3}, {4, 4}, {4, 4},
+    	{4, 5}, {3, 5}, {3, 5}, {4, 4}, {4, 4}, {4, 4}
     };
     
-    private static final int linhas = 19, colunas = 26, noSalas = 22;
+    
+    // Coordenadas linha x coluna do ponto mais acima e a esquerda de cada corredor
+    private static final int[][] coordCorredores = 
+    {
+    	{0, 0}, {0, 0}, {0, 25}, {18, 0}, {0, 12}, {9, 0},
+    	{9, 16}, {12, 12}, {6, 9}, {6, 9}, {6, 16}, {12, 9}
+    };
+    
+    // Dimensoes largura x altura de cada corredor
+    private static final int[][] dimCorredores = 
+    {
+    	{26, 1}, {1, 19}, {1, 19}, {26, 1}, {2, 7}, {10, 1},
+    	{10, 1}, {2, 7}, {8, 1}, {1, 7}, {1, 7}, {8, 1}
+    };
+    
+    private static final int linhas = 19, colunas = 26, noSalas = 22, noCorredores = 12;
 
     public Mapa() {
         //Array 2D de elementos
@@ -53,6 +69,20 @@ public class Mapa {
             //TODO Colocar elementos no mapa
         }
         
+     // inicializa corredores
+        corredores = new Corredor[noCorredores];
+        for (int i = 0; i < noCorredores; i++) {
+            int linha = coordCorredores[i][0],
+                coluna = coordCorredores[i][1],
+                largura = dimCorredores[i][0],
+                altura = dimCorredores[i][1];
+            Ponto coordenada = new Ponto(linha, coluna);
+            
+            corredores[i] = new Corredor(coordenada, largura, altura);
+            
+            //TODO Colocar elementos no mapa
+        }
+        
     }
 
     // retorna uma sala se o ponto esta dentro dela
@@ -70,13 +100,15 @@ public class Mapa {
     }
     
     
-    // TODO retorna true se o ponto contem um obstaculo
+    // TODO retorna true se o ponto contem um objeto da classe obstaculo
+    /*
     public boolean checarObstaculo(Ponto ponto) {
     	
     }
 	public boolean checarObstaculo(int linha, int coluna) {
 	    	
 	}
+	*/
     
 
     // retorna true se o ponto esta fora do mapa
