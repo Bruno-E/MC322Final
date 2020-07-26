@@ -82,6 +82,12 @@ public abstract class Heroi extends ElementoCombate{
     	this.vida -= dano;
     }
     
+    void trocarArmaPrincipal() {
+    	Arma tmp = ArmasAtuais[0];
+    	ArmasAtuais[0] = ArmasAtuais[1];
+    	ArmasAtuais[1] = tmp;
+    }
+    
     @Override
     public void atacar(Combativel inimigo) {
         DadoCombate dado = new DadoCombate();

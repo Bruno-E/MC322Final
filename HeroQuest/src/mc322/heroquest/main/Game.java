@@ -84,11 +84,19 @@ public class Game {
                     else {
                         System.out.println("Escolha uma acao entre : atacar (a), usar magia (s), tomar pocao (q), procurar (f)");
                         String acao;
+                        Scanner input = new Scanner(System.in);
+                        int opcao;
                         do {
                         	acao = keyboard.nextLine();
                         	switch(acao) {
                             	case "a":
-                            		//chama a funcao de ataque
+                            		if(personagem.temDuasArmas()) {
+                            			System.out.println("Escolha qual arma você pretende usar(1 ou 2)");
+                            			opcao = input.nextInt();
+                            			if(opcao == 2) personagem.trocarArmaPrincipal();
+                            		}
+                            		
+                            		
                             		break;
                             	case "s":
                             		if(!personagem.eMagico()) {
@@ -96,10 +104,8 @@ public class Game {
                             			break;
                             		}
                             		System.out.println("Você deseja lançar uma magia defensiva (1) ou ofensiva(2)?");
-                            		Scanner key;
-                            		int opcao;
                             		do {
-                            			opcao = key.nextInt();
+                            			opcao = input.nextInt();
                             			if(opcao != 1 && opcao != 2) {
                             				System.out.println("Opcao invalida. Digite 1 para magias defensivas ou 2 para magias ofensivas.");
                             			}
@@ -113,7 +119,7 @@ public class Game {
                             			System.out.println("Digite o numero da magia desejada.");
                                 		boolean checagem = false;
                                 		do {
-                                			opcao = key.nextInt();
+                                			opcao = input.nextInt();
                                 			try {
                                 				((HeroiMagico)personagem).usarMagiaDefensiva(opcao);
                                 				checagem = true;
@@ -133,7 +139,7 @@ public class Game {
                             			//ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
                                 		boolean checagem = false;
                                 		do {
-                                			opcao = key.nextInt();
+                                			opcao = input.nextInt();
                                 			try {
                                 				((HeroiMagico)personagem).usarMagiaOfensiva(opcao);
                                 				checagem = true;
@@ -149,13 +155,11 @@ public class Game {
                             		if(personagem.temPocao()) {
                             			System.out.print(personagem.verificaMochila("Pocao"));
                             			System.out.println("Digite o numero da pocao desejada.");
-                            			Scanner teclado;
                             			boolean valido = false;
-                            			int opcao1;
                             			do {
-                            				opcao1 = teclado.nextInt();
+                            				opcao = input.nextInt();
                             				try {
-                            					personagem.usarPocao(opcao1);
+                            					personagem.usarPocao(opcao);
                             					valido = true;
                             				}
                             				catch(ClassCastException e) {
