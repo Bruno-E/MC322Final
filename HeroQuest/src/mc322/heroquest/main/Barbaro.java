@@ -1,7 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public class Barbaro extends Heroi {
 
     private static int VIDA_INICIAL = 8;
@@ -19,7 +17,7 @@ public class Barbaro extends Heroi {
     }
     
     @Override
-    protected void restauraVida(int vida) {
+    public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {
     		this.vida = VIDA_INICIAL;
     	}

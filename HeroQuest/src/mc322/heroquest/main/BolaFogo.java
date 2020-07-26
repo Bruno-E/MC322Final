@@ -1,7 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public class BolaFogo extends MagiaOfensiva {
 	
 	private static int danoAdjacente = 2;
@@ -21,7 +19,7 @@ public class BolaFogo extends MagiaOfensiva {
           //TODO: verificaAdjacente - verifica as posicoes adjacentes se ha monstros
         }
         else {
-        	System.out.println("Voce n„o conseguiu usar a magia");
+        	System.out.println("Voce n√£o conseguiu usar a magia");
         }
     }
 

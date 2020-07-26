@@ -1,11 +1,10 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public class EsqueletoMago extends Monstro {
-
+	private static int VIDA_INICIAL = 2;
+	
     public EsqueletoMago() {
-    	this.vida = 3;
+    	this.vida = VIDA_INICIAL;
     	this.dadosAtaque = 1;
     	this.dadosDefesa = 1;
     	this.inteligencia = 3;
@@ -14,5 +13,14 @@ public class EsqueletoMago extends Monstro {
     }
 
     public MissilMagico missil;
+    
+    public void restauraVida(int vida) {
+    	if(this.vida + vida > VIDA_INICIAL) {
+    		this.vida = VIDA_INICIAL;
+    	}
+    	else {
+    		this.vida += vida;
+    	}
+    }
 
 }

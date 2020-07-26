@@ -1,10 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
-/**
- * 
- */
 public class Tesouro extends Elemento implements ElementoMovel {
 
     /**

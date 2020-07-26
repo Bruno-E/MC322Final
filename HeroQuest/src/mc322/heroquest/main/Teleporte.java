@@ -1,14 +1,13 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
-public class Teleporte extends Magia {
+public class Teleporte extends MagiaDefensiva {
 
     public Teleporte() {
     	this.nome = "Teleporte";
     }
     
-    protected void lancarMagia() {
+    @Override
+    protected void lancar(ElementoCombate origem) {
     	
     }
 

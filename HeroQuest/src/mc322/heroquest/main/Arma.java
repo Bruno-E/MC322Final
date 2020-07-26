@@ -1,7 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public class Arma extends Item {
 
     public Arma(TipoDeArmas arma) {

@@ -1,8 +1,12 @@
 package mc322.heroquest.main;
 
+<<<<<<< HEAD
 import java.util.*;
 
 public class Corredor {
+=======
+public class Corredor extends Elemento {
+>>>>>>> 5563dcdcbe0808677d65a8a3152cb3c42017e28f
 
     private int largura;
     private int altura;

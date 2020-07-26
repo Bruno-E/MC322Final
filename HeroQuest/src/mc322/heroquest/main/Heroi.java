@@ -114,8 +114,6 @@ public abstract class Heroi extends ElementoCombate{
     protected void setBonusMovimento(int bonus) {
     	this.bonusMovimento = bonus;
     }
-      
-    protected abstract void restauraVida(int vida);
 
     @Override
     public void defesaMagica(int ataque) {

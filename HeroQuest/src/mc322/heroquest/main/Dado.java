@@ -1,16 +1,13 @@
 package mc322.heroquest.main;
 
-import java.util.*;
+import java.util.Random;
 
-/**
- *
- */
 public abstract class Dado {
 
     public Dado() {
     }
     
-    public int aleatorio(int numLados){
+    int aleatorio(int numLados){
         Random valor = new Random();
         return valor.nextInt(numLados) + 1;
     }

@@ -1,7 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public class Feiticeiro extends HeroiMagico {
     private static int VIDA_INICIAL = 4;
     private static int INT_INICIAL = 6;
@@ -18,16 +16,14 @@ public class Feiticeiro extends HeroiMagico {
         this.bonusDefesa = DFS_INICIAL;
         this.noPunhais = 3;
         this.ArmasAtuais[0] = new Arma(TipoDeArmas.PUNHAL);
-        this.magias = new Magia[10];
-        this.magias[0] = new MissilMagico();
-        this.magias[1] = new MissilMagico();
-        this.magias[2] = new MissilMagico();
-        this.magias[3] = new BolaFogo();
-        this.magias[4] = new Teleporte();
+        this.magiasOfensivas[0] = new MissilMagico();
+        this.magiasOfensivas[1] = new MissilMagico();
+        this.magiasOfensivas[2] = new MissilMagico();
+        this.magiasOfensivas[3] = new BolaFogo();
+        this.magiasDefensivas[0] = new Teleporte();
     }
     
-    @Override
-    protected void restauraVida(int vida) {
+    public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {
     		this.vida = VIDA_INICIAL;
     	}

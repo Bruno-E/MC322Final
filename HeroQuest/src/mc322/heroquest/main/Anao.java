@@ -16,7 +16,7 @@ public class Anao extends Heroi {
     }
     
     @Override
-    protected void restauraVida(int vida) {
+    public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {
     		this.vida = VIDA_INICIAL;
     	}
