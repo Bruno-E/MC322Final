@@ -1,5 +1,7 @@
 package mc322.heroquest.main;
 
+import java.util.Random;
+
 public class Tesouro extends Elemento {
     private Item[] itens;
     public Tesouro() {
