@@ -64,6 +64,10 @@ public class Mapa {
         }
         return null;
     }
+    public Sala checarSala(int linha, int coluna) {
+    	Ponto ponto = new Ponto(linha, coluna);
+    	return checarSala(ponto);
+    }
 
     // retorna true se o ponto esta fora do mapa
     public boolean foraDoMapa(Ponto ponto) {
@@ -73,6 +77,10 @@ public class Mapa {
         else 
             return false;
     }
+    public boolean foraDoMapa(int linha, int coluna) {
+    	Ponto ponto = new Ponto(linha, coluna);
+    	return foraDoMapa(ponto);
+    }
     
     // retorna um monstro se houver
     public Monstro checarMonstro(int linha, int coluna) {
@@ -81,6 +89,12 @@ public class Mapa {
                 return monstro;
         }
         return null;
+    }
+    
+    public Monstro checarMonstro(Ponto ponto) {
+    	int linha = ponto.getLinha(),
+    		coluna = ponto .getColuna();
+    	return checarMonstro(linha, coluna);
     }
 
     public Elemento getElemento(int linha, int coluna) {
