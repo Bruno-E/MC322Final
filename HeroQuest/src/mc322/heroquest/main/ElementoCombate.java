@@ -10,8 +10,8 @@ public abstract class ElementoCombate extends Elemento implements Combativel {
 	  return this.inteligencia;
   }
   
-  protected ElementoCombate(Ponto posicao) {
-	  super(posicao);
+  protected ElementoCombate(Ponto posicao, boolean visivel) {
+	  super(posicao, visivel);
   }
 
   public void atacar(Combativel inimigo) {

@@ -2,7 +2,8 @@ package mc322.heroquest.main;
 
 public abstract class Monstro extends ElementoCombate implements Guardavel{
 
-    public Monstro() {
+    public Monstro(Ponto posicao) {
+    	super(posicao, false);
     }
 
     protected Arma arma;
@@ -34,6 +35,11 @@ public abstract class Monstro extends ElementoCombate implements Guardavel{
       if(resultado > 0) {
         this.vida -= resultado;
       }
+    }
+    
+    //TODO
+    protected void mover(Heroi heroi) {
+    	
     }
 
 }
