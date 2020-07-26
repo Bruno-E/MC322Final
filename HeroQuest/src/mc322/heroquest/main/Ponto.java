@@ -24,4 +24,9 @@ public class Ponto {
         this.coluna = coluna;
     }
     
+    public void setCoord(int linha, int coluna) {
+    	setLinha(linha);
+    	setColuna(coluna);
+    }
+    
 }
