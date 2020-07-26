@@ -30,9 +30,4 @@ public class Goblin extends Monstro {
     	}
     }
     
-    //TODO
-    @Override
-    public void mover(Heroi heroi) {
-    	
-    }
 }
