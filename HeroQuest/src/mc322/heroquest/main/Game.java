@@ -189,7 +189,7 @@ public class Game {
                             			if(opcao == 2) personagem.trocarArmaPrincipal();
                             		}
                             		
-                            		System.out.println("Seu alcance é: " + personagem.getAlcance() );
+                            		System.out.println("Seu alcance Ã©: " + personagem.getAlcance() );
                             		
                             		ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
                         			System.out.println("Os monstros no alcance sao:\n");
