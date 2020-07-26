@@ -12,8 +12,8 @@ public class Elfo extends HeroiMagico {
     private static int ATQ_INICIAL = 2;
     private static int DFS_INICIAL = 2;
 
-    public Elfo(String nome) {
-        super(nome);
+    public Elfo(String nome, Ponto posicao) {
+        super(nome, posicao);
         this.vida = VIDA_INICIAL;
         this.inteligencia = INT_INICIAL;
         this.bonusAtaque = ATQ_INICIAL;

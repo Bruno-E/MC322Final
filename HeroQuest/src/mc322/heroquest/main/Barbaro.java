@@ -9,8 +9,8 @@ public class Barbaro extends Heroi {
     private static int ATQ_INICIAL = 3;
     private static int DFS_INICIAL = 2;
 
-    public Barbaro(String nome) {
-        super(nome);
+    public Barbaro(String nome, Ponto posicao) {
+        super(nome, posicao);
         this.vida = VIDA_INICIAL;
         this.inteligencia = INT_INICIAL;
         this.bonusAtaque = ATQ_INICIAL;

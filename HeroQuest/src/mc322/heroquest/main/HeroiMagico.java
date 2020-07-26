@@ -4,8 +4,8 @@ import java.util.*;
 
 public abstract class HeroiMagico extends Heroi {
 
-    protected HeroiMagico(String nome) {
-    	super(nome);
+    protected HeroiMagico(String nome, Ponto posicao) {
+    	super(nome, posicao);
     }
 
     protected Magia[] magias;

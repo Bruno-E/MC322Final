@@ -6,8 +6,8 @@ public class Anao extends Heroi {
     private static int ATQ_INICIAL = 2;
     private static int DFS_INICIAL = 2;
 
-    public Anao(String nome) {
-        super(nome);
+    public Anao(String nome, Ponto posicao) {
+        super(nome, posicao);
         this.vida = VIDA_INICIAL;
         this.inteligencia = INT_INICIAL;
         this.bonusAtaque = ATQ_INICIAL;

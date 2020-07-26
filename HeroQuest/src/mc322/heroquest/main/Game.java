@@ -95,6 +95,7 @@ public class Game {
                             			System.out.println("Você não pode lançar magias.");
                             			break;
                             		}
+                            		acaoDisponivel = false;
                             		break;
                             	case "q":
                             		if(personagem.temPocao()) {

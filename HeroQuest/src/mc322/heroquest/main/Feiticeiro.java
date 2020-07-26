@@ -10,8 +10,8 @@ public class Feiticeiro extends HeroiMagico {
     
     private int noPunhais;
 
-    public Feiticeiro(String nome) {
-        super(nome);
+    public Feiticeiro(String nome, Ponto posicao) {
+        super(nome, posicao);
         this.vida = VIDA_INICIAL;
         this.inteligencia = INT_INICIAL;
         this.bonusAtaque = ATQ_INICIAL;
