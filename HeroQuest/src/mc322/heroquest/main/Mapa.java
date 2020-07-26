@@ -68,6 +68,16 @@ public class Mapa {
     	Ponto ponto = new Ponto(linha, coluna);
     	return checarSala(ponto);
     }
+    
+    
+    // TODO retorna true se o ponto contem um obstaculo
+    public boolean checarObstaculo(Ponto ponto) {
+    	
+    }
+	public boolean checarObstaculo(int linha, int coluna) {
+	    	
+	}
+    
 
     // retorna true se o ponto esta fora do mapa
     public boolean foraDoMapa(Ponto ponto) {
@@ -82,19 +92,38 @@ public class Mapa {
     	return foraDoMapa(ponto);
     }
     
-    // retorna um monstro se houver
+    
+    // retorna um monstro se houver e se for visivel
     public Monstro checarMonstro(int linha, int coluna) {
         for (Monstro monstro : monstros) {
             if (monstro.getLinha() == linha && monstro.getColuna() == coluna)
-                return monstro;
+            	if(monstro.getVisivel()) return monstro;
         }
         return null;
     }
-    
     public Monstro checarMonstro(Ponto ponto) {
     	int linha = ponto.getLinha(),
     		coluna = ponto .getColuna();
     	return checarMonstro(linha, coluna);
+    }
+    
+    // retorna um ArrayList dos monstros ao alcance do ponto dado
+    public ArrayList<Monstro> monstrosAoAlcance(Ponto ponto, int alcance) {
+    	ArrayList<Monstro> monstros = new ArrayList<Monstro>();
+    	int linha = ponto.getLinha(),
+        	coluna = ponto .getColuna();
+    	
+    	for(int i = linha - alcance; i <= linha + alcance; i++) {
+    		for(int j = coluna - alcance; j <= coluna + alcance; j++) {
+   				if(!foraDoMapa(i, j))
+   					if(checarSala(i, j) == null) {
+   						Monstro monstro = checarMonstro(i, j);
+   						if (monstro != null) monstros.add(monstro);
+   					}
+    		}
+    	}
+    	
+    	return monstros;
     }
 
     public Elemento getElemento(int linha, int coluna) {
@@ -154,12 +183,14 @@ public class Mapa {
         else return false;
     }
 
-    // TODO Alguns monstros andam em direcao ao heroi, outros aleatoriamente
+    // TODO Goblins andam em direcao ao heroi, os outros aleatoriamente
     // Levar em conta que o inserirMonstro() retorna false
     public void atualizarMonstros(Heroi heroi) {
         
     }
-
+    
+    // TODO implementacao do elemento vazio
+    // 
     public void tornarVisivel(int linha, int coluna) {
         Monstro monstro = checarMonstro(linha, coluna);
         if (monstro != null) monstro.setVisivel(true);
