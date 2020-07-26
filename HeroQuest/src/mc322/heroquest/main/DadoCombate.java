@@ -9,7 +9,7 @@ public class DadoCombate extends Dado {
     }
 
     public Lado jogar() {
-        return faces[aleatorio(6)];
+        return faces[aleatorio(6)]; //retorna um Lado do dado de combate que e composto por escudos e caveiras
     }
 
 }

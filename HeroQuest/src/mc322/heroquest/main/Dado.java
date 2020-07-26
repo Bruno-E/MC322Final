@@ -7,7 +7,7 @@ public abstract class Dado {
     public Dado() {
     }
     
-    int aleatorio(int numLados){
+    int aleatorio(int numLados){ //funcao comum que recebe o numero de lados de um dado e retorna a face
         Random valor = new Random();
         return valor.nextInt(numLados) + 1;
     }

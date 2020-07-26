@@ -3,7 +3,7 @@ package mc322.heroquest.main;
 public class Goblin extends Monstro {
 	
 	private int noPunhais;
-	private static int VIDA_INICIAL = 3;
+	private static int VIDA_INICIAL = 2;
 	
     public Goblin(Ponto ponto) {
     	super(ponto);

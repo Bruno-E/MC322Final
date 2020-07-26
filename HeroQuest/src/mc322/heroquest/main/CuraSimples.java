@@ -7,7 +7,7 @@ public class CuraSimples extends MagiaDefensiva {
     }
     
    @Override
-   protected void lancar(ElementoCombate origem) {
+   protected void lancar(ElementoCombate origem) { //joga um dado para ver a quantidade de cura que o jogador/monstro recebe
 	   DadoVermelho dado = new DadoVermelho();
 	   origem.restauraVida(dado.jogar());
    }
