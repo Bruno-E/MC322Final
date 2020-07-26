@@ -8,7 +8,7 @@ public class Game {
     public Game() {
       fim = false;
     }
-//
+
     public void start() {
         System.out.println("Jogo iniciado.");
         Scanner key = new Scanner(System.in);
@@ -60,7 +60,7 @@ public class Game {
                 case "s":
                 case "d":
                     try {
-                        personagem.mover(comando);
+                        personagem.mover(comando, mapa);
                     } //parede array obstaculo
                     catch(ArrayIndexOutOfBoundsException e) {
                         System.err.println(e.getMessage());
