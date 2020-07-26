@@ -258,5 +258,13 @@ public abstract class Heroi extends ElementoCombate{
             conteudo += " " + item.getInformation();
         System.out.println(conteudo);
     }
+    
+    protected void adcItem(Item item) {
+    	for(int i = 0; i < 10; i++) {
+    		if(mochila.get(i) == null) {
+    			mochila.add(i, item);
+    		}
+    	}
+    }
 
 }

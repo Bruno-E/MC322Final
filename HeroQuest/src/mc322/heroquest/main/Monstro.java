@@ -1,6 +1,6 @@
 package mc322.heroquest.main;
 
-public abstract class Monstro extends ElementoCombate {
+public abstract class Monstro extends ElementoCombate implements Guardavel{
 
     public Monstro() {
     }
