@@ -95,6 +95,11 @@ public class Game {
                             			System.out.println("Você não pode lançar magias.");
                             			break;
                             		}
+                            		//TODO: Funcao para verificar os monstros disponiveis no alcance
+                            		System.out.println("Digite o numero da magia desejada.");
+                            		Scanner key;
+                            		int opcao = key.nextInt();
+                            		((HeroiMagico)personagem).usarMagia(opcao);
                             		acaoDisponivel = false;
                             		break;
                             	case "q":

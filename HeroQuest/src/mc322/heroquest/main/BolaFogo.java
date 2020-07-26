@@ -8,10 +8,11 @@ public class BolaFogo extends MagiaOfensiva {
 
     public BolaFogo() {
     	this.dano = 4;
+    	this.nome = "Bola de Fogo";
     }
     
     @Override
-    protected void lancarMagia(Combativel origem, Combativel alvo) {
+    protected void lancar(Combativel origem, Combativel alvo) {
         DadoVermelho dado = new DadoVermelho();
         int valor = dado.jogar();
         if(valor < origem.getInteligencia()) {

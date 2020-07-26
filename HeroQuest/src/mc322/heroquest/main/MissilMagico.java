@@ -6,10 +6,11 @@ public class MissilMagico extends MagiaOfensiva {
 
     public MissilMagico() {
     	this.dano = 6;
+    	this.nome = "Missil Magico";
     }
 
     @Override
-    protected void lancarMagia(Combativel origem, Combativel alvo) {
+    protected void lancar(Combativel origem, Combativel alvo) {
       DadoVermelho dado = new DadoVermelho();
       int valor = dado.jogar();
       if(valor < origem.getInteligencia()) {

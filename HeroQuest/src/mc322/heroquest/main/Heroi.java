@@ -150,15 +150,16 @@ public abstract class Heroi extends ElementoCombate{
     protected void arrumarMochila(int pos) {
     	for(int i = pos; i < mochila.size() - 1; i++) {
     		mochila.add(i, mochila.get(i+1));
+    		mochila.add(i+1, null);
     	}
     }
     
     protected String verificaMochila(String objeto) {
-    	String resultado = "Você possui as seguintes opcoes:";
-    	int i = 0;
+    	String resultado = "Voce possui as seguintes opcoes:";
+    	int i = 1;
     	for(Item item : mochila) {
     		if(item.getInformation().contains(objeto)) {
-    			resultado += (i+1) + ". " + item.getInformation() + "\n";
+    			resultado += i + ". " + item.getInformation() + "\n";
     		}
     		i++;
     	}

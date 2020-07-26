@@ -6,7 +6,12 @@ public abstract class Magia {
 
     public Magia() {
     }
-
-    protected abstract void lancarMagia(Combativel origem, Combativel alvo);
+    
+    protected String nome;
+    
+    protected String getNome() {
+    	return this.nome;
+    }
+    protected abstract void lancar();
 
 }

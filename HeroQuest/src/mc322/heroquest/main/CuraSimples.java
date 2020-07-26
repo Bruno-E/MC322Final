@@ -4,7 +4,8 @@ import java.util.*;
 
 public class CuraSimples extends Magia {
 
-    public CuraSimples() {
+    CuraSimples() {
+    	this.nome = "Cura Simples";
     }
     
     

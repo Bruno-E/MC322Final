@@ -9,6 +9,6 @@ public abstract class MagiaOfensiva extends Magia {
     
     protected int dano;
 
-    protected abstract void lancarMagia(Combativel origem, Combativel alvo);
+    protected abstract void lancar(Combativel origem, Combativel alvo);
 
 }
