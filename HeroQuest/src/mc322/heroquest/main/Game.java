@@ -183,7 +183,7 @@ public class Game {
                             			}while(!checagem);
                             			
                             			ArrayList<Monstro> monstros1= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
-                            			
+           //                 			
                             			int i = 1;
                             			System.out.println("Os monstros no alcance sao:\n");
                             			for(Monstro m : monstros1) {
