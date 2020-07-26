@@ -7,6 +7,7 @@ public class Mapa {
     
     private Elemento[][] elementos;
     private List<Monstro> monstros;
+    private List<Armadilha> armadilhas;
     private Sala[] salas;
     private Corredor[] corredores;
     
@@ -152,6 +153,20 @@ public class Mapa {
     	return checarMonstro(linha, coluna);
     }
     
+    
+    // retorna uma armadilha se houver e se for visivel
+    public Armadilha checarArmadilha(int linha, int coluna) {
+        for (Armadilha armadilha : armadilhas) {
+            if (armadilha.getLinha() == linha && armadilha.getColuna() == coluna)
+            	return armadilha;
+        }
+        return null;
+    }
+    public Armadilha checarArmadilha(Ponto ponto) {
+    	return checarArmadilha(ponto.getLinha(), ponto .getColuna());
+    }
+    
+    
     // retorna um ArrayList dos monstros ao alcance do ponto dado
     public ArrayList<Monstro> monstrosAoAlcance(Ponto ponto, int alcance) {
     	ArrayList<Monstro> monstros = new ArrayList<Monstro>();
@@ -231,11 +246,24 @@ public class Mapa {
             return true;
         }
         else return false;
+    }
+    
+    // Deve ser usado sempre que uma armadilha eh inserida!!!
+    public boolean inserirArmadilha(Armadilha armadilha) {
+        if (armadilhas == null) armadilhas = new ArrayList<Armadilha>();
         
+        if(inserirElemento(armadilha)) {
+        	armadilhas.add(armadilha);
+            return true;
+        }
+        else return false;
     }
 
     // retorna false se nao ha elementos no ponto
     public boolean removerElemento(int linha, int coluna) {
+    	Armadilha armadilha = checarArmadilha(linha, coluna);
+        if (armadilha != null) armadilhas.remove(armadilha);
+    	
         Monstro monstro = checarMonstro(linha, coluna);
         if (monstro != null) monstros.remove(monstro);
         
@@ -249,7 +277,6 @@ public class Mapa {
     public boolean removerElemento(Ponto ponto) {
         return removerElemento(ponto.getLinha(), ponto.getColuna());
     }
-
     // retorna false se o elemento nao esta no mapa
     public boolean removerElemento(Elemento elemento) {
         int linha = elemento.getPosicao().getLinha(),
@@ -263,10 +290,15 @@ public class Mapa {
     // TODO Goblins andam em direcao ao heroi, os outros aleatoriamente
     // Levar em conta que o inserirMonstro() retorna false
     public void atualizarMonstros(Heroi heroi) {
-        
+        if(!monstros.isEmpty())
+        	for (Monstro monstro : monstros)
+        		monstro.mover(heroi);
     }
     
     public void tornarVisivel(int linha, int coluna) {
+    	Armadilha armadilha = checarArmadilha(linha, coluna);
+        if (armadilha != null) armadilha.setVisivel(true);
+
         Monstro monstro = checarMonstro(linha, coluna);
         if (monstro != null) monstro.setVisivel(true);
 
