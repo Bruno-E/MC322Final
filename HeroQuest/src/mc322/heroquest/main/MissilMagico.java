@@ -7,6 +7,7 @@ public class MissilMagico extends MagiaOfensiva {
     public MissilMagico() {
     	this.dano = 6;
     	this.nome = "Missil Magico";
+    	this.alcance = 5;
     }
 
     @Override
