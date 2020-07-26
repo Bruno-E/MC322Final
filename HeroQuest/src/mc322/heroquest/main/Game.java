@@ -261,7 +261,7 @@ public class Game {
     private Mapa construirBusca13() {
     	Mapa mapa = new Mapa();
     	
-    	//TODO Construir mapa correspondente
+    	//Obstaculos
     	Obstaculo obstaculo = new Obstaculo(7,0);
     	mapa.inserirObstaculo(obstaculo);       	
     	obstaculo = new Obstaculo(11,0);
@@ -278,24 +278,24 @@ public class Game {
     	mapa.inserirObstaculo(obstaculo);
     	obstaculo = new Obstaculo(5,13);
     	mapa.inserirObstaculo(obstaculo);
-    	
+    	//goblins
     	Goblin goblin = new Goblin(11,3);
     	mapa.inserirMonstro(goblin);
     	goblin = new Goblin(13,12);
     	mapa.inserirMonstro(goblin);
     	goblin = new Goblin(13,13);
     	mapa.inserirMonstro(goblin);
-    	
+    	//esqueleto
     	Esqueleto esqueleto = new Esqueleto(16,1);
     	mapa.inserirMonstro(esqueleto);
     	esqueleto = new Esqueleto(17,20);
     	mapa.inserirMonstro(esqueleto);
     	esqueleto = new Esqueleto(16,22);
     	mapa.inserirMonstro(esqueleto);
-    	
+    	//esqueleto mago
     	EsqueletoMago esqueletomago = new EsqueletoMago(15,22);
     	mapa.inserirMonstro(esqueletomago);
-    	
+    	//portas
     	Ponto ponto1 = new Ponto(9,2), ponto2 = new Ponto(10,2);
     	Porta porta = new Porta(ponto1, ponto2);    	
     	int noSala = 11;
