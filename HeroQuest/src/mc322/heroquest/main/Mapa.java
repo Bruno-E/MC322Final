@@ -249,6 +249,7 @@ public class Mapa {
     }
     
     // Deve ser usado sempre que uma armadilha eh inserida!!!
+    // retorna false se não inseriu
     public boolean inserirArmadilha(Armadilha armadilha) {
         if (armadilhas == null) armadilhas = new ArrayList<Armadilha>();
         

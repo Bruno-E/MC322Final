@@ -9,40 +9,118 @@ public class Game {
     public Game() {
       fim = false;
     }
+    
+    //TODO Construir mapa correspondente
+    private Mapa construirBusca3() {
+    	Mapa mapa = new Mapa();
+    	
+    	return mapa;
+    }
+    
+    
+    //TODO Construir mapa correspondente
+    private Mapa construirBusca2() {
+    	Mapa mapa = new Mapa();
+    	
+    	return mapa;
+    }
+    
+    
+    //TODO Construir mapa correspondente
+    private Mapa construirBusca10() {
+    	Mapa mapa = new Mapa();
+    	
+    	return mapa;
+    }
+    
+    
+    //TODO Construir mapa correspondente
+    private Mapa construirAleatoio() {
+    	Mapa mapa = new Mapa();
+    	
+    	return mapa;
+    }
+    
 
     public void start() {
         System.out.println("Jogo iniciado.");
         Scanner key = new Scanner(System.in);
-        Heroi personagem;
+        Heroi personagem = new Anao("Default", 0, 0);
+        
         System.out.println("Qual sera o nome do seu personagem?");
         String nome = key.nextLine();
+        
         System.out.println("Qual sera sua classe (Digite o numero): 1.Anao, 2.Barbaro, 3.Elfo, 4.Feiticeiro.");
-        int classe;
+        int classe = -1;
+        Ponto pontoInicial = new Ponto(0, 0);
         do{
         	classe = key.nextInt();
         	if(classe == 1) {
-        		personagem = new Anao(nome);
+        		personagem = new Anao(nome, pontoInicial);
         	}
         	else if(classe == 2) {
-        		personagem = new Barbaro(nome);
+        		personagem = new Barbaro(nome, pontoInicial);
         	}
         	else if(classe == 3) {
-        		personagem = new Elfo(nome);
+        		personagem = new Elfo(nome, pontoInicial);
         	}
         	else if(classe == 4) {
-        		personagem = new Feiticeiro(nome);
+        		personagem = new Feiticeiro(nome, pontoInicial);
         	}
-        } while(classe > 4 && classe < 1);
+        } while(classe > 4 || classe < 1);
+        
+        
+        System.out.println("Digite o numero correspondente ao mapa que deseja:" +
+        				   "\n(1. Busca 3, 2. Busca 2, 3. Busca 10, 42. aleatorio)");
+        int noMapa;
+        Mapa mapa = new Mapa();
+        boolean inputCorreto = false;
+        do {
+        	noMapa = key.nextInt();
+        	switch (noMapa) {
+        		case 1:
+        			mapa = construirBusca3();
+        			inputCorreto = true;
+        			// posicao inicial
+        			personagem.setPosicao(1, 11);
+        			break;
+        		case 2:
+        			mapa = construirBusca2();
+        			inputCorreto = true;
+        			//TODO posicao inicial no mapa
+        			personagem.setPosicao(linha, coluna);
+        			break;
+        		case 3:
+        			mapa = construirBusca10();
+        			inputCorreto = true;
+        			//TODO posicao inicial no mapa
+        			personagem.setPosicao(linha, coluna);
+        			break;
+        		case 42:
+        			mapa = construirAleatoio();
+        			inputCorreto = true;
+        			//TODO posicao inicial no mapa
+        			personagem.setPosicao(linha, coluna);
+        			break;
+        		default:
+        			System.out.println("Entrada invalida.");
+        			break;
+        	}
+        	
+        } while(inputCorreto);
+        
         
         while(!fim) {
-            drawBoard();
-            lerInput(personagem);
-            updateBoard();
+            /* printar mapa
+             * System.out.println(mapa);
+        	*/
+            lerInput(personagem, mapa);
+            mapa.atualizarMonstros(personagem);
         }
         System.out.println("Fim de jogo. Ate logo!");
     }
 
-    public void lerInput(Heroi personagem) {
+    public void lerInput(Heroi personagem, Mapa mapa) {
         int movimento = personagem.jogarDadosAndar();
         System.out.println("Voce pode andar " + movimento + " casas esse turno.");
 
