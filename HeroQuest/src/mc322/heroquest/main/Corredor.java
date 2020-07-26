@@ -1,16 +1,21 @@
 package mc322.heroquest.main;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Corredor {
 	
     private int largura;
     private int altura;
     private boolean visivel;
     private Ponto coordenada;
+    private List<Obstaculo> obstaculos;
     
     public Corredor(Ponto coordenada, int largura, int altura) {
         this.coordenada = coordenada;
         this.largura = largura;
         this.altura = altura;
+        obstaculos = new ArrayList<Obstaculo>();
     }
 
     public int getLargura() {
@@ -59,5 +64,26 @@ public class Corredor {
         }
         return false;
     }
+    
+    
+    public Obstaculo checarObstaculo(int linha, int coluna) {
+    	if (!obstaculos.isEmpty()) {
+	    	for (Obstaculo obstaculo : obstaculos) {
+	    		if (obstaculo.getLinha() == linha && obstaculo.getColuna() == coluna)
+	    			return obstaculo;
+	    	}
+	    }
+    	return null;
+    }
+    public Obstaculo checarObstaculo(Ponto ponto) {
+    	return checarObstaculo(ponto.getLinha(), ponto.getColuna());
+    }
 
 }
+
+
+
+
+
+
+
