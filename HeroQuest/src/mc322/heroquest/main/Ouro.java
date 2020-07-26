@@ -12,5 +12,9 @@ public class Ouro extends Item {
     public String getInformation(){
         return valor + " " + nome;
     }
+    
+    void addValor(int soma) {
+    	this.valor += soma;
+    }
 
 }

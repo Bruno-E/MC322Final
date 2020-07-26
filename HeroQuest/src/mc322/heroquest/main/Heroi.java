@@ -12,6 +12,7 @@ public abstract class Heroi extends ElementoCombate{
     protected int bonusDefesa = 0;
     protected int bonusMovimento = 0;
     protected Armadura armadura;
+    protected Ouro ouro;
 
     protected Heroi(String nome, Ponto posicao) {
     	super(posicao);
@@ -19,6 +20,11 @@ public abstract class Heroi extends ElementoCombate{
         this.movimento = 0;
         this.ArmasAtuais = new Arma[2];
         this.armadura = new Armadura(TipoDeArmaduras.NU);
+        this.ouro = new Ouro(0);
+    }
+    
+    protected void addOuro(int valor) {
+    	ouro.addValor(valor);
     }
     
     protected Ponto getPosicao() {
@@ -219,6 +225,15 @@ public abstract class Heroi extends ElementoCombate{
     	return resultado;
     }
     
+    protected boolean temDuasArmas() {
+    	if(this.ArmasAtuais[1] == null) {
+    		return false;
+    	}
+    	if(ArmasAtuais[0].equals(ArmasAtuais[1])) {
+    		return false;
+    	}
+    	return true;
+    }
     protected boolean eMagico() {
     	return false;
     }
