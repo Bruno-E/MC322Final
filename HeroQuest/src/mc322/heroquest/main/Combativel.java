@@ -1,7 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public interface Combativel {
 
     public void atacar(Combativel i);
