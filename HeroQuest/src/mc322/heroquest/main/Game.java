@@ -93,6 +93,7 @@ public class Game {
                         	acao = keyboard.nextLine();
                         	switch(acao) {
                             	case "a":
+                            		
                             		if(personagem.temDuasArmas()) {
                             			System.out.println("Escolha qual arma voce pretende usar(1 ou 2)");
                             			do {
@@ -100,7 +101,9 @@ public class Game {
                             			}while(opcao != 1 && opcao != 2);
                             			if(opcao == 2) personagem.trocarArmaPrincipal();
                             		}
+                            		
                             		System.out.println("Seu alcance é: " + personagem.getAlcance() );
+                            		
                             		ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
                         			System.out.println("Os monstros no alcance sao:\n");
                         			int j = 1;
@@ -120,28 +123,35 @@ public class Game {
                         					System.out.print("Opcao invalida.");
                         				}
                         			}while(!checagem);
-                            		personagem.atacar(monstros.get(opcao-1));
+                            		
+                        			personagem.atacar(monstros.get(opcao-1));
                             		break;
+                            	
                             	case "s":
                             		if(!personagem.eMagico()) {
                             			System.out.println("Voce nao pode lancar magias.");
                             			break;
                             		}
                             		System.out.println("Voce deseja lancar uma magia defensiva (1) ou ofensiva(2)?");
+                            		
                             		do {
                             			opcao = input.nextInt();
                             			if(opcao != 1 && opcao != 2) {
                             				System.out.println("Opcao invalida. Digite 1 para magias defensivas ou 2 para magias ofensivas.");
                             			}
                             		}while(opcao != 1 && opcao != 2);
+                            		
                             		if(opcao == 1) {
+                            			
                             			if(!((HeroiMagico)personagem).temMagiaDefensiva()) {
                                 			System.out.println("Nao ha magias defensivas disponiveis");
                                 			continue;
                             			}
+                            			
                             			System.out.print(((HeroiMagico)personagem).verificaMagiasDefensivas());
                             			System.out.println("Digite o numero da magia desejada.");
-                                		do {
+                                		
+                            			do {
                                 			opcao = input.nextInt();
                                 			try {
                                 				((HeroiMagico)personagem).usarMagiaDefensiva(opcao);
@@ -155,6 +165,7 @@ public class Game {
                                 			}
                                 		}while(!checagem); 			
                             		}
+                            		
                             		else {
                             			if(!((HeroiMagico)personagem).temMagiaOfensiva()) {
                                 			System.out.println("Nao ha magias ofensivas disponiveis");
@@ -163,13 +174,16 @@ public class Game {
                                 		System.out.print(((HeroiMagico)personagem).verificaMagiasOfensivas());
                             			System.out.println("Digite o numero da magia desejada.");
                             			int magia;
+                            			
                             			do {
                             				opcao = input.nextInt();
-                            					magia = opcao;
-                            					if(((HeroiMagico)personagem).eValido(magia));
+                            				magia = opcao;
+                            				if(((HeroiMagico)personagem).eValido(magia));
                             					checagem = true;                           				
                             			}while(!checagem);
+                            			
                             			ArrayList<Monstro> monstros1= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
+                            			
                             			int i = 1;
                             			System.out.println("Os monstros no alcance sao:\n");
                             			for(Monstro m : monstros1) {
@@ -188,7 +202,8 @@ public class Game {
                             					System.out.print("Opcao invalida.");
                             				}
                             			}while(!checagem);
-                                		((HeroiMagico)personagem).usarMagiaOfensiva(magia, monstro);
+                                		
+                            			((HeroiMagico)personagem).usarMagiaOfensiva(magia, monstro);
 
                             		}
 
@@ -206,6 +221,9 @@ public class Game {
                             					valido = true;
                             				}
                             				catch(ClassCastException e) {
+                            					System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
+                            				}
+                            				catch(NullPointerException e) {
                             					System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
                             				}
                             			}while(!valido);
