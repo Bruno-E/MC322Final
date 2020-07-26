@@ -1,10 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
-/**
- *
- */
 public class Elfo extends HeroiMagico {
 
     private static int VIDA_INICIAL = 6;
