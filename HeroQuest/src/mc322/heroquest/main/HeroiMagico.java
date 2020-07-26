@@ -5,9 +5,10 @@ public abstract class HeroiMagico extends Heroi {
     protected HeroiMagico(String nome, Ponto posicao) {
     	super(nome, posicao);
     }
-
-    protected MagiaOfensiva[] magiasOfensivas = new MagiaOfensiva[10];
-    protected MagiaDefensiva[] magiasDefensivas = new MagiaDefensiva[10];
+    
+    protected static int LIMITE_MAGIA = 10;
+    protected MagiaOfensiva[] magiasOfensivas = new MagiaOfensiva[LIMITE_MAGIA];
+    protected MagiaDefensiva[] magiasDefensivas = new MagiaDefensiva[LIMITE_MAGIA];
     
     @Override 
     protected boolean eMagico() {
@@ -38,13 +39,21 @@ public abstract class HeroiMagico extends Heroi {
     	}
     }
     
-    protected void usarMagiaOfensiva(int pos) {
-    	magiasOfensivas[pos-1].lancar(this);
+    protected boolean eValido(int pos) {
+    	if(this.magiasOfensivas[pos-1] == null) return false;
+    	if(pos<0 || pos > LIMITE_MAGIA) {
+    		return false;
+    	}
+    	return true;
+    }
+    
+    protected void usarMagiaOfensiva(int pos, Monstro monstro) {
+    	magiasOfensivas[pos-1].lancar(this, monstro);
     	arrumarMagiasOfensivas(pos-1);
     }
     
     protected void usarMagiaDefensiva(int pos) {
-    	magiasDefensivas[pos-1].lancar();
+    	magiasDefensivas[pos-1].lancar(this);
     	arrumarMagiasDefensivas(pos-1);
     }
     

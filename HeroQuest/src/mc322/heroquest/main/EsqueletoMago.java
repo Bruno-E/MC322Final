@@ -5,6 +5,7 @@ public class EsqueletoMago extends Monstro {
 	
     public EsqueletoMago(Ponto ponto) {
     	super(ponto);
+    	this.nome = "Esqueleto Mago";
     	this.vida = VIDA_INICIAL;
     	this.dadosAtaque = 1;
     	this.dadosDefesa = 1;

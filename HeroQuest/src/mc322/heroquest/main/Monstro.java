@@ -5,7 +5,8 @@ public abstract class Monstro extends ElementoCombate implements Guardavel{
     public Monstro(Ponto posicao) {
     	super(posicao, false);
     }
-
+    
+    protected String nome;
     protected Arma arma;
     protected int movimento;
 
@@ -22,6 +23,10 @@ public abstract class Monstro extends ElementoCombate implements Guardavel{
         this.vida -= resultado;
       }
     }
+    
+    String getNome() {
+    	return this.nome;
+    }
 
     @Override
     public void defesaMagica(int ataque) {
@@ -35,6 +40,10 @@ public abstract class Monstro extends ElementoCombate implements Guardavel{
       if(resultado > 0) {
         this.vida -= resultado;
       }
+    }
+    
+    public void coletar(Heroi heroi) {
+    	
     }
     
     //TODO
