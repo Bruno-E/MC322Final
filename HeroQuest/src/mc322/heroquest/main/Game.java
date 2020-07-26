@@ -92,11 +92,15 @@ public class Game {
                             	case "a":
                             		if(personagem.temDuasArmas()) {
                             			System.out.println("Escolha qual arma voce pretende usar(1 ou 2)");
+                            			do {
                             			opcao = input.nextInt();
+                            			}while(opcao != 1 && opcao != 2);
                             			if(opcao == 2) personagem.trocarArmaPrincipal();
                             		}
-                            		
-                            		
+                            		System.out.println("Seu alcance é: " + personagem.getAlcance() );
+                            		//ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
+                            		System.out.println("Digite o numero do seu alvo.");
+                            		personagem.atacar(monstros.get(opcao-1));
                             		break;
                             	case "s":
                             		if(!personagem.eMagico()) {

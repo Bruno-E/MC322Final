@@ -88,6 +88,10 @@ public abstract class Heroi extends ElementoCombate{
     	ArmasAtuais[1] = tmp;
     }
     
+    protected int getAlcance() {
+    	return this.ArmasAtuais[0].getAlcance();
+    }
+    
     @Override
     public void atacar(Combativel inimigo) {
         DadoCombate dado = new DadoCombate();
