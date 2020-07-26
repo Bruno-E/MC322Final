@@ -2,7 +2,9 @@ package mc322.heroquest.main;
 
 public class Goblin extends Monstro {
 	
+	private int noPunhais;
 	private static int VIDA_INICIAL = 3;
+	
     public Goblin(Ponto ponto) {
     	super(ponto);
     	this.vida = 3;
@@ -13,8 +15,10 @@ public class Goblin extends Monstro {
     	this.arma = new Arma(TipoDeArmas.PUNHAL);
     	this.noPunhais = 4;
     }
+    public Goblin(int linha, int coluna) {
+    	this(new Ponto(linha, coluna));
+    }
     
-    private int noPunhais;
     
     public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {

@@ -16,6 +16,9 @@ public class Elfo extends HeroiMagico {
         this.magiasDefensivas[0] = new CuraSimples();
         this.ArmasAtuais[0] = new Arma(TipoDeArmas.ESPADA_CURTA);
     }
+    public Elfo(String nome, int linha, int coluna) {
+    	this(nome, new Ponto(linha, coluna));
+    }
     
     public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {

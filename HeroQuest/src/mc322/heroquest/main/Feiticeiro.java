@@ -22,6 +22,9 @@ public class Feiticeiro extends HeroiMagico {
         this.magiasOfensivas[3] = new BolaFogo();
         this.magiasDefensivas[0] = new Teleporte();
     }
+    public Feiticeiro(String nome, int linha, int coluna) {
+    	this(nome, new Ponto(linha, coluna));
+    }
     
     public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {

@@ -12,6 +12,9 @@ public class Esqueleto extends Monstro {
     	this.movimento = 4;
     	this.arma = new Arma(TipoDeArmas.PUNHO);
     }
+	public Esqueleto(int linha, int coluna) {
+    	this(new Ponto(linha, coluna));
+    }
     
     public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {
