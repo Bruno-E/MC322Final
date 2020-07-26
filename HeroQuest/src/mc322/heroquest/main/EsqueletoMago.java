@@ -27,5 +27,9 @@ public class EsqueletoMago extends Monstro {
     		this.vida += vida;
     	}
     }
+    @Override
+	public String toString(){
+        return "EM";
+    }
 
 }

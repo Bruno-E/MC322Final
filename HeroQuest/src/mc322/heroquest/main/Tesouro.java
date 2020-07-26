@@ -7,7 +7,7 @@ public class Tesouro extends Elemento {
     
     // TODO Substituir Item por Object nesta classe e fazer um try-catch com
     // um cast (Item) e um (Elemento) ao usar abrirTesouro() no game seria uma boa?
-    // acho que n„o tem problema ser static mesmo
+    // acho que n√£o tem problema ser static mesmo
     //
     // Ou talvez fazer um enum com os nomes das coisas que podem sair do tesouro (TesouroPossivel),
     // retornar o enum aleatorio em abrirTesouro, fazer um switch com esse valor e spawnar no mapa
@@ -27,6 +27,10 @@ public class Tesouro extends Elemento {
     public Guardavel abrirTesouro(Heroi heroi){
         Random valor = new Random();
         return itens[valor.nextInt(12)];
+    }
+    @Override
+	public String toString(){
+        return "Te";
     }
 }
 
