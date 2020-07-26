@@ -2,24 +2,18 @@ package mc322.heroquest.main;
 
 public abstract class Elemento {
 
-    protected boolean visivel;
+    protected boolean visivel, vazio;
     protected Ponto posicao;
     
-    protected Elemento(Ponto posicao) {
+    protected Elemento(boolean vazio, Ponto posicao, boolean visibilidade) {
         this.posicao = posicao;
-    }
-    
-    public Elemento(int linha, int coluna) {
-        setPosicao(linha, coluna);
-    }
-
-    public Elemento(Ponto posicao, boolean visibilidade) {
-        this(posicao);
+        this.vazio = vazio;
         visivel = visibilidade;
     }
     
-    public Elemento(int linha, int coluna, boolean visibilidade) {
-        this(linha, coluna);
+    public Elemento(boolean vazio, int linha, int coluna, boolean visibilidade) {
+        setPosicao(linha, coluna);
+        this.vazio = vazio;
         visivel = visibilidade;
     }
 
@@ -35,9 +29,18 @@ public abstract class Elemento {
     public void setPosicao(int linha, int coluna) {
         posicao = new Ponto(linha, coluna);
     }
-
+    
+    public boolean getVisivel() {
+    	return visivel;
+    }
     public void setVisivel(boolean visibilidade) {
         visivel = visibilidade;
+    }
+    public boolean getVazio() {
+    	return vazio;
+    }
+    public void setVazio(boolean vazio) {
+        this.vazio = vazio;
     }
 
 }
