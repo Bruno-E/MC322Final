@@ -258,10 +258,140 @@ public class Game {
     }
     
     
-    private Mapa construirBusca10() {
+    private Mapa construirBusca13() {
     	Mapa mapa = new Mapa();
     	
-    	//TODO Construir mapa correspondente
+    	//Obstaculos
+    	Obstaculo obstaculo = new Obstaculo(7,0);
+    	mapa.inserirObstaculo(obstaculo);       	
+    	obstaculo = new Obstaculo(11,0);
+    	mapa.inserirObstaculo(obstaculo);    	
+    	obstaculo = new Obstaculo(9,6);
+    	mapa.inserirObstaculo(obstaculo);  	
+    	obstaculo = new Obstaculo(9,20);
+    	mapa.inserirObstaculo(obstaculo);
+    	obstaculo = new Obstaculo(18,1);
+    	mapa.inserirObstaculo(obstaculo);
+    	obstaculo = new Obstaculo(18,24);
+    	mapa.inserirObstaculo(obstaculo);
+    	obstaculo = new Obstaculo(5,12);
+    	mapa.inserirObstaculo(obstaculo);
+    	obstaculo = new Obstaculo(5,13);
+    	mapa.inserirObstaculo(obstaculo);
+    	//goblins
+    	Goblin goblin = new Goblin(11,3);
+    	mapa.inserirMonstro(goblin);
+    	goblin = new Goblin(13,12);
+    	mapa.inserirMonstro(goblin);
+    	goblin = new Goblin(13,13);
+    	mapa.inserirMonstro(goblin);
+    	//esqueleto
+    	Esqueleto esqueleto = new Esqueleto(16,1);
+    	mapa.inserirMonstro(esqueleto);
+    	esqueleto = new Esqueleto(17,20);
+    	mapa.inserirMonstro(esqueleto);
+    	esqueleto = new Esqueleto(16,22);
+    	mapa.inserirMonstro(esqueleto);
+    	//esqueleto mago
+    	EsqueletoMago esqueletomago = new EsqueletoMago(15,22);
+    	mapa.inserirMonstro(esqueletomago);
+    	//portas
+    	Ponto ponto1 = new Ponto(9,2), ponto2 = new Ponto(10,2);
+    	Porta porta = new Porta(ponto1, ponto2);    	
+    	int noSala = 11;
+    	Sala sala = mapa.getSala(11);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(9,7);
+    	ponto2 = new Ponto(10,7);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 13;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(9,9);
+    	ponto2 = new Ponto(9,10);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 10;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(9,15);
+    	ponto2 = new Ponto(9,16);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 10;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(6,12);
+    	ponto2 = new Ponto(7,12);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 10;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(11,12);
+    	ponto2 = new Ponto(12,12);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 10;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(9,19);
+    	ponto2 = new Ponto(8,19);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 8;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(17,3);
+    	ponto2 = new Ponto(18,3);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 19;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(11,4);
+    	ponto2 = new Ponto(11,5);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 12;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(13,2);
+    	ponto2 = new Ponto(14,2);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 19;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(17,3);
+    	ponto2 = new Ponto(18,3);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 19;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(17,4);
+    	ponto2 = new Ponto(17,5);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 16;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(18,22);
+    	ponto2 = new Ponto(17,22);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 21;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(18,19);
+    	ponto2 = new Ponto(17,19);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 20;
+    	sala = mapa.getSala(noSala);
+    	sala.adicionarPorta(porta);
     	
     	return mapa;
     }
@@ -305,7 +435,7 @@ public class Game {
         
         
         System.out.println("Digite o numero correspondente ao mapa que deseja:" +
-        				   "\n(1. Busca 3, 2. Busca 2, 3. Busca 10, 42. aleatorio)");
+        				   "\n(1. Busca 3, 2. Busca 2, 3. Busca 13, 42. aleatorio)");
         int noMapa;
         Mapa mapa = new Mapa();
         boolean inputCorreto = false;
@@ -325,10 +455,10 @@ public class Game {
         			personagem.setPosicao(linha, coluna);
         			break;
         		case 3:
-        			mapa = construirBusca10();
+        			mapa = construirBusca13();
         			inputCorreto = true;
         			//TODO posicao inicial no mapa
-        			personagem.setPosicao(linha, coluna);
+        			personagem.setPosicao(9, 14);
         			break;
         		case 42:
         			mapa = construirAleatoio();
