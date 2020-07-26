@@ -185,6 +185,20 @@ public class Mapa {
         int linha = elemento.getLinha(),
             coluna = elemento.getColuna();
         
+        Sala sala = checarSala(elemento.getPosicao());
+        if (sala != null) elemento.setVisivel(sala.getVisivel());
+        
+        ArrayList<Corredor> corredores = checarCorredor(elemento.getPosicao());
+        if (!corredores.isEmpty())
+        	for (Corredor corr : corredores) {
+        		if (corr.getVisivel()) {
+        			elemento.setVisivel(true);
+        			break;
+        		}
+        		else elemento.setVisivel(false);
+        		
+        	}
+        
         if (elementos[linha][coluna] == null) {
             elementos[linha][coluna] = elemento;
             return true;
