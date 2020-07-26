@@ -7,6 +7,7 @@ public class Goblin extends Monstro {
 	
     public Goblin(Ponto ponto) {
     	super(ponto);
+    	this.nome = "Goblin";
     	this.vida = 3;
     	this.dadosAtaque = 2;
     	this.dadosDefesa = 1;

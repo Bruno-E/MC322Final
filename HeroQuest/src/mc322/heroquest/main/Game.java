@@ -1,5 +1,6 @@
 package mc322.heroquest.main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -84,6 +85,8 @@ public class Game {
                     else {
                         System.out.println("Escolha uma acao entre : atacar (a), usar magia (s), tomar pocao (q), procurar (f)");
                         String acao;
+                        Monstro monstro;
+                        boolean checagem = false;
                         Scanner input = new Scanner(System.in);
                         int opcao;
                         do {
@@ -98,8 +101,25 @@ public class Game {
                             			if(opcao == 2) personagem.trocarArmaPrincipal();
                             		}
                             		System.out.println("Seu alcance é: " + personagem.getAlcance() );
-                            		//ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
+                            		ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
+                        			System.out.println("Os monstros no alcance sao:\n");
+                        			int j = 1;
+                        			for(Monstro m : monstros) {
+                        				System.out.println(j + ". " + m.getNome() + "\n");
+                        				j++;
+                        			}
+                        			
                             		System.out.println("Digite o numero do seu alvo.");
+                        			do {
+                        				opcao = input.nextInt();
+                        				try {
+                        					monstro = monstros.get(opcao-1);
+                        					checagem = true;
+                        				}
+                        				catch(IndexOutOfBoundsException e) {
+                        					System.out.print("Opcao invalida.");
+                        				}
+                        			}while(!checagem);
                             		personagem.atacar(monstros.get(opcao-1));
                             		break;
                             	case "s":
@@ -121,7 +141,6 @@ public class Game {
                             			}
                             			System.out.print(((HeroiMagico)personagem).verificaMagiasDefensivas());
                             			System.out.println("Digite o numero da magia desejada.");
-                                		boolean checagem = false;
                                 		do {
                                 			opcao = input.nextInt();
                                 			try {
@@ -131,6 +150,9 @@ public class Game {
                                 			catch(NullPointerException e) {
                                 				System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
                                 			}
+                                			catch(ArrayIndexOutOfBoundsException e) {
+                                				System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
+                                			}
                                 		}while(!checagem); 			
                             		}
                             		else {
@@ -138,21 +160,38 @@ public class Game {
                                 			System.out.println("Nao ha magias ofensivas disponiveis");
                                 			continue;
                             			}
-                            			System.out.print(((HeroiMagico)personagem).verificaMagiasOfensivas());
+                                		System.out.print(((HeroiMagico)personagem).verificaMagiasOfensivas());
                             			System.out.println("Digite o numero da magia desejada.");
-                            			//ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
-                                		boolean checagem = false;
-                                		do {
-                                			opcao = input.nextInt();
-                                			try {
-                                				((HeroiMagico)personagem).usarMagiaOfensiva(opcao);
-                                				checagem = true;
-                                			}
-                                			catch(NullPointerException e) {
-                                				System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
-                                			}
-                                		}while(!checagem); 	                           			
+                            			int magia;
+                            			do {
+                            				opcao = input.nextInt();
+                            					magia = opcao;
+                            					if(((HeroiMagico)personagem).eValido(magia));
+                            					checagem = true;                           				
+                            			}while(!checagem);
+                            			ArrayList<Monstro> monstros1= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
+                            			int i = 1;
+                            			System.out.println("Os monstros no alcance sao:\n");
+                            			for(Monstro m : monstros1) {
+                            				System.out.println(i + ". " + m.getNome() + "\n");
+                            				i++;
+                            			}
+                            			
+                            			System.out.println("Escolha o monstro desejado.");
+                            			do {
+                            				opcao = input.nextInt();
+                            				try {
+                            					monstro = monstros1.get(opcao-1);
+                            					checagem = true;
+                            				}
+                            				catch(IndexOutOfBoundsException e) {
+                            					System.out.print("Opcao invalida.");
+                            				}
+                            			}while(!checagem);
+                                		((HeroiMagico)personagem).usarMagiaOfensiva(magia, monstro);
+
                             		}
+
                             		acaoDisponivel = false;
                             		break;		                            		
                             	case "q":
