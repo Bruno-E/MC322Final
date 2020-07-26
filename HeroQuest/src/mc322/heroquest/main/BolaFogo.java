@@ -9,7 +9,7 @@ public class BolaFogo extends MagiaOfensiva {
     public BolaFogo() {
     	this.dano = 4;
     	this.nome = "Bola de Fogo";
-    	this.alcance = 4;
+    	this.alcance = 5;
     }
     
     @Override
