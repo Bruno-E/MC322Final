@@ -27,5 +27,10 @@ public class Anao extends Heroi {
     		this.vida += vida;
     	}
     }
+    
+    @Override
+	public String toString(){
+        return "An";
+    }
 
 }

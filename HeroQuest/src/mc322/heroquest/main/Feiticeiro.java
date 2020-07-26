@@ -34,5 +34,9 @@ public class Feiticeiro extends HeroiMagico {
     		this.vida += vida;
     	}
     }
+    @Override
+	public String toString(){
+        return "Fe";
+    }
 
 }

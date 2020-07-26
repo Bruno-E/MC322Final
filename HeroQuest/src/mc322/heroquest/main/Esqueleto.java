@@ -25,4 +25,14 @@ public class Esqueleto extends Monstro {
     		this.vida += vida;
     	}
     }
+
+    
+    @Override
+    protected void mover(Heroi heroi) {
+    	
+	}
+    @Override
+	public String toString(){
+        return "Es";
+    }
 }
