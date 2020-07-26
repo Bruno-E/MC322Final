@@ -104,6 +104,9 @@ public class Game {
 	    	porta = new Porta(ponto0, ponto1);
 	    	sala = mapa.getSala(noSala);
 	    	sala.adicionarPorta(porta);
+	        //colocando tesouro nesta sala
+	    	tesouro= new Tesouro(10,8);
+	    	sala.adicionarTesouro(tesouro);
 	    	
 	    	ponto0 = new Ponto(13, 2); 
 	    	ponto1 = new Ponto(14, 2);
@@ -225,13 +228,16 @@ public class Game {
 	    	porta = new Porta(ponto0, ponto1);
 	    	sala = mapa.getSala(noSala);
 	    	sala.adicionarPorta(porta);
-	    	
+	    
 	    	ponto0 = new Ponto(6,20); 
 	    	ponto1 = new Ponto(6,21);
 	    	noSala =8;
 	    	porta = new Porta(ponto0, ponto1);
 	    	sala = mapa.getSala(noSala);
 	    	sala.adicionarPorta(porta);
+	    	//colocando um tesouro nessa sala
+	    	tesouro= new Tesouro(8,19);
+	    	sala.adicionarTesouro(tesouro);
 	    	
 	    	ponto0 = new Ponto(11,6); 
 	    	ponto1 = new Ponto(11,7);
@@ -239,6 +245,9 @@ public class Game {
 	    	porta = new Porta(ponto0, ponto1);
 	    	sala = mapa.getSala(noSala);
 	    	sala.adicionarPorta(porta);
+	    	//colocando um tesouro nesta sala
+	    	tesouro= new Tesouro(11,5);
+	    	sala.adicionarTesouro(tesouro);
 	    	    	
 	    	ponto0 = new Ponto(4,19); 
 	    	ponto1 = new Ponto(5,19);
