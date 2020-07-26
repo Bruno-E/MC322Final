@@ -28,5 +28,9 @@ public class Elfo extends HeroiMagico {
     		this.vida += vida;
     	}
     }
+    @Override 
+    protected String toString(){
+        return "El"
+    }
 
 }
