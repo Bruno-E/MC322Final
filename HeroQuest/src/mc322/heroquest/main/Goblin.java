@@ -29,5 +29,9 @@ public class Goblin extends Monstro {
     		this.vida += vida;
     	}
     }
+    @Override 
+    protected String toString(){
+        return "Go"
+    }
     
 }
