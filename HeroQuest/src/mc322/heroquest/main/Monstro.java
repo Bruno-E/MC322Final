@@ -46,8 +46,7 @@ public abstract class Monstro extends ElementoCombate implements Guardavel{
     	
     }
     
-    protected void mover() {
+    protected abstract void mover(Heroi heroi); 
     	
-    }
 
 }

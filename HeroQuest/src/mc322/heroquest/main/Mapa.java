@@ -140,14 +140,14 @@ public class Mapa {
     
     
     // retorna um monstro se houver e se for visivel
-    public Monstro checarMonstro(int linha, int coluna) {
+    private Monstro checarMonstro(int linha, int coluna) {
         for (Monstro monstro : monstros) {
             if (monstro.getLinha() == linha && monstro.getColuna() == coluna)
             	if(monstro.getVisivel()) return monstro;
         }
         return null;
     }
-    public Monstro checarMonstro(Ponto ponto) {
+    private Monstro checarMonstro(Ponto ponto) {
     	int linha = ponto.getLinha(),
     		coluna = ponto .getColuna();
     	return checarMonstro(linha, coluna);
