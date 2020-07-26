@@ -38,5 +38,9 @@ public abstract class Elemento {
     protected void setVisivel(boolean visibilidade) {
         visivel = visibilidade;
     }
+    @Override 
+    protected String toString(){
+        return "An"
+    }
 
 }
