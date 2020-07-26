@@ -14,5 +14,9 @@ public class Porta {
         pontos[1] = ponto1;
         return pontos;
     }
+        @Override 
+    protected String toString(){
+        return "Po"
+    }
 
 }
