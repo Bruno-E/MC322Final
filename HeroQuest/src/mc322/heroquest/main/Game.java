@@ -111,18 +111,18 @@ public class Game {
         
         
         while(!fim) {
-<<<<<<< HEAD
+
             drawBoard();
             lerInput(personagem);
             
             updateBoard();
-=======
+
             /* printar mapa
              * System.out.println(mapa);
         	*/
             lerInput(personagem, mapa);
             mapa.atualizarMonstros(personagem);
->>>>>>> branch 'master' of https://github.com/Bruno-E/MC322Final.git
+
         }
         System.out.println("Fim de jogo. Ate logo!");
     }
@@ -188,7 +188,7 @@ public class Game {
                             			if(opcao == 2) personagem.trocarArmaPrincipal();
                             		}
                             		
-                            		System.out.println("Seu alcance é: " + personagem.getAlcance() );
+                            		System.out.println("Seu alcance Ã©: " + personagem.getAlcance() );
                             		
                             		ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
                         			System.out.println("Os monstros no alcance sao:\n");
