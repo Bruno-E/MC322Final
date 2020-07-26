@@ -1,6 +1,6 @@
 package mc322.heroquest.main;
 
-public abstract class Armadilha extends Elemento implements Guardavel{
+public abstract class Armadilha extends Elemento implements Coletavel{
 	
 	protected int dano;
 	
@@ -17,7 +17,7 @@ public abstract class Armadilha extends Elemento implements Guardavel{
     	ativar(heroi);
     }
     @Override 
-    protected String toString(){
+    public String toString(){
         return "Ar";
     }
 

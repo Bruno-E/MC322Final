@@ -1,6 +1,6 @@
 package mc322.heroquest.main;
 
-public abstract class Pocao extends Item implements Guardavel {
+public abstract class Pocao extends Item implements Coletavel {
 	
     public Pocao() {
     	this.nome = "Pocao";
@@ -10,8 +10,8 @@ public abstract class Pocao extends Item implements Guardavel {
 
     protected abstract void usar(Heroi heroi);
     
-    public void coletar(Heroi heroi) {
-    	heroi.adcItem(this);
+    public boolean coletar(Heroi heroi, Mapa mapa) {
+    	return heroi.adcItem(this);
     }
 
 }
