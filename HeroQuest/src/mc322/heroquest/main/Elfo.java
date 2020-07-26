@@ -13,13 +13,11 @@ public class Elfo extends HeroiMagico {
         this.inteligencia = INT_INICIAL;
         this.bonusAtaque = ATQ_INICIAL;
         this.bonusDefesa = DFS_INICIAL;
-        this.magias = new Magia[10];
-        this.magias[0] = new CuraSimples();
+        this.magiasDefensivas[0] = new CuraSimples();
         this.ArmasAtuais[0] = new Arma(TipoDeArmas.ESPADA_CURTA);
     }
     
-    @Override
-    protected void restauraVida(int vida) {
+    public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {
     		this.vida = VIDA_INICIAL;
     	}

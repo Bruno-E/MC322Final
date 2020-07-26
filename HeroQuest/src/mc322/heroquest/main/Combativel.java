@@ -6,4 +6,5 @@ public interface Combativel {
     public void defender(int ataque);
     public void defesaMagica(int ataque);
     public int getInteligencia();
+    public void restauraVida(int vida);
 }

@@ -95,24 +95,62 @@ public class Game {
                             			System.out.println("Você não pode lançar magias.");
                             			break;
                             		}
-                            		//TODO: Funcao para verificar os monstros disponiveis no alcance
-                            		ArrayList<Monstro> = mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
-                            		System.out.println("Digite o numero da magia desejada.");
+                            		System.out.println("Você deseja lançar uma magia defensiva (1) ou ofensiva(2)?");
                             		Scanner key;
-                            		int opcao = key.nextInt();
-                            		((HeroiMagico)personagem).usarMagia(opcao);
+                            		int opcao;
+                            		do {
+                            			opcao = key.nextInt();
+                            			if(opcao != 1 && opcao != 2) {
+                            				System.out.println("Opcao invalida. Digite 1 para magias defensivas ou 2 para magias ofensivas.");
+                            			}
+                            		}while(opcao != 1 && opcao != 2);
+                            		if(opcao == 1) {
+                            			if(!((HeroiMagico)personagem).temMagiaDefensiva()) {
+                                			System.out.println("Nao ha magias defensivas disponiveis");
+                                			continue;
+                            			}
+                            			System.out.print(((HeroiMagico)personagem).verificaMagiasDefensivas());
+                            			System.out.println("Digite o numero da magia desejada.");
+                                		boolean checagem = false;
+                                		do {
+                                			opcao = key.nextInt();
+                                			try {
+                                				((HeroiMagico)personagem).usarMagiaDefensiva(opcao);
+                                				checagem = true;
+                                			}
+                                			catch(NullPointerException e) {
+                                				System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
+                                			}
+                                		}while(!checagem); 			
+                            		}
+                            		else {
+                            			
+                            		}
                             		acaoDisponivel = false;
                             		break;
+                            		//TODO: Funcao para verificar os monstros disponiveis no alcance
+                            		//ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
+                            		/*boolean checagem = false;
+                            		do {
+                            			try {
+                            				((HeroiMagico)personagem).usarMagiaDefensiva(opcao);
+                            				checagem = true;
+                            			}
+                            			catch(NullPointerException e) {
+                            				System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
+                            			}
+                            		}while(!checagem);*/		                            		
                             	case "q":
                             		if(personagem.temPocao()) {
                             			System.out.print(personagem.verificaMochila("Pocao"));
                             			System.out.println("Digite o numero da pocao desejada.");
                             			Scanner teclado;
                             			boolean valido = false;
-                            			int opcao = teclado.nextInt();
+                            			int opcao1;
                             			do {
+                            				opcao1 = teclado.nextInt();
                             				try {
-                            					personagem.usarPocao(opcao);
+                            					personagem.usarPocao(opcao1);
                             					valido = true;
                             				}
                             				catch(ClassCastException e) {
@@ -121,11 +159,11 @@ public class Game {
                             			}while(!valido);
                             			acaoDisponivel = false;
                             			break;
-                            			}
-                            			else {
-                            				System.out.println("Nao ha pocoes disponiveis");
-                            				continue;
-                            			}
+                            		}
+                            		else {
+                            			System.out.println("Nao ha pocoes disponiveis");
+                            			continue;
+                            		}
                             	case "f":
                             		//chama a funcao de olhar armadilhas no mapa
                             		break;

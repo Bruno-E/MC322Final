@@ -10,6 +10,5 @@ public abstract class Magia {
     protected String getNome() {
     	return this.nome;
     }
-    protected abstract void lancar();
 
 }
