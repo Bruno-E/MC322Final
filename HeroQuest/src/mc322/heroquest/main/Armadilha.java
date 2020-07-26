@@ -3,8 +3,7 @@ package mc322.heroquest.main;
 public abstract class Armadilha extends Elemento implements Guardavel{
 //
     protected Armadilha(Ponto posicao) {
-    	super(posicao);
-    	this.visivel = false;
+    	super(posicao, false);
     }
 
     protected int dano;

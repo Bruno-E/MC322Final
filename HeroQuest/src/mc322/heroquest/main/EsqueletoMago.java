@@ -3,7 +3,8 @@ package mc322.heroquest.main;
 public class EsqueletoMago extends Monstro {
 	private static int VIDA_INICIAL = 2;
 	
-    public EsqueletoMago() {
+    public EsqueletoMago(Ponto ponto) {
+    	super(ponto);
     	this.vida = VIDA_INICIAL;
     	this.dadosAtaque = 1;
     	this.dadosDefesa = 1;

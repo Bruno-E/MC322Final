@@ -1,8 +1,10 @@
 package mc322.heroquest.main;
 
 public class Goblin extends Monstro {
+	
 	private static int VIDA_INICIAL = 3;
-    public Goblin() {
+    public Goblin(Ponto ponto) {
+    	super(ponto);
     	this.vida = 3;
     	this.dadosAtaque = 2;
     	this.dadosDefesa = 1;
@@ -21,5 +23,11 @@ public class Goblin extends Monstro {
     	else {
     		this.vida += vida;
     	}
+    }
+    
+    //TODO
+    @Override
+    public void mover(Heroi heroi) {
+    	
     }
 }

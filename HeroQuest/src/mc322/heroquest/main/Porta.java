@@ -10,8 +10,8 @@ public class Porta {
 
     public Ponto[] getPontos() {
         Ponto[] pontos = new Ponto[2];
-        pontos[0] = ponto1;
-        pontos[1] = ponto2;
+        pontos[0] = ponto0;
+        pontos[1] = ponto1;
         return pontos;
     }
 

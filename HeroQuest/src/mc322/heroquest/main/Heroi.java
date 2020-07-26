@@ -15,7 +15,7 @@ public abstract class Heroi extends ElementoCombate{
     protected Ouro ouro;
 
     protected Heroi(String nome, Ponto posicao) {
-    	super(posicao);
+    	super(posicao, true);
         this.nome = nome;
         this.movimento = 0;
         this.ArmasAtuais = new Arma[2];
@@ -145,6 +145,7 @@ public abstract class Heroi extends ElementoCombate{
     protected void vasculhar(Mapa mapa) {
         Sala sala = mapa.checarSala(posicao);
         if(sala != null) {
+        	sala.setVisivel(true);
             int[] limites = sala.getLimitesSupInfEsqDir();
             int linhaSuperior = limites[0],
                 linhaInferior = limites[1],
