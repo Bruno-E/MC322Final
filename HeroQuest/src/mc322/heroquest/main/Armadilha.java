@@ -16,5 +16,9 @@ public abstract class Armadilha extends Elemento implements Guardavel{
     public void coletar(Heroi heroi) {
     	ativar(heroi);
     }
+    @Override 
+    protected String toString(){
+        return "Ar"
+    }
 
 }
