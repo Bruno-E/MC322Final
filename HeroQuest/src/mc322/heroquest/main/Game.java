@@ -471,7 +471,7 @@ public class Game {
         			break;
         	}
         	
-        } while(inputCorreto);
+        } while(!inputCorreto);
         
         
         while(!fim) {
