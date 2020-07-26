@@ -25,7 +25,7 @@ public class Tesouro extends Elemento {
     }
     
     // TODO Onde ela eh usada?
-    public Coletavel abrirTesouro(Heroi heroi){
+    public Coletavel abrirTesouro(){
         Random valor = new Random();
         return itens[valor.nextInt(12)];
     }

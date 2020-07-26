@@ -184,6 +184,9 @@ public abstract class Heroi extends ElementoCombate{
         Sala sala = mapa.checarSala(posicao);
         if(sala != null) {
         	sala.setVisivel(true);
+        	Tesouro tesouro = sala.getTesouro();
+        	if (tesouro != null) tesouro.abrirTesouro().coletar(this, mapa);
+        	sala.removerTesouro();
             int[] limites = sala.getLimitesSupInfEsqDir();
             int linhaSuperior = limites[0],
                 linhaInferior = limites[1],

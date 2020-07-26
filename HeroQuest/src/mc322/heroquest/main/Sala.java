@@ -9,12 +9,14 @@ public class Sala {
     private int altura;
     private boolean visivel;
     private Ponto coordenada;
+    private Tesouro tesouro;
     private List<Porta> portas;
     
     public Sala(Ponto coordenada, int largura, int altura) {
         this.coordenada = coordenada;
         this.largura = largura;
         this.altura = altura;
+        tesouro = null;
     }
 
     public int getLargura() {
@@ -93,6 +95,28 @@ public class Sala {
         	return true;
         }
     }
+    
+    public boolean adicionarTesouro(Tesouro tesouro) {
+    	if (this.tesouro == null) {
+    		this.tesouro = tesouro;
+    		return true;
+    	}
+    	else return false;
+    }
+    public void removerTesouro() {
+    	tesouro = null;
+    }
+    public Tesouro getTesouro() {
+    	 return tesouro;
+    }
 
 }
+
+
+
+
+
+
+
+
 
