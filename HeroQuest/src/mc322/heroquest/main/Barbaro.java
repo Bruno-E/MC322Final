@@ -28,5 +28,9 @@ public class Barbaro extends Heroi {
     		this.vida += vida;
     	}
     }
+    @Override 
+    protected String toString(){
+        return "Ba"
+    }
 
 }
