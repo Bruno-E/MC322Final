@@ -1,7 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public class Barbaro extends Heroi {
 
     private static int VIDA_INICIAL = 8;
