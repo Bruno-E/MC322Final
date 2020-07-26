@@ -3,7 +3,7 @@ package mc322.heroquest.main;
 import java.util.Random;
 
 public class Tesouro extends Elemento {
-    private Guardavel[] itens;
+    private Coletavel[] itens;
     
     // TODO Substituir Item por Object nesta classe e fazer um try-catch com
     // um cast (Item) e um (Elemento) ao usar abrirTesouro() no game seria uma boa?
@@ -15,8 +15,8 @@ public class Tesouro extends Elemento {
     
     public Tesouro(Ponto ponto) {
     	super(ponto, false);
-        itens = new Guardavel[] {new Ouro(10), new Ouro(20), new Ouro(25),
-			        		new Ouro(50),new PocaoCura(), new PocaoResiliencia(),
+        itens = new Coletavel[] {new Ouro(10), new Ouro(20), new Ouro(25),
+			        		new Ouro(50), new PocaoCura(), new PocaoResiliencia(),
 			        		new PocaoForca(), new PocaoVelocidade(), new ArmadilhaFlecha(ponto),
 			        		new Goblin(ponto), new Esqueleto(ponto), new EsqueletoMago(ponto) };
     }
@@ -24,7 +24,8 @@ public class Tesouro extends Elemento {
     	this(new Ponto(linha, coluna));
     }
     
-    public Guardavel abrirTesouro(Heroi heroi){
+    // TODO Onde ela eh usada?
+    public Coletavel abrirTesouro(Heroi heroi){
         Random valor = new Random();
         return itens[valor.nextInt(12)];
     }

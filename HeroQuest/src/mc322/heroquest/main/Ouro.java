@@ -1,6 +1,6 @@
 package mc322.heroquest.main;
 
-public class Ouro extends Item implements Guardavel{   
+public class Ouro extends Item {   
     private int valor;
     
     public Ouro(int valor) {
@@ -17,8 +17,11 @@ public class Ouro extends Item implements Guardavel{
     	this.valor += soma;
     }
     
-    public void coletar(Heroi heroi) {
-    	heroi.addOuro(valor);
+    public boolean coletar(Heroi heroi, Mapa mapa) {
+    	return heroi.addOuro(valor);
     }
 
 }
+
+
+

@@ -124,9 +124,135 @@ public class Game {
     
     
     private Mapa construirBusca2() {
-    	Mapa mapa = new Mapa();
+	Mapa mapa = new Mapa();
     	
-    	//TODO Construir mapa correspondente
+    	// Obstaculos
+    	Obstaculo obstaculo  = new Obstaculo(5,12);
+    	mapa.inserirObstaculo(obstaculo);
+    	
+	    	//sempre repete
+	    	obstaculo = new Obstaculo(5, 13);
+	    	mapa.inserirObstaculo(obstaculo);
+	    	
+	    	obstaculo = new Obstaculo(9, 1);
+	    	mapa.inserirObstaculo(obstaculo);
+	    	    	
+	    	obstaculo = new Obstaculo(9, 24);
+	    	mapa.inserirObstaculo(obstaculo);
+	    	    	
+	    	obstaculo = new Obstaculo(18, 9);
+	    	mapa.inserirObstaculo(obstaculo);
+	    
+	    	obstaculo = new Obstaculo(18,14);
+	    	mapa.inserirObstaculo(obstaculo);
+    	
+    	// Goblins
+    	Goblin goblin = new Goblin(15,10);
+    	mapa.inserirMonstro(goblin);
+    	
+	    	// sempre repete
+	    	goblin = new Goblin(15,8);
+	    	mapa.inserirMonstro(goblin);
+	    	
+	    	goblin = new Goblin(3,15);
+	    	mapa.inserirMonstro(goblin);
+    	
+    	// Esqueleto
+    	Esqueleto esqueleto = new Esqueleto(12, 2);
+    	mapa.inserirMonstro(esqueleto);
+    	
+	    	// sempre repete
+	    	esqueleto = new Esqueleto(7,19);
+	    	mapa.inserirMonstro(esqueleto);
+	    	
+	    	esqueleto = new Esqueleto(6,23);
+	    	mapa.inserirMonstro(esqueleto);
+    	
+    	// EsqueletoMago
+    	EsqueletoMago esqueletoMago = new EsqueletoMago(11, 8);
+    	mapa.inserirMonstro(esqueletoMago);
+    	
+    	// Portas
+    	Ponto ponto0 = new Ponto(5,15), 
+    	ponto1 = new Ponto(6,15);
+
+    	Porta porta = new Porta(ponto0, ponto1);
+    	
+    	int noSala = 3;
+    	Sala sala = mapa.getSala(noSala);
+    	
+    	sala.adicionarPorta(porta);
+    	
+	    	// sempre repete
+	    	ponto0 = new Ponto(8,23); 
+	    	ponto1 = new Ponto(9,23);
+	    	noSala = 9;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(11,10); 
+	    	ponto1 = new Ponto(12,10);
+	    	noSala = 10;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(9, 2); 
+	    	ponto1 = new Ponto(10, 2);
+	    	noSala = 11;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(17,11); 
+	    	ponto1 = new Ponto(18, 11);
+	    	noSala = 17;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(8, 15); 
+	    	ponto1 = new Ponto(9, 15);
+	    	noSala = 16;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(12, 8); 
+	    	ponto1 = new Ponto(13, 8);
+	    	noSala = 13;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(6,20); 
+	    	ponto1 = new Ponto(6,21);
+	    	noSala =8;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(11,6); 
+	    	ponto1 = new Ponto(11,7);
+	    	noSala = 12;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	    	
+	    	ponto0 = new Ponto(4,19); 
+	    	ponto1 = new Ponto(5,19);
+	    	noSala = 4;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	    	    	
+	    	ponto0 = new Ponto(3,16); 
+	    	ponto1 = new Ponto(3,17);
+	    	noSala = 4;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
     	
     	return mapa;
     }

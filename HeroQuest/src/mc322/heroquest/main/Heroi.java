@@ -24,8 +24,9 @@ public abstract class Heroi extends ElementoCombate{
         this.ouro = new Ouro(0);
     }
     
-    protected void addOuro(int valor) {
+    protected boolean addOuro(int valor) {
     	ouro.addValor(valor);
+    	return true;
     }
     
     protected Ponto getPosicao() {
@@ -263,12 +264,15 @@ public abstract class Heroi extends ElementoCombate{
         System.out.println(conteudo);
     }
     
-    protected void adcItem(Item item) {
+    protected boolean adcItem(Item item) {
+    	boolean adicionou = false;
     	for(int i = 0; i < 10; i++) {
     		if(mochila.get(i) == null) {
     			mochila.add(i, item);
+    			adicionou = true;
     		}
     	}
+    	return adicionou;
     }
 
 }

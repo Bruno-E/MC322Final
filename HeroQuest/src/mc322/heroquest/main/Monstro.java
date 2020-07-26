@@ -1,6 +1,6 @@
 package mc322.heroquest.main;
 
-public abstract class Monstro extends ElementoCombate implements Guardavel{
+public abstract class Monstro extends ElementoCombate implements Coletavel{
 
     public Monstro(Ponto posicao) {
     	super(posicao, false);
@@ -42,11 +42,13 @@ public abstract class Monstro extends ElementoCombate implements Guardavel{
       }
     }
     
-    public void coletar(Heroi heroi) {
-    	
+    public boolean coletar(Heroi heroi, Mapa mapa) {
+    	return mapa.inserirMonstro(this);
     }
     
-    protected abstract void mover(Heroi heroi); 
+    public void mover(Heroi heroi) {
+    	
+    }
     	
 
 }
