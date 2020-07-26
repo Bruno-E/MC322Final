@@ -264,37 +264,52 @@ public class Game {
     	//Obstaculos
     	Obstaculo obstaculo = new Obstaculo(7,0);
     	mapa.inserirObstaculo(obstaculo);       	
+    	
     	obstaculo = new Obstaculo(11,0);
     	mapa.inserirObstaculo(obstaculo);    	
+    	
     	obstaculo = new Obstaculo(9,6);
     	mapa.inserirObstaculo(obstaculo);  	
+    	
     	obstaculo = new Obstaculo(9,20);
     	mapa.inserirObstaculo(obstaculo);
+    	
     	obstaculo = new Obstaculo(18,1);
     	mapa.inserirObstaculo(obstaculo);
+    	
     	obstaculo = new Obstaculo(18,24);
     	mapa.inserirObstaculo(obstaculo);
+    	
     	obstaculo = new Obstaculo(5,12);
     	mapa.inserirObstaculo(obstaculo);
+    	
     	obstaculo = new Obstaculo(5,13);
     	mapa.inserirObstaculo(obstaculo);
+    	
     	//goblins
     	Goblin goblin = new Goblin(11,3);
     	mapa.inserirMonstro(goblin);
+    	
     	goblin = new Goblin(13,12);
     	mapa.inserirMonstro(goblin);
+    	
     	goblin = new Goblin(13,13);
     	mapa.inserirMonstro(goblin);
+    	
     	//esqueleto
     	Esqueleto esqueleto = new Esqueleto(16,1);
     	mapa.inserirMonstro(esqueleto);
+    	
     	esqueleto = new Esqueleto(17,20);
     	mapa.inserirMonstro(esqueleto);
+    	
     	esqueleto = new Esqueleto(16,22);
     	mapa.inserirMonstro(esqueleto);
+    	
     	//esqueleto mago
     	EsqueletoMago esqueletomago = new EsqueletoMago(15,22);
     	mapa.inserirMonstro(esqueletomago);
+    	
     	//portas
     	Ponto ponto1 = new Ponto(9,2), ponto2 = new Ponto(10,2);
     	Porta porta = new Porta(ponto1, ponto2);    	
@@ -355,7 +370,9 @@ public class Game {
     	ponto2 = new Ponto(11,5);
     	porta = new Porta(ponto1, ponto2);
     	noSala = 12;
+    	Tesouro tesouro = new Tesouro(11,6); 	
     	sala = mapa.getSala(noSala);
+    	sala.adicionarTesouro(tesouro);
     	sala.adicionarPorta(porta);
     	
     	ponto1 = new Ponto(13,2);
@@ -471,7 +488,7 @@ public class Game {
         			break;
         	}
         	
-        } while(inputCorreto);
+        } while(!inputCorreto);
         
         
         while(!fim) {
