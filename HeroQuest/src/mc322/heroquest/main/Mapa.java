@@ -100,6 +100,21 @@ public class Mapa {
     }
     
     
+    // retorna um corredor se o ponto esta dentro dele
+    public Corredor checarCorredor(Ponto ponto) {
+        for(int i = 0; i < noCorredores; i++) {
+            if (corredores[i].contemPonto(ponto)) {
+                return corredores[i];
+            }
+        }
+        return null;
+    }
+    public Corredor checarCorredor(int linha, int coluna) {
+    	Ponto ponto = new Ponto(linha, coluna);
+    	return checarCorredor(ponto);
+    }
+    
+    
     // TODO retorna true se o ponto contem um objeto da classe obstaculo
     /*
     public boolean checarObstaculo(Ponto ponto) {
