@@ -1,7 +1,9 @@
 package mc322.heroquest.main;
 
 public abstract class Armadilha extends Elemento implements Coletavel{
-	
+	//uma armadilha padrao contem apenas o dano e sua posicao, alem de uma funcao ativar
+	//no jogo, armadilhas possuem diferentes efeitos alem de causar dano
+	//escolhemos implementar a armadilha basica de flecha que causa 1 de dano
 	protected int dano;
 	
     protected Armadilha(Ponto posicao) {
@@ -13,8 +15,10 @@ public abstract class Armadilha extends Elemento implements Coletavel{
 
     protected abstract void ativar(Heroi heroi);
     
-    public void coletar(Heroi heroi) {
+    //ao vasculhar um bau, um heroi pode acabar ativando uma armadilha
+    public boolean coletar(Heroi heroi, Mapa mapa) {
     	ativar(heroi);
+    	return true;
     }
     @Override 
     public String toString(){

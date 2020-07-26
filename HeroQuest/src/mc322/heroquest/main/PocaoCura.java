@@ -7,7 +7,7 @@ public class PocaoCura extends Pocao {
     	this.bonus = 4;
     	this.nome += " de Cura";
     }
-    
+    //a pocao de cura restaura a vida do heroi
     @Override
     protected void usar(Heroi heroi) {
     	heroi.restauraVida(bonus);

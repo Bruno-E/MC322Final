@@ -1,6 +1,6 @@
 package mc322.heroquest.main;
 
-public abstract class Item implements Coletavel{
+public abstract class Item{
 
     public Item() {
     }

@@ -48,8 +48,8 @@ public abstract class HeroiMagico extends Heroi {
     }
     
     protected void usarMagiaOfensiva(int pos, Monstro monstro) {
-    	magiasOfensivas[pos-1].lancar(this, monstro);
-    	arrumarMagiasOfensivas(pos-1);
+    	if(magiasOfensivas[pos-1].lancar(this, monstro))
+    		arrumarMagiasOfensivas(pos-1);
     }
     
     protected void usarMagiaDefensiva(int pos) {

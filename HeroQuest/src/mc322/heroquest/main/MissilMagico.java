@@ -7,17 +7,21 @@ public class MissilMagico extends MagiaOfensiva {
     	this.nome = "Missil Magico";
     	this.alcance = 5;
     }
-
+    //verifica se quem lancou consegue tirar um dado menor que sua inteligencia
+    //caso consiga, o alvo tera sua chance de defender do dano
+    //caso nao consiga, a magia nao e lancada
     @Override
-    protected void lancar(Combativel origem, Combativel alvo) {
+    protected boolean lancar(Combativel origem, Combativel alvo) {
       DadoVermelho dado = new DadoVermelho();
       int valor = dado.jogar();
       if(valor < origem.getInteligencia()) {
         alvo.defesaMagica(dano);
+        return true;
       }
       else {
-      	System.out.println("Voce não conseguiu usar a magia");
+      	System.out.println("Voce nao conseguiu usar a magia");
       }
+      return false;
     }
 
 }

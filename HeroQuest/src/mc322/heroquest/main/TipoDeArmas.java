@@ -9,6 +9,7 @@ public enum TipoDeArmas {
     LANCA(2, "Lanca"),
     PUNHAL(1, "Punhal");
     
+	//o enum TipoDeArmas carrega o bonus que a arma fornece durante o ataque e o nome
     private int bonus;
     private String nome;
 	

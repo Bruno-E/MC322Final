@@ -1,6 +1,6 @@
 package mc322.heroquest.main;
 
-public class Ouro extends Item {   
+public class Ouro extends Item implements Coletavel{   
     private int valor;
     
     public Ouro(int valor) {

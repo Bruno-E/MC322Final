@@ -7,7 +7,7 @@ public class PocaoResiliencia extends Pocao{
 		this.bonus = 2;
 		this.nome += " de Resiliencia";
 	}
-	   
+	//a pocao de resiliencia fornece dados de defsa bonus
 	protected void usar(Heroi heroi) {	
 	    heroi.setBonusDefesa(bonus);
 	}

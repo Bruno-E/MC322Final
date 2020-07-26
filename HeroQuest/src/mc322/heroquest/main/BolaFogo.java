@@ -11,16 +11,18 @@ public class BolaFogo extends MagiaOfensiva {
     }
     
     @Override
-    protected void lancar(Combativel origem, Combativel alvo) {
+    protected boolean lancar(Combativel origem, Combativel alvo) {
         DadoVermelho dado = new DadoVermelho();
         int valor = dado.jogar();
         if(valor < origem.getInteligencia()) {
           alvo.defesaMagica(dano);
+          return true;
           //TODO: verificaAdjacente - verifica as posicoes adjacentes se ha monstros
         }
         else {
         	System.out.println("Voce não conseguiu usar a magia");
         }
+        return false;
     }
 
 }

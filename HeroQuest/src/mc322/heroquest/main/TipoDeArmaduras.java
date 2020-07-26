@@ -7,7 +7,7 @@ public enum TipoDeArmaduras {
 	ESCUDO(1, "Escudo"),
 	ARMADURA_DE_PLACA(4, "Armadura de Placa");
 	
-	
+	//o enum TipoDeArmaduras carrega ira carregar os dados bonus que a armadura fornece pra defesa e seu nome
 	private TipoDeArmaduras(final int bonus, String nome) {
 		this.bonus = bonus;
 		this.nome = nome;

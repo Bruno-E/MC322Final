@@ -1,7 +1,7 @@
 package mc322.heroquest.main;
 
 public class ArmadilhaFlecha extends Armadilha{
-	
+	//a armadilha de flecha é a mais padrao e apenas causa 1 de dano no heroi
 	ArmadilhaFlecha(Ponto posicao) {
 		super(posicao);
 		this.dano = 1;
