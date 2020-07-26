@@ -113,15 +113,15 @@ public class Mapa {
     }
     
     
-    // TODO retorna true se o ponto contem um objeto da classe obstaculo
-    /*
+    // retorna true se ha obstaculo
     public boolean checarObstaculo(Ponto ponto) {
-    	
+    	if (getElemento(ponto) == null) return false;
+    	else return true;
     }
 	public boolean checarObstaculo(int linha, int coluna) {
-	    	
+	    	Ponto ponto = new Ponto(linha, coluna);
+	    	return checarObstaculo(ponto);
 	}
-	*/
     
 
     // retorna true se o ponto esta fora do mapa
@@ -196,7 +196,6 @@ public class Mapa {
         			break;
         		}
         		else elemento.setVisivel(false);
-        		
         	}
         
         if (elementos[linha][coluna] == null) {

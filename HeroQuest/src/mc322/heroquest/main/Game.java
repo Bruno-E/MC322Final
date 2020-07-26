@@ -60,7 +60,7 @@ public class Game {
                 case "s":
                 case "d":
                     try {
-                        personagem.mover(comando);
+                        personagem.mover(comando, mapa);
                     } //parede array obstaculo
                     catch(ArrayIndexOutOfBoundsException e) {
                         System.err.println(e.getMessage());
