@@ -310,7 +310,7 @@ public class Game {
     	EsqueletoMago esqueletomago = new EsqueletoMago(15,22);
     	mapa.inserirMonstro(esqueletomago);
     	
-    	//portas
+    	//portas e tesouros
     	Ponto ponto1 = new Ponto(9,2), ponto2 = new Ponto(10,2);
     	Porta porta = new Porta(ponto1, ponto2);    	
     	int noSala = 11;
