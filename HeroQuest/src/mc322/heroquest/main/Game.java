@@ -96,6 +96,7 @@ public class Game {
                             			break;
                             		}
                             		//TODO: Funcao para verificar os monstros disponiveis no alcance
+                            		ArrayList<Monstro> = mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
                             		System.out.println("Digite o numero da magia desejada.");
                             		Scanner key;
                             		int opcao = key.nextInt();

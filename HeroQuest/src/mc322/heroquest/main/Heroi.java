@@ -19,6 +19,10 @@ public abstract class Heroi extends ElementoCombate{
         this.movimento = 0;
         this.ArmasAtuais = new Arma[2];
     }
+    
+    protected Ponto getPosicao() {
+    	return this.posicao;
+    }
 
     protected int jogarDadosAndar() {
         DadoVermelho dado = new DadoVermelho();
