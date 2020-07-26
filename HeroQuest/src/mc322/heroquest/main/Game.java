@@ -346,11 +346,6 @@ public class Game {
         
         while(!fim) {
 
-            drawBoard();
-            lerInput(personagem);
-            
-            updateBoard();
-
             /* printar mapa
              * System.out.println(mapa);
         	*/
