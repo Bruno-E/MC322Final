@@ -45,5 +45,9 @@ public abstract class Monstro extends ElementoCombate implements Guardavel{
     public void coletar(Heroi heroi) {
     	
     }
+    
+    protected void mover() {
+    	
+    }
 
 }

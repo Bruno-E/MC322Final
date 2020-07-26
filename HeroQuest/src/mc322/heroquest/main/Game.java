@@ -111,18 +111,19 @@ public class Game {
         
         
         while(!fim) {
-<<<<<<< HEAD
+
             drawBoard();
             lerInput(personagem);
             
             updateBoard();
-=======
+
             /* printar mapa
              * System.out.println(mapa);
         	*/
             lerInput(personagem, mapa);
             mapa.atualizarMonstros(personagem);
->>>>>>> branch 'master' of https://github.com/Bruno-E/MC322Final.git
+            if(personagem.estaMorto()) fim = true;
+
         }
         System.out.println("Fim de jogo. Ate logo!");
     }

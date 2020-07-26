@@ -108,6 +108,11 @@ public abstract class Heroi extends ElementoCombate{
     	this.vida -= dano;
     }
     
+    protected boolean estaMorto() {
+    	if(this.vida <= 0) return true;
+    	return false;
+    }
+    
     void trocarArmaPrincipal() {
     	Arma tmp = ArmasAtuais[0];
     	ArmasAtuais[0] = ArmasAtuais[1];
