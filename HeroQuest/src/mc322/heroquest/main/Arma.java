@@ -8,7 +8,7 @@ public class Arma extends Item {
     	this.arma = arma;
     	if(arma == TipoDeArmas.PUNHAL) {
     		this.descartavel = true;
-    		this.alcance = 4;
+    		this.alcance = 5;
     	}
     	else {
     		this.descartavel = false;
@@ -23,6 +23,14 @@ public class Arma extends Item {
     
     public String getInformation(){
         return nome;
+    }
+    
+    int getAlcance() {
+    	return this.alcance;
+    }
+    
+    int getBonus() {
+    	return this.arma.getBonus();
     }
 
 }

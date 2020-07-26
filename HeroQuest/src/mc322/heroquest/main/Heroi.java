@@ -18,6 +18,7 @@ public abstract class Heroi extends ElementoCombate{
         this.nome = nome;
         this.movimento = 0;
         this.ArmasAtuais = new Arma[2];
+        this.armadura = new Armadura(TipoDeArmaduras.NU);
     }
     
     protected Ponto getPosicao() {
@@ -79,7 +80,7 @@ public abstract class Heroi extends ElementoCombate{
     public void atacar(Combativel inimigo) {
         DadoCombate dado = new DadoCombate();
         int ataque = 0;
-        for(int i = 0; i < this.dadosAtaque + bonusAtaque; i++) {
+        for(int i = 0; i < this.dadosAtaque + bonusAtaque + ArmasAtuais[0].getBonus(); i++) {
             if(dado.jogar() == Lado.CAVEIRA)
                 ataque++;
         }
@@ -91,7 +92,7 @@ public abstract class Heroi extends ElementoCombate{
     public void defender(int ataque) {
       DadoCombate dado = new DadoCombate();
       int defesa = 0;
-      for(int i = 0; i < this.dadosDefesa + bonusDefesa; i++) {
+      for(int i = 0; i < this.dadosDefesa + bonusDefesa + armadura.getBonus(); i++) {
           if(dado.jogar() == Lado.ESCUDO_HEROI)
               defesa++;
       }

@@ -10,7 +10,7 @@ public abstract class Item {
     protected boolean descartavel;
     protected String nome;
     
-    public String getInformation() {
+    protected String getInformation() {
     	return this.nome;
     }
 
