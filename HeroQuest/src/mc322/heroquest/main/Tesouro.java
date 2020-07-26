@@ -20,6 +20,10 @@ public class Tesouro extends Elemento {
 			        		new PocaoForca(), new PocaoVelocidade(), new ArmadilhaFlecha(ponto),
 			        		new Goblin(ponto), new Esqueleto(), new Esqueleto Mago() };
     }
+    public Tesouro(int linha, int coluna) {
+    	this(new Ponto(linha, coluna));
+    }
+    
     public Item abrirTesouro(){
         Random valor = new Random();
         return itens[valor.nextInt(12)];

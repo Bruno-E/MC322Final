@@ -12,6 +12,9 @@ public class EsqueletoMago extends Monstro {
     	this.movimento = 3;
     	this.arma = new Arma(TipoDeArmas.PUNHO);
     }
+    public EsqueletoMago(int linha, int coluna) {
+    	this(new Ponto(linha, coluna));
+    }
 
     public MissilMagico missil;
     

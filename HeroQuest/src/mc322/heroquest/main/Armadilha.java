@@ -5,6 +5,9 @@ public abstract class Armadilha extends Elemento implements Guardavel{
     protected Armadilha(Ponto posicao) {
     	super(posicao, false);
     }
+    public Armadilha(int linha, int coluna) {
+    	this(new Ponto(linha, coluna));
+    }
 
     protected int dano;
 
