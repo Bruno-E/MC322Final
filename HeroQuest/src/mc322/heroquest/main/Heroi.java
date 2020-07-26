@@ -41,7 +41,8 @@ public abstract class Heroi extends ElementoCombate{
         movimento += dado.jogar();
         return this.movimento;
     }
-
+    
+    // retorna a posicao correspondente a direcao dada
     private Ponto novaPosicao(String direcao) {
         switch(direcao) {
             case "w":
@@ -55,24 +56,47 @@ public abstract class Heroi extends ElementoCombate{
         }
         return null;
     }
-
+    
+    // muda a posicao do heroi caso seja possivel
+    // TODO recebe dano de armadilha
     protected void mover(String direcao, Mapa mapa) throws ParedeNoCaminhoException,
     													   ObstaculoNoCaminhoException 
     {    
         Ponto novaPosicao = novaPosicao(direcao);
 
         if (mapa.foraDoMapa(novaPosicao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
-
-        Sala sala = mapa.checarSala(posicao);
-        if (sala == null) sala = mapa.checarSala(novaPosicao);
-        if (sala != null) {
-            if (!sala.checarPorta(posicao, novaPosicao)) throw new ParedeNoCaminhoException();
+        
+        Sala salaAtual = mapa.checarSala(posicao),
+        	 salaNova = mapa.checarSala(novaPosicao);
+        
+        // o else é: ou permanece em corredores ou permanece em uma sala
+        if (salaAtual != salaNova) {
+	        if (salaAtual != null && !salaAtual.checarPorta(posicao, novaPosicao)) {
+	        	if (salaNova != null) {
+	        		if (!salaNova.checarPorta(posicao, novaPosicao))
+	        		// vai de uma sala para outra e nenhuma tem a porta correspondente
+	        		throw new ParedeNoCaminhoException();
+	        	}
+	        	// vai para um corredor mas nao tem a porta correspondente
+	        	else throw new ParedeNoCaminhoException();
+	        }
+	        // vai para uma sala que nao possui a porta correspondente 
+	        else if (salaAtual == null && salaNova != null && !salaNova.checarPorta(posicao, novaPosicao))
+	    		throw new ParedeNoCaminhoException();
         }
-
-        else if (mapa.checarObstaculo(novaPosicao)) throw new ObstaculoNoCaminhoException();
+        
+     // Leva dano da armadilha caso haja
+        Armadilha armadilha = mapa.checarArmadilha(novaPosicao);
+        if (armadilha != null) {
+        	armadilha.ativar(this);
+        	mapa.removerElemento(armadilha);
+        }
+        
+        if (mapa.checarObstaculo(novaPosicao)) throw new ObstaculoNoCaminhoException();
 
         else {
             mapa.removerElemento(this);
+            // vai para a nova posicao
             this.setPosicao(novaPosicao);
             mapa.inserirElemento(this);
         }
@@ -167,17 +191,16 @@ public abstract class Heroi extends ElementoCombate{
             }
         }
         
-        // TODO como vasculhar o corredor?
+        // Conferir se deu certo
         else {
 	        int linha = this.getLinha(),
 	        	coluna = this.getColuna();
-	        
 	        ArrayList<Corredor> corredores = mapa.checarCorredor(linha, coluna);
+	        
 	        if(!corredores.isEmpty())
 		        for (Corredor corr : corredores) {
 		        	corr.setVisivel(true, posicao, mapa);
 		        }
-	        
 	    }
         
     }
