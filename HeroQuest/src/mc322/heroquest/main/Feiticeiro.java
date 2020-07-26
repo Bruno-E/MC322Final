@@ -1,7 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public class Feiticeiro extends HeroiMagico {
     private static int VIDA_INICIAL = 4;
     private static int INT_INICIAL = 6;
