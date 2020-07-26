@@ -1,7 +1,5 @@
 package mc322.heroquest.main;
 
-import java.util.*;
-
 public class MissilMagico extends MagiaOfensiva {
 
     public MissilMagico() {
@@ -18,7 +16,7 @@ public class MissilMagico extends MagiaOfensiva {
         alvo.defesaMagica(dano);
       }
       else {
-      	System.out.println("Voce n„o conseguiu usar a magia");
+      	System.out.println("Voce n√£o conseguiu usar a magia");
       }
     }
 
