@@ -8,5 +8,9 @@ public class Obstaculo extends Elemento {
     public Obstaculo(int linha, int coluna) {
     	this(new Ponto(linha, coluna));
     }
+    @Override
+    public toString(){
+        return"Ob";
+    }
     
 }
