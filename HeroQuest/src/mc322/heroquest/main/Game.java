@@ -8,7 +8,7 @@ public class Game {
     public Game() {
       fim = false;
     }
-
+//
     public void start() {
         System.out.println("Jogo iniciado.");
         Scanner key = new Scanner(System.in);
