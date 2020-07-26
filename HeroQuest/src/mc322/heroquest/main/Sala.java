@@ -81,6 +81,9 @@ public class Sala {
         }
         return false;
     }
+    public boolean contemPonto(int linha, int coluna) {
+    	return contemPonto(new Ponto(linha, coluna));
+    }
 
     public boolean adicionarPorta(Porta porta){
         if (portas == null) portas = new ArrayList<Porta>();

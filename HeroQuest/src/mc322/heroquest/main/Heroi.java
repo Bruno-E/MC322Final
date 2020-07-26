@@ -1,6 +1,7 @@
 package mc322.heroquest.main;
 
 import java.util.List;
+import java.util.ArrayList;
 
 public abstract class Heroi extends ElementoCombate{
     protected String nome;
@@ -55,8 +56,9 @@ public abstract class Heroi extends ElementoCombate{
         return null;
     }
 
-    protected void mover(String direcao, Mapa mapa) {
-        
+    protected void mover(String direcao, Mapa mapa) throws ParedeNoCaminhoException,
+    													   ObstaculoNoCaminhoException 
+    {    
         Ponto novaPosicao = novaPosicao(direcao);
 
         if (mapa.foraDoMapa(novaPosicao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
@@ -141,8 +143,10 @@ public abstract class Heroi extends ElementoCombate{
       }
     }
 
-    // Vasculha a sala
+    
     protected void vasculhar(Mapa mapa) {
+    	
+    	// Vasculha a sala
         Sala sala = mapa.checarSala(posicao);
         if(sala != null) {
         	sala.setVisivel(true);
@@ -159,56 +163,17 @@ public abstract class Heroi extends ElementoCombate{
             }
         }
         
-        // TODO else: tem como vasculhar o corredor?
-        // Em caso afirmativo, implementar usando foraDoMapa() e checarSala() e checarObstaculo()
+        // TODO como vasculhar o corredor?
         else {
 	        int linha = this.getLinha(),
-	        	coluna = this.getColuna(),
-	        	varreLinha = linha,
-	        	varreColuna = coluna;
-	        	
-	        while(true) {
-	        	varreLinha++;
-	        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
-	        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
-	        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
-	        	else {
-	        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
-	        	}
-	        }
-	        varreLinha = linha;
-		    varreColuna = coluna;
-		    while(true) {
-	        	varreLinha--;
-	        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
-	        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
-	        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
-	        	else {
-	        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
-	        	}
-	        }
-		    varreLinha = linha;
-		    varreColuna = coluna;
-		    while(true) {
-	        	varreColuna++;
-	        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
-	        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
-	        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
-	        	else {
-	        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
-	        	}
-	        }
-		    varreLinha = linha;
-		    varreColuna = coluna;
-		    while(true) {
-	        	varreColuna--;
-	        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
-	        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
-	        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
-	        	else {
-	        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
-	        	}
-	        }
+	        	coluna = this.getColuna();
+	        
+	        ArrayList<Corredor> corredores = mapa.checarCorredor(linha, coluna);
+	        if(!corredores.isEmpty())
+		        for (Corredor corr : corredores) {
+		        	corr.setVisivel(true, posicao, mapa);
+		        }
+	        
 	    }
         
     }

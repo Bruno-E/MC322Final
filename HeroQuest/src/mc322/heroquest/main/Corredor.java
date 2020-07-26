@@ -31,8 +31,83 @@ public class Corredor {
     public boolean getVisivel() {
     	return visivel;
     }
-    public void setVisivel(boolean visivel) {
+    
+    // torna corredor visivel e chama varreLinhasColunasAteLimite
+    // trata o caso do corredor com largura == 2
+    public void setVisivel(boolean visivel, int linha, int coluna, Mapa mapa) {
         this.visivel = visivel;
+        // Caso o corredor tenha largura 2
+        if (this.coordenada.getColuna() == 12) {
+        	this.setVisivel(visivel, linha, coluna + 1, mapa);
+        }
+        else if (this.coordenada.getColuna() == 13) {
+        	this.setVisivel(visivel, linha, coluna - 1, mapa);
+        }
+        
+        varreLinhasColunasAteLimite(linha, coluna, mapa);
+    }
+    public void setVisivel(boolean visivel, Ponto ponto, Mapa mapa) {
+    	this.setVisivel(visivel, ponto.getLinha(), ponto.getColuna(), mapa);
+    }
+    
+    
+    // torna visiveis as linhas e colunas do corredor desde o ponto dado
+    // ate os limites do corredor ou ate um obstaculo
+    public void varreLinhasColunasAteLimite(int linha, int coluna, Mapa mapa) {
+    	int varreLinha = linha,
+    		varreColuna = coluna;
+    	
+    	// direcao Sul
+        while(true) {
+        	varreLinha++;
+        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
+        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
+        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
+        	else {
+        		Elemento elemento = mapa.getElemento(varreLinha, varreColuna);
+        		if (elemento != null)
+        			elemento.setVisivel(true);
+        	}
+        }
+        
+        // direcao Norte
+        varreLinha = linha;
+	    varreColuna = coluna;
+	    while(true) {
+        	varreLinha--;
+        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
+        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
+        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
+        	else {
+        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
+        	}
+        }
+	    
+	    // direcao Leste
+	    varreLinha = linha;
+	    varreColuna = coluna;
+	    while(true) {
+        	varreColuna++;
+        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
+        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
+        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
+        	else {
+        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
+        	}
+        }
+	    
+	    // direcao Oeste
+	    varreLinha = linha;
+	    varreColuna = coluna;
+	    while(true) {
+        	varreColuna--;
+        	if (mapa.checarObstaculo(varreLinha, varreColuna)) break;
+        	else if (mapa.foraDoMapa(varreLinha, varreColuna)) break;
+        	else if (mapa.checarSala(varreLinha, varreColuna) != null) break;
+        	else {
+        		mapa.getElemento(varreLinha, varreColuna).setVisivel(true);
+        	}
+        }
     }
 
 
@@ -49,7 +124,7 @@ public class Corredor {
         return limites;
     }
 
-    // retorna true se a sala contem o ponto
+    // retorna true se o corredor contem o ponto
     public boolean contemPonto(Ponto ponto) {
         int[] limites = getLimitesSupInfEsqDir();
         int linhaSuperior = limites[0],
@@ -63,6 +138,9 @@ public class Corredor {
             }
         }
         return false;
+    }
+    public boolean contemPonto(int linha, int coluna) {
+    	return contemPonto(new Ponto(linha, coluna));
     }
     
     
