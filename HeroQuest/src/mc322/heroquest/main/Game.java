@@ -124,22 +124,27 @@ public class Game {
                                 		}while(!checagem); 			
                             		}
                             		else {
-                            			
+                            			if(!((HeroiMagico)personagem).temMagiaOfensiva()) {
+                                			System.out.println("Nao ha magias ofensivas disponiveis");
+                                			continue;
+                            			}
+                            			System.out.print(((HeroiMagico)personagem).verificaMagiasOfensivas());
+                            			System.out.println("Digite o numero da magia desejada.");
+                            			//ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
+                                		boolean checagem = false;
+                                		do {
+                                			opcao = key.nextInt();
+                                			try {
+                                				((HeroiMagico)personagem).usarMagiaOfensiva(opcao);
+                                				checagem = true;
+                                			}
+                                			catch(NullPointerException e) {
+                                				System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
+                                			}
+                                		}while(!checagem); 	                           			
                             		}
                             		acaoDisponivel = false;
-                            		break;
-                            		//TODO: Funcao para verificar os monstros disponiveis no alcance
-                            		//ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), 5);
-                            		/*boolean checagem = false;
-                            		do {
-                            			try {
-                            				((HeroiMagico)personagem).usarMagiaDefensiva(opcao);
-                            				checagem = true;
-                            			}
-                            			catch(NullPointerException e) {
-                            				System.out.println("Opcao invalida. Digite uma das opcoes sugeridas.");
-                            			}
-                            		}while(!checagem);*/		                            		
+                            		break;		                            		
                             	case "q":
                             		if(personagem.temPocao()) {
                             			System.out.print(personagem.verificaMochila("Pocao"));
