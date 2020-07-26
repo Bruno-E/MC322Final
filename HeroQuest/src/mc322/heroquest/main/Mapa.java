@@ -97,6 +97,12 @@ public class Mapa {
     }
     
     
+    // retorna a sala correspondente a ordem da lista
+    public Sala getSala(int noSala) {
+    	return salas[noSala];
+    }
+    
+    
     // retorna uma lista dos corredores que contem o ponto
     public ArrayList<Corredor> checarCorredor(Ponto ponto) {
     	ArrayList<Corredor> listaMatch = new ArrayList<Corredor>();

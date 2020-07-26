@@ -14,29 +14,137 @@ public class Game {
     private Mapa construirBusca3() {
     	Mapa mapa = new Mapa();
     	
+    	// Obstaculos
+    	Obstaculo obstaculo  = new Obstaculo(1, 0);
+    	mapa.inserirObstaculo(obstaculo);
+    	
+	    	//sempre repete
+	    	obstaculo = new Obstaculo(10, 0);
+	    	mapa.inserirObstaculo(obstaculo);
+	    	
+	    	obstaculo = new Obstaculo(9, 7);
+	    	mapa.inserirObstaculo(obstaculo);
+    	
+    	// Goblins
+    	Goblin goblin = new Goblin(2, 2);
+    	mapa.inserirMonstro(goblin);
+    	
+	    	// sempre repete
+	    	goblin = new Goblin(11, 5);
+	    	mapa.inserirMonstro(goblin);
+	    	
+	    	goblin = new Goblin(15, 6);
+	    	mapa.inserirMonstro(goblin);
+    	
+    	// Esqueleto
+    	Esqueleto esqueleto = new Esqueleto(7, 4);
+    	mapa.inserirMonstro(esqueleto);
+    	
+	    	// sempre repete
+	    	esqueleto = new Esqueleto(12, 2);
+	    	mapa.inserirMonstro(esqueleto);
+	    	
+	    	esqueleto = new Esqueleto(15, 1);
+	    	mapa.inserirMonstro(esqueleto);
+    	
+    	// EsqueletoMago
+    	EsqueletoMago esqueletoMago = new EsqueletoMago(7, 4);
+    	mapa.inserirMonstro(esqueletoMago);
+    	
+    	// Portas
+    	Ponto ponto0 = new Ponto(2, 0), 
+    		  ponto1 = new Ponto(2, 1);
+
+    	Porta porta = new Porta(ponto0, ponto1);
+    	
+    	int noSala = 0;
+    	Sala sala = mapa.getSala(noSala);
+    	
+    	sala.adicionarPorta(porta);
+    	
+	    	// sempre repete
+	    	ponto0 = new Ponto(4, 8); 
+	    	ponto1 = new Ponto(4, 9);
+	    	noSala = 2;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(8, 4); 
+	    	ponto1 = new Ponto(8, 5);
+	    	noSala = 6;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(8, 2); 
+	    	ponto1 = new Ponto(9, 2);
+	    	noSala = 6;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(9, 5); 
+	    	ponto1 = new Ponto(10, 5);
+	    	noSala = 12;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(12, 4); 
+	    	ponto1 = new Ponto(12, 5);
+	    	noSala = 11;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(12, 8); 
+	    	ponto1 = new Ponto(13, 8);
+	    	noSala = 13;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(13, 2); 
+	    	ponto1 = new Ponto(14, 2);
+	    	noSala = 19;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+	    	
+	    	ponto0 = new Ponto(16, 4); 
+	    	ponto1 = new Ponto(16, 5);
+	    	noSala = 19;
+	    	porta = new Porta(ponto0, ponto1);
+	    	sala = mapa.getSala(noSala);
+	    	sala.adicionarPorta(porta);
+    	
     	return mapa;
     }
     
     
-    //TODO Construir mapa correspondente
     private Mapa construirBusca2() {
     	Mapa mapa = new Mapa();
     	
-    	return mapa;
-    }
-    
-    
-    //TODO Construir mapa correspondente
-    private Mapa construirBusca10() {
-    	Mapa mapa = new Mapa();
+    	//TODO Construir mapa correspondente
     	
     	return mapa;
     }
     
     
-    //TODO Construir mapa correspondente
+    private Mapa construirBusca10() {
+    	Mapa mapa = new Mapa();
+    	
+    	//TODO Construir mapa correspondente
+    	
+    	return mapa;
+    }
+    
+    
     private Mapa construirAleatoio() {
     	Mapa mapa = new Mapa();
+    	
+    	//TODO Construir mapa correspondente
     	
     	return mapa;
     }
@@ -313,7 +421,7 @@ public class Game {
                             			continue;
                             		}
                             	case "f":
-                            		//chama a funcao de olhar armadilhas no mapa
+                            		personagem.vasculhar(mapa);
                             		break;
                             	default:
                             		System.out.println("Acao invalida.");
