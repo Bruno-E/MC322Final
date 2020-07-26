@@ -11,35 +11,35 @@ public abstract class Elemento {
         visivel = visibilidade;
     }
     
-    public Elemento(boolean vazio, int linha, int coluna, boolean visibilidade) {
+    protected Elemento(boolean vazio, int linha, int coluna, boolean visibilidade) {
         setPosicao(linha, coluna);
         this.vazio = vazio;
         visivel = visibilidade;
     }
 
-    public int getLinha() {
+    protected int getLinha() {
         return posicao.getLinha();
     }
-    public int getColuna() {
+    protected int getColuna() {
         return posicao.getColuna();
     }
-    public Ponto getPosicao() {
+    protected Ponto getPosicao() {
         return posicao;
     }
-    public void setPosicao(int linha, int coluna) {
+    protected void setPosicao(int linha, int coluna) {
         posicao = new Ponto(linha, coluna);
     }
     
-    public boolean getVisivel() {
+    protected boolean getVisivel() {
     	return visivel;
     }
-    public void setVisivel(boolean visibilidade) {
+    protected void setVisivel(boolean visibilidade) {
         visivel = visibilidade;
     }
-    public boolean getVazio() {
+    protected boolean getVazio() {
     	return vazio;
     }
-    public void setVazio(boolean vazio) {
+    protected void setVazio(boolean vazio) {
         this.vazio = vazio;
     }
 
