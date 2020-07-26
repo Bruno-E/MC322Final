@@ -91,19 +91,23 @@ public class Game {
                         	switch(acao) {
                             	case "a":
                             		if(personagem.temDuasArmas()) {
-                            			System.out.println("Escolha qual arma você pretende usar(1 ou 2)");
+                            			System.out.println("Escolha qual arma voce pretende usar(1 ou 2)");
+                            			do {
                             			opcao = input.nextInt();
+                            			}while(opcao != 1 && opcao != 2);
                             			if(opcao == 2) personagem.trocarArmaPrincipal();
                             		}
-                            		
-                            		
+                            		System.out.println("Seu alcance �: " + personagem.getAlcance() );
+                            		//ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
+                            		System.out.println("Digite o numero do seu alvo.");
+                            		personagem.atacar(monstros.get(opcao-1));
                             		break;
                             	case "s":
                             		if(!personagem.eMagico()) {
-                            			System.out.println("Você não pode lançar magias.");
+                            			System.out.println("Voce nao pode lancar magias.");
                             			break;
                             		}
-                            		System.out.println("Você deseja lançar uma magia defensiva (1) ou ofensiva(2)?");
+                            		System.out.println("Voce deseja lancar uma magia defensiva (1) ou ofensiva(2)?");
                             		do {
                             			opcao = input.nextInt();
                             			if(opcao != 1 && opcao != 2) {
