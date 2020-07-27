@@ -260,7 +260,7 @@ public class Mapa {
     }
     
     // Deve ser usado sempre que uma armadilha eh inserida!!!
-    // retorna false se n„o inseriu
+    // retorna false se n√£o inseriu
     public boolean inserirArmadilha(Armadilha armadilha) {
         if (armadilhas == null) armadilhas = new ArrayList<Armadilha>();
         
@@ -764,6 +764,7 @@ public class Mapa {
     	sala.adicionarPorta(porta);
     	
     }
+<<<<<<< HEAD
     
     public Mapa construirAleatoio() {
     	Mapa mapa = new Mapa();
@@ -771,6 +772,11 @@ public class Mapa {
     	//TODO Construir mapa correspondente
     	
     	return mapa;
+=======
+	
+    public void construirImportado() {
+    	//funcao para ler um arquivo e construir um mapa a partir dele
+>>>>>>> 05701af7f848d57422fe9d0471432d25725d2622
     }
 
 }
