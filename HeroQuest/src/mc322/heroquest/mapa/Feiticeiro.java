@@ -11,8 +11,6 @@ public class Feiticeiro extends HeroiMagico {
     private static int INT_INICIAL = 6;
     private static int ATQ_INICIAL = 1;
     private static int DFS_INICIAL = 2;
-    
-    private int noPunhais;
 
     public Feiticeiro(String nome, Ponto posicao) {
         super(nome, posicao);

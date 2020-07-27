@@ -8,6 +8,7 @@ import mc322.heroquest.itens.Item;
 import mc322.heroquest.itens.Ouro;
 import mc322.heroquest.itens.Pocao;
 import mc322.heroquest.itens.TipoDeArmaduras;
+import mc322.heroquest.itens.TipoDeArmas;
 import mc322.heroquest.main.DadoCombate;
 import mc322.heroquest.main.DadoVermelho;
 import mc322.heroquest.main.Lado;
@@ -18,6 +19,7 @@ public abstract class Heroi extends ElementoCombate{
     protected String nome;
     protected int movimento;
     protected List<Item> mochila;
+    protected int noPunhais;
     protected Arma[] ArmasAtuais = new Arma[2];
     protected int dadosMovimento = 2;
     protected int bonusAtaque = 0;
@@ -30,6 +32,7 @@ public abstract class Heroi extends ElementoCombate{
     	super(posicao, true);
         this.nome = nome;
         this.movimento = 0;
+        this.noPunhais = 0;
         this.ArmasAtuais = new Arma[2];
         this.armadura = new Armadura(TipoDeArmaduras.NU);
         this.ouro = new Ouro(0);
@@ -43,7 +46,7 @@ public abstract class Heroi extends ElementoCombate{
     public Ponto getPosicao() {
     	return this.posicao;
     }
-
+    //lancamento de dados para definir o numero de casas que o heroi ira andar no turno
     public int jogarDadosAndar() {
         DadoVermelho dado = new DadoVermelho();
         for(int i = 0; i < this.dadosMovimento + bonusMovimento; i++) {
@@ -135,13 +138,23 @@ public abstract class Heroi extends ElementoCombate{
     	return this.ArmasAtuais[0].getAlcance();
     }
     
+    private void desequiparArma(TipoDeArmas arma) {
+    	this.ArmasAtuais[0] = new Arma(arma);
+    }
+    
     @Override
     public void atacar(Combativel inimigo) {
         DadoCombate dado = new DadoCombate();
+        if(this.ArmasAtuais[0].getInformation().contentEquals("Punhal")) {
+        	this.noPunhais--;
+        }
         int ataque = 0;
         for(int i = 0; i < this.dadosAtaque + bonusAtaque + ArmasAtuais[0].getBonus(); i++) {
             if(dado.jogar() == Lado.CAVEIRA)
                 ataque++;
+        }
+        if(this.noPunhais == 0 && this.ArmasAtuais[0].getInformation().contentEquals("Punhal")) {
+        	desequiparArma(TipoDeArmas.PUNHO);
         }
         if(bonusAtaque != 0) bonusAtaque = 0;
         inimigo.defender(ataque);

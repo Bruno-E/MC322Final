@@ -8,7 +8,9 @@ public class Anao extends Heroi {
     private static int INT_INICIAL = 3;
     private static int ATQ_INICIAL = 2;
     private static int DFS_INICIAL = 2;
-
+    //O padrao das classes de herois:
+    //possuem variaveis estaticas dos atributos iniciais
+    //toString retorna uma string diferente
     public Anao(String nome, Ponto posicao) {
         super(nome, posicao);
         this.vida = VIDA_INICIAL;
@@ -17,6 +19,7 @@ public class Anao extends Heroi {
         this.bonusDefesa = DFS_INICIAL;
         this.ArmasAtuais[0] = new Arma(TipoDeArmas.ESPADA_CURTA);
     }
+    
     public Anao(String nome, int linha, int coluna) {
     	this(nome, new Ponto(linha, coluna));
     }

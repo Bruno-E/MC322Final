@@ -22,7 +22,7 @@ public class EsqueletoMago extends Monstro {
     }
 
     public MissilMagico missil;
-    
+    //possui restaura vida pois pode carregar uma cura simples
     public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {
     		this.vida = VIDA_INICIAL;

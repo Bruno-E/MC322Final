@@ -2,6 +2,8 @@ package mc322.heroquest.mapa;
 
 import mc322.heroquest.itens.Arma;
 import mc322.heroquest.itens.TipoDeArmas;
+import mc322.heroquest.main.DadoCombate;
+import mc322.heroquest.main.Lado;
 
 public class Goblin extends Monstro {
 	
@@ -23,6 +25,18 @@ public class Goblin extends Monstro {
     	this(new Ponto(linha, coluna));
     }
     
+    @Override
+    public void atacar(Combativel inimigo) {
+        DadoCombate dado = new DadoCombate();
+        if(noPunhais > 0) this.noPunhais--;
+        int ataque = 0;
+        for(int i = 0; i < this.dadosAtaque; i++) {
+            if(dado.jogar() == Lado.CAVEIRA)
+                ataque++;
+        }
+        if(noPunhais == 0) this.arma = new Arma(TipoDeArmas.PUNHO);
+        inimigo.defender(ataque);
+    }
     
     public void restauraVida(int vida) {
     	if(this.vida + vida > VIDA_INICIAL) {
