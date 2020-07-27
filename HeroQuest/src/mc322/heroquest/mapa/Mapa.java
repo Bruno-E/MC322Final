@@ -307,6 +307,16 @@ public class Mapa {
         		monstro.mover(this, heroi);
     }
     
+    
+    // Os monstros atacam se forem visiveis e o heroi estiver ao alcance
+    public void monstrosAtacam(Heroi heroi) {
+    	if (!monstros.isEmpty()) {
+    		for (Monstro monstro : monstros) 
+    			monstro.atacar(/*fazer cast "(Combativel) heroi"?*/ heroi);
+    	}
+    }
+    
+    
     public void tornarVisivel(int linha, int coluna) {
     	Armadilha armadilha = checarArmadilha(linha, coluna);
         if (armadilha != null) armadilha.setVisivel(true);

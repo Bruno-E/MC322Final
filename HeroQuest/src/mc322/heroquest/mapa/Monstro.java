@@ -31,8 +31,13 @@ public abstract class Monstro extends ElementoCombate implements Coletavel{
     }
     
     
-    // TODO atacar
-    
+    /* TODO 
+    public void atacar(Heroi heroi) {
+    	if(this.visivel && posicao.aoAlcance(heroi.getPosicao(), this.getAlcance())) {
+    		heroi.perdeVida(arma.getBonus());
+    	}
+    }
+    */
     
     public String getNome() {
     	return this.nome;
@@ -111,7 +116,7 @@ public abstract class Monstro extends ElementoCombate implements Coletavel{
 	                
 	                // vai para a nova posicao
 	                this.setPosicao(novaPosicao);
-	                mapa.inserirElemento(this);
+	                mapa.inserirMonstro(this);
 	                andou = true;
 	            }
     		} while (!andou && count <= 8);

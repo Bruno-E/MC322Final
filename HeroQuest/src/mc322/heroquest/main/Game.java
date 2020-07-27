@@ -538,11 +538,13 @@ public class Game {
         			personagem.setPosicao(9, 14);
         			break;
         		case 42:
+        			/*
         			mapa = construirAleatoio();
         			inputCorreto = true;
         			//TODO posicao inicial no mapa
-        			personagem.setPosicao(linha, coluna);
+        			personagem.setPosicao(<linha>, <coluna>);
         			break;
+        			*/
         		default:
         			System.out.println("Entrada invalida.");
         			break;
@@ -558,6 +560,7 @@ public class Game {
         	*/
             lerInput(personagem, mapa);
             mapa.atualizarMonstros(personagem);
+            mapa.monstrosAtacam(personagem);
             if(personagem.estaMorto() || !mapa.haMonstros()) fim = true;
 
         }

@@ -53,11 +53,6 @@ public class Esqueleto extends Monstro {
     	}
     }
 
-    
-    @Override
-	public void mover(Heroi heroi) {
-    	
-	}
     @Override
 	public String toString(){
         return "Es";
