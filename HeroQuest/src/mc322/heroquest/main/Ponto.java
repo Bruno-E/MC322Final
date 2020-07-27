@@ -29,4 +29,19 @@ public class Ponto {
     	setColuna(coluna);
     }
     
+    // retorna a posicao correspondente a direcao dada
+    public Ponto novaPosicao(String direcao) {
+        switch(direcao) {
+            case "w":
+                return new Ponto(this.getLinha() - 1, this.getColuna());
+            case "a":
+                return new Ponto(this.getLinha(), this.getColuna() - 1);
+            case "s":
+                return new Ponto(this.getLinha() + 1, this.getColuna());
+            case "d":
+                return new Ponto(this.getLinha(), this.getColuna() + 1);
+        }
+        return null;
+    }
+    
 }

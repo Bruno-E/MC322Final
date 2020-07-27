@@ -537,7 +537,7 @@ public class Game {
         	*/
             lerInput(personagem, mapa);
             mapa.atualizarMonstros(personagem);
-            if(personagem.estaMorto()) fim = true;
+            if(personagem.estaMorto() || !mapa.haMonstros()) fim = true;
 
         }
         System.out.println("Fim de jogo. Ate logo!");
