@@ -731,7 +731,7 @@ public class Game {
                             			((HeroiMagico)personagem).usarMagiaOfensiva(magia, monstro);
 
                             		}
-//
+
                             		acaoDisponivel = false;
                             		break;		                            		
                             	case "q":
