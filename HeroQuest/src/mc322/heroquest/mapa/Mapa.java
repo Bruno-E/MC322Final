@@ -299,7 +299,7 @@ public class Mapa {
         else return false;
     }
 
-    // TODO Goblins andam em direcao ao heroi, os outros aleatoriamente
+    
     // Levar em conta que o inserirMonstro() retorna false
     public void atualizarMonstros(Heroi heroi) {
         if(!monstros.isEmpty())
@@ -312,6 +312,7 @@ public class Mapa {
     public void monstrosAtacam(Heroi heroi) {
     	if (!monstros.isEmpty()) {
     		for (Monstro monstro : monstros) 
+    			// TODO
     			monstro.atacar(/*fazer cast "(Combativel) heroi"?*/ heroi);
     	}
     }
