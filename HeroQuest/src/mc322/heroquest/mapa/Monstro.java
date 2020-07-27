@@ -43,6 +43,17 @@ public abstract class Monstro extends ElementoCombate implements Coletavel{
     public int getAlcance() {
     	return arma.getAlcance();
     }
+	
+    @Override
+    public void atacar(Combativel inimigo) {
+        DadoCombate dado = new DadoCombate();
+        int ataque = 0;
+        for(int i = 0; i < this.dadosAtaque + arma.getBonus(); i++) {
+            if(dado.jogar() == Lado.CAVEIRA)
+                ataque++;
+        }
+        inimigo.defender(ataque);
+    }
 
     @Override
     public void defesaMagica(int ataque) {
@@ -98,7 +109,7 @@ public abstract class Monstro extends ElementoCombate implements Coletavel{
 	            Sala salaAtual = mapa.checarSala(posicao),
 	            	 salaNova = mapa.checarSala(novaPosicao);
 	            
-	            // o else é: ou permanece em corredores ou permanece em uma sala
+	            // o else Ã©: ou permanece em corredores ou permanece em uma sala
 	            if (salaAtual != salaNova) {
 	    	        count++;
 	    	        continue;
