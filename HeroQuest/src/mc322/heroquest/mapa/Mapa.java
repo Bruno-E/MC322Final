@@ -764,7 +764,6 @@ public class Mapa {
     	sala.adicionarPorta(porta);
     	
     }
-<<<<<<< HEAD
     
     public Mapa construirAleatoio() {
     	Mapa mapa = new Mapa();
@@ -772,11 +771,10 @@ public class Mapa {
     	//TODO Construir mapa correspondente
     	
     	return mapa;
-=======
+    }
 	
     public void construirImportado() {
     	//funcao para ler um arquivo e construir um mapa a partir dele
->>>>>>> 05701af7f848d57422fe9d0471432d25725d2622
     }
 
 }
