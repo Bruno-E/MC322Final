@@ -60,7 +60,7 @@ public class Game {
         
         
         System.out.println("Digite o numero correspondente ao mapa que deseja:" +
-        				   "\n(1. Busca 3, 2. Busca 2, 3. Busca 13, 42. aleatorio)");
+        				   "\n(1. Busca 3, 2. Busca 2, 3. Busca 13, 4. Importar Mapa, 42. aleatorio)");
         int noMapa;
         Mapa mapa = new Mapa();
         boolean inputCorreto = false;
@@ -85,6 +85,8 @@ public class Game {
         			// posicao inicial
         			personagem.setPosicao(9, 14);
         			break;
+                case 4: 
+                    mapa.construirImportado();
         		case 42:
         			/*
         			mapa = construirAleatoio();
@@ -178,7 +180,7 @@ public class Game {
                             			if(opcao == 2) personagem.trocarArmaPrincipal();
                             		}
                             		
-                            		System.out.println("Seu alcance é: " + personagem.getAlcance() );
+                            		System.out.println("Seu alcance Ã©: " + personagem.getAlcance() );
                             		
                             		ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
                         			System.out.println("Os monstros no alcance sao:\n");
