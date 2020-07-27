@@ -70,7 +70,7 @@ public abstract class Heroi extends ElementoCombate{
         Sala salaAtual = mapa.checarSala(posicao),
         	 salaNova = mapa.checarSala(novaPosicao);
         
-        // o else é: ou permanece em corredores ou permanece em uma sala
+        // o else Ã©: ou permanece em corredores ou permanece em uma sala
         if (salaAtual != salaNova) {
 	        if (salaAtual != null && !salaAtual.checarPorta(posicao, novaPosicao)) {
 	        	if (salaNova != null) {
@@ -210,7 +210,7 @@ public abstract class Heroi extends ElementoCombate{
             }
         }
         
-        // Conferir se deu certo
+        
         else {
 	        int linha = this.getLinha(),
 	        	coluna = this.getColuna();
