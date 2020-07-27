@@ -3,6 +3,27 @@ package mc322.heroquest.main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import mc322.heroquest.mapa.Anao;
+import mc322.heroquest.mapa.Armadilha;
+import mc322.heroquest.mapa.ArmadilhaFlecha;
+import mc322.heroquest.mapa.Barbaro;
+import mc322.heroquest.mapa.Elfo;
+import mc322.heroquest.mapa.Esqueleto;
+import mc322.heroquest.mapa.EsqueletoMago;
+import mc322.heroquest.mapa.Feiticeiro;
+import mc322.heroquest.mapa.Goblin;
+import mc322.heroquest.mapa.Heroi;
+import mc322.heroquest.mapa.HeroiMagico;
+import mc322.heroquest.mapa.Mapa;
+import mc322.heroquest.mapa.Monstro;
+import mc322.heroquest.mapa.Obstaculo;
+import mc322.heroquest.mapa.ObstaculoNoCaminhoException;
+import mc322.heroquest.mapa.ParedeNoCaminhoException;
+import mc322.heroquest.mapa.Ponto;
+import mc322.heroquest.mapa.Porta;
+import mc322.heroquest.mapa.Sala;
+import mc322.heroquest.mapa.Tesouro;
+
 public class Game {
     private boolean fim;
 
@@ -26,7 +47,7 @@ public class Game {
 	mapa.inserirObstaculo(obstaculo);
 	    
     	//Armadilhas
-	Armadilha armadilha= new Armadilha(11,8);
+	Armadilha armadilha= new ArmadilhaFlecha(11,8);
 	mapa.inserirArmadilha(armadilha);
 	    
     	// Goblins
@@ -154,7 +175,7 @@ public class Game {
 	mapa.inserirObstaculo(obstaculo);
 	
 	//Armadilhas
-	Armadilha armadilha= new Armadilha(13,2);
+	Armadilha armadilha= new ArmadilhaFlecha(13,2);
 	mapa.inserirArmadilha(armadilha);
     	
     	// Goblins
@@ -244,7 +265,7 @@ public class Game {
 	sala = mapa.getSala(noSala);
 	sala.adicionarPorta(porta);
 	//colocando um tesouro nessa sala
-	tesouro= new Tesouro(8,19);
+	Tesouro tesouro= new Tesouro(8,19);
 	sala.adicionarTesouro(tesouro);
 
 	ponto0 = new Ponto(11,6); 
@@ -304,25 +325,25 @@ public class Game {
     	mapa.inserirObstaculo(obstaculo);
 	    
 	//Armadilhas
-	Armadilha armadilha= new Armadilha(9,0);
+	ArmadilhaFlecha armadilha= new ArmadilhaFlecha(9,0);
 	mapa.inserirArmadilha(armadilha);
 	
-	Armadilha armadilha= new Armadilha(11,9);
+	armadilha= new ArmadilhaFlecha(11,9);
 	mapa.inserirArmadilha(armadilha);
 	    
-	Armadilha armadilha= new Armadilha(6,11);
+	armadilha= new ArmadilhaFlecha(6,11);
 	mapa.inserirArmadilha(armadilha);
 	
-	Armadilha armadilha= new Armadilha(6,14);
+	armadilha= new ArmadilhaFlecha(6,14);
 	mapa.inserirArmadilha(armadilha);
 	    
-	Armadilha armadilha= new Armadilha(14,12);
+	armadilha= new ArmadilhaFlecha(14,12);
 	mapa.inserirArmadilha(armadilha);
 	    
-	Armadilha armadilha= new Armadilha(9,19);
+	armadilha= new ArmadilhaFlecha(9,19);
 	mapa.inserirArmadilha(armadilha);
 	
-	Armadilha armadilha= new Armadilha(17,20);
+	armadilha= new ArmadilhaFlecha(17,20);
 	mapa.inserirArmadilha(armadilha);
     	
     	//goblins
@@ -508,7 +529,7 @@ public class Game {
         			mapa = construirBusca2();
         			inputCorreto = true;
         			//TODO posicao inicial no mapa
-        			personagem.setPosicao(linha, coluna);
+        			personagem.setPosicao(9, 10);
         			break;
         		case 3:
         			mapa = construirBusca13();
