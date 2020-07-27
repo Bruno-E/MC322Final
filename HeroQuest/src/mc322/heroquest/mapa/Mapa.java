@@ -311,9 +311,8 @@ public class Mapa {
     // Os monstros atacam se forem visiveis e o heroi estiver ao alcance
     public void monstrosAtacam(Heroi heroi) {
     	if (!monstros.isEmpty()) {
-    		for (Monstro monstro : monstros) 
-    			// TODO
-    			monstro.atacar(/*fazer cast "(Combativel) heroi"?*/ heroi);
+    		for (Monstro monstro : monstros)
+    			monstro.atacar(heroi);
     	}
     }
     
@@ -764,6 +763,14 @@ public class Mapa {
     	sala = this.getSala(noSala);
     	sala.adicionarPorta(porta);
     	
+    }
+    
+    public Mapa construirAleatoio() {
+    	Mapa mapa = new Mapa();
+    	
+    	//TODO Construir mapa correspondente
+    	
+    	return mapa;
     }
 
 }

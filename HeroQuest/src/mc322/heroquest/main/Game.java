@@ -29,17 +29,7 @@ public class Game {
 
     public Game() {
       fim = false;
-    }
-    
-    //TODO Construir mapa correspondente 
-    private Mapa construirAleatoio() {
-    	Mapa mapa = new Mapa();
-    	
-    	//TODO Construir mapa correspondente
-    	
-    	return mapa;
-    }
-    
+    }    
 
     public void start() {
         System.out.println("Jogo iniciado.");
@@ -86,12 +76,13 @@ public class Game {
         		case 2:
         			mapa.construirBusca2();
         			inputCorreto = true;
-        			//TODO posicao inicial no mapa
+        			// posicao inicial
         			personagem.setPosicao(9, 10);
         			break;
         		case 3:
         			mapa.construirBusca13();
         			inputCorreto = true;
+        			// posicao inicial
         			personagem.setPosicao(9, 14);
         			break;
         		case 42:
@@ -118,7 +109,6 @@ public class Game {
             lerInput(personagem, mapa);
             mapa.atualizarMonstros(personagem);
             
-            // TODO essa funcao deveria estar aqui?
             mapa.monstrosAtacam(personagem);
             
             if(personagem.estaMorto() || !mapa.haMonstros()) fim = true;
