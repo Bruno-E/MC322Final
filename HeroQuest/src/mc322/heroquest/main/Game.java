@@ -24,7 +24,11 @@ public class Game {
 
 	obstaculo = new Obstaculo(9, 7);
 	mapa.inserirObstaculo(obstaculo);
-    	
+	    
+    	//Armadilhas
+	Armadilha armadilha= new Armadilha(11,8);
+	mapa.inserirArmadilha(armadilha);
+	    
     	// Goblins
     	Goblin goblin = new Goblin(2, 2);
     	mapa.inserirMonstro(goblin);
@@ -105,7 +109,7 @@ public class Game {
 	sala = mapa.getSala(noSala);
 	sala.adicionarPorta(porta);
 	//colocando tesouro nesta sala
-	tesouro= new Tesouro(10,8);
+	Tesouro tesouro= new Tesouro(10,8);
 	sala.adicionarTesouro(tesouro);
 
 	ponto0 = new Ponto(13, 2); 
@@ -148,6 +152,10 @@ public class Game {
 
 	obstaculo = new Obstaculo(18,14);
 	mapa.inserirObstaculo(obstaculo);
+	
+	//Armadilhas
+	Armadilha armadilha= new Armadilha(13,2);
+	mapa.inserirArmadilha(armadilha);
     	
     	// Goblins
     	Goblin goblin = new Goblin(15,10);
@@ -294,6 +302,28 @@ public class Game {
     	
     	obstaculo = new Obstaculo(5,13);
     	mapa.inserirObstaculo(obstaculo);
+	    
+	//Armadilhas
+	Armadilha armadilha= new Armadilha(9,0);
+	mapa.inserirArmadilha(armadilha);
+	
+	Armadilha armadilha= new Armadilha(11,9);
+	mapa.inserirArmadilha(armadilha);
+	    
+	Armadilha armadilha= new Armadilha(6,11);
+	mapa.inserirArmadilha(armadilha);
+	
+	Armadilha armadilha= new Armadilha(6,14);
+	mapa.inserirArmadilha(armadilha);
+	    
+	Armadilha armadilha= new Armadilha(14,12);
+	mapa.inserirArmadilha(armadilha);
+	    
+	Armadilha armadilha= new Armadilha(9,19);
+	mapa.inserirArmadilha(armadilha);
+	
+	Armadilha armadilha= new Armadilha(17,20);
+	mapa.inserirArmadilha(armadilha);
     	
     	//goblins
     	Goblin goblin = new Goblin(11,3);
