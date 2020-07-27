@@ -329,5 +329,440 @@ public class Mapa {
             elementos[linha][coluna].setVisivel(true);
         }
     }
+    
+    public void construirBusca3() {
+    	
+    	// Obstaculos
+    	Obstaculo obstaculo  = new Obstaculo(1, 0);
+    	this.inserirObstaculo(obstaculo);
+    	
+	//sempre repete
+	obstaculo = new Obstaculo(10, 0);
+	this.inserirObstaculo(obstaculo);
+
+	obstaculo = new Obstaculo(9, 7);
+	this.inserirObstaculo(obstaculo);
+	    
+    	//Armadilhas
+	Armadilha armadilha= new ArmadilhaFlecha(11,8);
+	this.inserirArmadilha(armadilha);
+	    
+    	// Goblins
+    	Goblin goblin = new Goblin(2, 2);
+    	this.inserirMonstro(goblin);
+    	
+	// sempre repete
+	goblin = new Goblin(11, 5);
+	this.inserirMonstro(goblin);
+
+	goblin = new Goblin(15, 6);
+	this.inserirMonstro(goblin);
+    	
+    	// Esqueleto
+    	Esqueleto esqueleto = new Esqueleto(7, 4);
+    	this.inserirMonstro(esqueleto);
+    	
+	// sempre repete
+	esqueleto = new Esqueleto(12, 2);
+	this.inserirMonstro(esqueleto);
+
+	esqueleto = new Esqueleto(15, 1);
+	this.inserirMonstro(esqueleto);
+    	
+    	// EsqueletoMago
+    	EsqueletoMago esqueletoMago = new EsqueletoMago(7, 4);
+    	this.inserirMonstro(esqueletoMago);
+    	
+    	// Portas
+    	Ponto ponto0 = new Ponto(2, 0), 
+    		  ponto1 = new Ponto(2, 1);
+
+    	Porta porta = new Porta(ponto0, ponto1);
+    	
+    	int noSala = 0;
+    	Sala sala = this.getSala(noSala);
+    	
+    	sala.adicionarPorta(porta);
+    	
+	// sempre repete
+	ponto0 = new Ponto(4, 8); 
+	ponto1 = new Ponto(4, 9);
+	noSala = 2;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(8, 4); 
+	ponto1 = new Ponto(8, 5);
+	noSala = 6;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(8, 2); 
+	ponto1 = new Ponto(9, 2);
+	noSala = 6;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(9, 5); 
+	ponto1 = new Ponto(10, 5);
+	noSala = 12;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(12, 4); 
+	ponto1 = new Ponto(12, 5);
+	noSala = 11;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(12, 8); 
+	ponto1 = new Ponto(13, 8);
+	noSala = 13;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+	//colocando tesouro nesta sala
+	Tesouro tesouro= new Tesouro(10,8);
+	sala.adicionarTesouro(tesouro);
+
+	ponto0 = new Ponto(13, 2); 
+	ponto1 = new Ponto(14, 2);
+	noSala = 19;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(16, 4); 
+	ponto1 = new Ponto(16, 5);
+	noSala = 19;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+    }
+    
+    
+    public void construirBusca2() {
+    	
+    	// Obstaculos
+    	Obstaculo obstaculo  = new Obstaculo(5,12);
+    	this.inserirObstaculo(obstaculo);
+
+	//sempre repete
+	obstaculo = new Obstaculo(5, 13);
+	this.inserirObstaculo(obstaculo);
+
+	obstaculo = new Obstaculo(9, 1);
+	this.inserirObstaculo(obstaculo);
+
+	obstaculo = new Obstaculo(9, 24);
+	this.inserirObstaculo(obstaculo);
+
+	obstaculo = new Obstaculo(18, 9);
+	this.inserirObstaculo(obstaculo);
+
+	obstaculo = new Obstaculo(18,14);
+	this.inserirObstaculo(obstaculo);
+	
+	//Armadilhas
+	Armadilha armadilha= new ArmadilhaFlecha(13,2);
+	this.inserirArmadilha(armadilha);
+    	
+    	// Goblins
+    	Goblin goblin = new Goblin(15,10);
+    	this.inserirMonstro(goblin);
+
+	// sempre repete
+	goblin = new Goblin(15,8);
+	this.inserirMonstro(goblin);
+
+	goblin = new Goblin(3,15);
+	this.inserirMonstro(goblin);
+    	
+    	// Esqueleto
+    	Esqueleto esqueleto = new Esqueleto(12, 2);
+    	this.inserirMonstro(esqueleto);
+
+	// sempre repete
+	esqueleto = new Esqueleto(7,19);
+	this.inserirMonstro(esqueleto);
+
+	esqueleto = new Esqueleto(6,23);
+	this.inserirMonstro(esqueleto);
+    	
+    	// EsqueletoMago
+    	EsqueletoMago esqueletoMago = new EsqueletoMago(11, 8);
+    	this.inserirMonstro(esqueletoMago);
+    	
+    	// Portas
+    	Ponto ponto0 = new Ponto(5,15), 
+    	ponto1 = new Ponto(6,15);
+
+    	Porta porta = new Porta(ponto0, ponto1);
+    	
+    	int noSala = 3;
+    	Sala sala = this.getSala(noSala);
+    	
+    	sala.adicionarPorta(porta);
+
+	// sempre repete
+	ponto0 = new Ponto(8,23); 
+	ponto1 = new Ponto(9,23);
+	noSala = 9;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(11,10); 
+	ponto1 = new Ponto(12,10);
+	noSala = 10;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(9, 2); 
+	ponto1 = new Ponto(10, 2);
+	noSala = 11;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(17,11); 
+	ponto1 = new Ponto(18, 11);
+	noSala = 17;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(8, 15); 
+	ponto1 = new Ponto(9, 15);
+	noSala = 16;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(12, 8); 
+	ponto1 = new Ponto(13, 8);
+	noSala = 13;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(6,20); 
+	ponto1 = new Ponto(6,21);
+	noSala =8;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+	//colocando um tesouro nessa sala
+	Tesouro tesouro= new Tesouro(8,19);
+	sala.adicionarTesouro(tesouro);
+
+	ponto0 = new Ponto(11,6); 
+	ponto1 = new Ponto(11,7);
+	noSala = 12;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+	//colocando um tesouro nesta sala
+	tesouro= new Tesouro(11,5);
+	sala.adicionarTesouro(tesouro);
+
+	ponto0 = new Ponto(4,19); 
+	ponto1 = new Ponto(5,19);
+	noSala = 4;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+	ponto0 = new Ponto(3,16); 
+	ponto1 = new Ponto(3,17);
+	noSala = 4;
+	porta = new Porta(ponto0, ponto1);
+	sala = this.getSala(noSala);
+	sala.adicionarPorta(porta);
+
+    }
+    
+    
+    public void construirBusca13() {
+    	
+    	//Obstaculos
+    	Obstaculo obstaculo = new Obstaculo(7,0);
+    	this.inserirObstaculo(obstaculo);       	
+    	
+    	obstaculo = new Obstaculo(11,0);
+    	this.inserirObstaculo(obstaculo);    	
+    	
+    	obstaculo = new Obstaculo(9,6);
+    	this.inserirObstaculo(obstaculo);  	
+    	
+    	obstaculo = new Obstaculo(9,20);
+    	this.inserirObstaculo(obstaculo);
+    	
+    	obstaculo = new Obstaculo(18,1);
+    	this.inserirObstaculo(obstaculo);
+    	
+    	obstaculo = new Obstaculo(18,24);
+    	this.inserirObstaculo(obstaculo);
+    	
+    	obstaculo = new Obstaculo(5,12);
+    	this.inserirObstaculo(obstaculo);
+    	
+    	obstaculo = new Obstaculo(5,13);
+    	this.inserirObstaculo(obstaculo);
+	    
+	//Armadilhas
+	ArmadilhaFlecha armadilha= new ArmadilhaFlecha(9,0);
+	this.inserirArmadilha(armadilha);
+	
+	armadilha= new ArmadilhaFlecha(11,9);
+	this.inserirArmadilha(armadilha);
+	    
+	armadilha= new ArmadilhaFlecha(6,11);
+	this.inserirArmadilha(armadilha);
+	
+	armadilha= new ArmadilhaFlecha(6,14);
+	this.inserirArmadilha(armadilha);
+	    
+	armadilha= new ArmadilhaFlecha(14,12);
+	this.inserirArmadilha(armadilha);
+	    
+	armadilha= new ArmadilhaFlecha(9,19);
+	this.inserirArmadilha(armadilha);
+	
+	armadilha= new ArmadilhaFlecha(17,20);
+	this.inserirArmadilha(armadilha);
+    	
+    	//goblins
+    	Goblin goblin = new Goblin(11,3);
+    	this.inserirMonstro(goblin);
+    	
+    	goblin = new Goblin(13,12);
+    	this.inserirMonstro(goblin);
+    	
+    	goblin = new Goblin(13,13);
+    	this.inserirMonstro(goblin);
+    	
+    	//esqueleto
+    	Esqueleto esqueleto = new Esqueleto(16,1);
+    	this.inserirMonstro(esqueleto);
+    	
+    	esqueleto = new Esqueleto(17,20);
+    	this.inserirMonstro(esqueleto);
+    	
+    	esqueleto = new Esqueleto(16,22);
+    	this.inserirMonstro(esqueleto);
+    	
+    	//esqueleto mago
+    	EsqueletoMago esqueletomago = new EsqueletoMago(15,22);
+    	this.inserirMonstro(esqueletomago);
+    	
+    	//portas e tesouros
+    	Ponto ponto1 = new Ponto(9,2), ponto2 = new Ponto(10,2);
+    	Porta porta = new Porta(ponto1, ponto2);    	
+    	int noSala = 11;
+    	Sala sala = this.getSala(11);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(9,7);
+    	ponto2 = new Ponto(10,7);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 13;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(9,9);
+    	ponto2 = new Ponto(9,10);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 10;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(9,15);
+    	ponto2 = new Ponto(9,16);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 10;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(6,12);
+    	ponto2 = new Ponto(7,12);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 10;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(11,12);
+    	ponto2 = new Ponto(12,12);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 10;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(9,19);
+    	ponto2 = new Ponto(8,19);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 8;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(17,3);
+    	ponto2 = new Ponto(18,3);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 19;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(11,4);
+    	ponto2 = new Ponto(11,5);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 12;
+    	Tesouro tesouro = new Tesouro(11,6); 	
+    	sala = this.getSala(noSala);
+    	sala.adicionarTesouro(tesouro);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(13,2);
+    	ponto2 = new Ponto(14,2);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 19;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(17,3);
+    	ponto2 = new Ponto(18,3);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 19;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(17,4);
+    	ponto2 = new Ponto(17,5);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 16;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(18,22);
+    	ponto2 = new Ponto(17,22);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 21;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    	ponto1 = new Ponto(18,19);
+    	ponto2 = new Ponto(17,19);
+    	porta = new Porta(ponto1, ponto2);
+    	noSala = 20;
+    	sala = this.getSala(noSala);
+    	sala.adicionarPorta(porta);
+    	
+    }
 
 }
