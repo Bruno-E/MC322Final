@@ -534,7 +534,6 @@ public class Game {
         		case 3:
         			mapa = construirBusca13();
         			inputCorreto = true;
-        			//TODO posicao inicial no mapa
         			personagem.setPosicao(9, 14);
         			break;
         		case 42:
@@ -560,7 +559,10 @@ public class Game {
         	*/
             lerInput(personagem, mapa);
             mapa.atualizarMonstros(personagem);
+            
+            // TODO essa funcao deveria estar aqui?
             mapa.monstrosAtacam(personagem);
+            
             if(personagem.estaMorto() || !mapa.haMonstros()) fim = true;
 
         }
