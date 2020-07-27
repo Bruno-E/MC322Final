@@ -558,7 +558,7 @@ public class Game {
         	*/
             lerInput(personagem, mapa);
             mapa.atualizarMonstros(personagem);
-            if(personagem.estaMorto()) fim = true;
+            if(personagem.estaMorto() || !mapa.haMonstros()) fim = true;
 
         }
         System.out.println("Fim de jogo. Ate logo!");
@@ -625,7 +625,7 @@ public class Game {
                             			if(opcao == 2) personagem.trocarArmaPrincipal();
                             		}
                             		
-                            		System.out.println("Seu alcance Ã©: " + personagem.getAlcance() );
+                            		System.out.println("Seu alcance é: " + personagem.getAlcance() );
                             		
                             		ArrayList<Monstro> monstros= mapa.monstrosAoAlcance(personagem.getPosicao(), personagem.getAlcance());
                         			System.out.println("Os monstros no alcance sao:\n");
@@ -731,7 +731,7 @@ public class Game {
                             			((HeroiMagico)personagem).usarMagiaOfensiva(magia, monstro);
 
                             		}
-
+//
                             		acaoDisponivel = false;
                             		break;		                            		
                             	case "q":
