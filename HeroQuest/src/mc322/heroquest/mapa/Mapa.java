@@ -145,6 +145,11 @@ public class Mapa {
     }
     
     
+    public boolean haMonstros() {
+    	return monstros.isEmpty();
+    }
+    
+    
     // retorna um monstro se houver e se for visivel
     private Monstro checarMonstro(int linha, int coluna) {
         for (Monstro monstro : monstros) {
@@ -299,7 +304,7 @@ public class Mapa {
     public void atualizarMonstros(Heroi heroi) {
         if(!monstros.isEmpty())
         	for (Monstro monstro : monstros)
-        		monstro.mover(heroi);
+        		monstro.mover(this, heroi);
     }
     
     public void tornarVisivel(int linha, int coluna) {

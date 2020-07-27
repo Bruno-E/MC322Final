@@ -57,27 +57,13 @@ public abstract class Heroi extends ElementoCombate{
         return this.movimento;
     }
     
-    // retorna a posicao correspondente a direcao dada
-    private Ponto novaPosicao(String direcao) {
-        switch(direcao) {
-            case "w":
-                return new Ponto(this.getLinha() - 1, this.getColuna());
-            case "a":
-                return new Ponto(this.getLinha(), this.getColuna() - 1);
-            case "s":
-                return new Ponto(this.getLinha() + 1, this.getColuna());
-            case "d":
-                return new Ponto(this.getLinha(), this.getColuna() + 1);
-        }
-        return null;
-    }
     
     // muda a posicao do heroi caso seja possivel
     // TODO recebe dano de armadilha
     public void mover(String direcao, Mapa mapa) throws ParedeNoCaminhoException,
     													   ObstaculoNoCaminhoException 
     {    
-        Ponto novaPosicao = novaPosicao(direcao);
+        Ponto novaPosicao = this.posicao.novaPosicao(direcao);
 
         if (mapa.foraDoMapa(novaPosicao)) throw new ArrayIndexOutOfBoundsException("Nao pode sair do mapa.");
         
