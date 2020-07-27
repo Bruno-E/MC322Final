@@ -30,8 +30,15 @@ public abstract class Monstro extends ElementoCombate implements Coletavel{
       }
     }
     
+    
+    // TODO atacar
+    
+    
     public String getNome() {
     	return this.nome;
+    }
+    public int getAlcance() {
+    	return arma.getAlcance();
     }
 
     @Override

@@ -187,7 +187,7 @@ public class Mapa {
     	for(int i = linha - alcance; i <= linha + alcance; i++) {
     		for(int j = coluna - alcance; j <= coluna + alcance; j++) {
    				if(!foraDoMapa(i, j))
-   					if(checarSala(i, j) == null) {
+   					if(checarSala(ponto) == checarSala(i, j) && ponto.aoAlcance(i, j, alcance)) {
    						Monstro monstro = checarMonstro(i, j);
    						if (monstro != null) monstros.add(monstro);
    					}

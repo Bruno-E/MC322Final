@@ -29,6 +29,18 @@ public class Ponto {
     	setColuna(coluna);
     }
     
+    
+    // retorna true se ponto esta ao alcance de this
+    public boolean aoAlcance(Ponto ponto, int alcance) {
+    	if (Math.pow(ponto.getLinha() - linha, 2) + Math.pow(ponto.getColuna() - coluna, 2) < Math.pow(alcance, 2)) 
+    		return true;
+    	else return false;
+    }
+    public boolean aoAlcance(int linha, int coluna, int alcance) {
+    	return aoAlcance(new Ponto(linha, coluna), alcance);
+    }
+    
+    
     // retorna a posicao correspondente a direcao dada
     public Ponto novaPosicao(String direcao) {
         switch(direcao) {
